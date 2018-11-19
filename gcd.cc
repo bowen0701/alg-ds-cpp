@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int gcd(int m, int n){
+int gcd(int m, int n) {
   // Greatest Common Divisor (GCD) by Euclid's Algorithm.
   // Time complexity: O(m%n).
   int r;
