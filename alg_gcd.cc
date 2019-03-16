@@ -15,7 +15,7 @@ int gcd(int m, int n) {
   return m;
 }
 
-int main(){
+int main() {
   int m = 10;
   int n = 4;
   cout << "gcd of " << m << ", " << n << ": " << gcd(m, n) << endl;
