@@ -1,3 +1,1 @@
-# Learn C++
-
-Algorithms and data structures implementations in C++.
+# Algorithms and Data Structures in C++
