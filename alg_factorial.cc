@@ -32,11 +32,11 @@ long factorial_dp(int n) {
   //
   // Time complexity: O(n).
   // Space complexity: O(1).
-  long Fn = 1;
+  long fn = 1;
   for (int i = 1; i <= n; ++i)
-    Fn = i * Fn;
+    fn = i * fn;
 
-  return Fn;
+  return fn;
 }
 
 int main() {
