@@ -11,12 +11,14 @@ long factorial_recur(int n) {
 
 long factorial_memo(int n) {
   // Factorial by bottom-up dynamic programming.
-  long A[n + 1];
-  A[0] = 1;
-  A[1] = 1;
+  long F[n + 1];
+  F[0] = 1;
+  F[1] = 1;
 
-  // TODO: Implement factorial_memo().
-  return 0
+  for (int i = 1; i <= n; ++i) {
+    F[i] = i * F[i - 1];
+  }
+  return F[n];
 }
 
 long factorial_dp(int n) {
@@ -30,5 +32,6 @@ long factorial_dp(int n) {
 int main() {
   int n = 10;
   cout << "By recursion: " << factorial_recur(n) << endl;
+  cout << "By memo: " << factorial_memo(n) << endl;
   return 0;
 }
