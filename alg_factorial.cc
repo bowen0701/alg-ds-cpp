@@ -21,7 +21,7 @@ long factorial_memo(int n) {
   F[0] = 1;
   F[1] = 1;
 
-  for (int i = 1; i <= n; ++i)
+  for (int i = 2; i <= n; i++)
     F[i] = i * F[i - 1];
 
   return F[n];
@@ -37,7 +37,7 @@ long factorial_dp(int n) {
   if (n <= 1)
     return fn;
   else
-    for (int i = 1; i <= n; ++i)
+    for (int i = 2; i <= n; i++)
       fn = i * fn;
 
   return fn;
