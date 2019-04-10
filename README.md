@@ -16,3 +16,5 @@ g++ file.cc -o file.out
 # Execute compiled output.
 ./file.out
 ```
+
+To install `g++` on Macbook, just type `g++` in Terminal and then execute it.
