@@ -1,4 +1,4 @@
-# Algorithms and Data Structures in C++
+# C++ Implementation of Algorithms and Data Structures
 
 ## Workflow
 
