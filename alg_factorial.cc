@@ -2,28 +2,40 @@
 
 using namespace std;
 
-long factorial_recur(int n) {
+int FactorialRecur(int n) {
   // Factorial by recursion.
   // Time complexity: O(n).
   // Space complexity: O(n).
   if (n <= 1)
     return 1;
   
-  return n * factorial_recur(n - 1);
+  return n * FactorialRecur(n - 1);
 }
 
-long _factorial_memo(int n, long F[n]) {
+long FactorialMemoUtil(int n, int F[]) {
+  // Helper function for factorial_memo().
   if (n <= 1)
     return 1;
 
-  return 0;
+  if (F[n] > 0)
+    return F[n];
+
+  F[n] = n * FactorialMemoUtil(n - 1, F);
+  return F[n];
 }
 
-long factorial_memo(int n) {
+long FactorialMemo(int n) {
   // Factorial by top-down recursion w/ memoization.
   // Time complexity: O(n).
   // Space complexity: O(n).
-  return 0;
+  int F[n];
+  for (int i = 0; i < n; i++) {
+    F[i] = 0;
+  }
+  F[0] = 1;
+  F[1] = 1;
+
+  return FactorialMemoUtil(n, F);
 }
 
 // long factorial_dp(int n) {
@@ -59,8 +71,8 @@ long factorial_memo(int n) {
 int main() {
   int n = 5;
   
-  cout << "Recur: " << factorial_recur(n) << endl;
-  // cout << "Memo: " << factorial_memo(n) << endl;
+  cout << "Recur: " << FactorialRecur(n) << endl;
+  cout << "Memo: " << FactorialMemo(n) << endl;
   // cout << "DP: " << factorial_dp(n) << endl;
   // cout << "Iter: " << factorial_iter(n) << endl;
 
