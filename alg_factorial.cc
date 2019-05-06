@@ -11,8 +11,7 @@ int FactorialRecur(int n) {
   return n * FactorialRecur(n - 1);
 }
 
-int FactorialMemoUtil(int n, int fact[]) {
-// int FactorialMemoUtil(int n, int fact[]) {
+int FactorialMemoUtil(int n, std::vector<int>& fact) {
   // Helper function for FactorialMemo().
   if (fact[n] > 0)
     return fact[n];
@@ -28,9 +27,7 @@ int FactorialMemo(int n) {
   // Factorial by top-down recursion w/ memoization.
   // Time complexity: O(n).
   // Space complexity: O(n).
-  int fact[n + 1];
-  for (int i = 0; i <= n; i++)
-    fact[i] = 0;
+  std::vector<int> fact(n + 1, 0);
   fact[0] = 1;
   fact[1] = 1;
 
