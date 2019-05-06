@@ -51,20 +51,20 @@ int FactorialDp(int n) {
   return fact[n];
 }
 
-// int FactorialIter(int n) {
-//   // Factorial by bottom-up dynamic programming w/ optimized space.
-//   // Time complexity: O(n).
-//   // Space complexity: O(1).
-//   int fact = 1;
+int FactorialIter(int n) {
+  // Factorial by bottom-up dynamic programming w/ optimized space.
+  // Time complexity: O(n).
+  // Space complexity: O(1).
+  int fact = 1;
 
-//   if (n <= 1)
-//     return fact;
-//   else
-//     for (int i = 2; i <= n; i++)
-//       fact = i * fact;
+  if (n <= 1)
+    return fact;
+  else
+    for (int i = 2; i <= n; i++)
+      fact = i * fact;
 
-//   return fact;
-// }
+  return fact;
+}
 
 int main() {
   int n = 5;
@@ -72,7 +72,7 @@ int main() {
   std::cout << "Recur: " << FactorialRecur(n) << std::endl;
   std::cout << "Memo: " << FactorialMemo(n) << std::endl;
   std::cout << "DP: " << FactorialDp(n) << std::endl;
-  // std::cout << "Iter: " << FactorialIter(n) << std::endl;
+  std::cout << "Iter: " << FactorialIter(n) << std::endl;
 
   return 0;
 }
