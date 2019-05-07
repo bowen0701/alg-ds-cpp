@@ -3,7 +3,7 @@
 ## Workflow
 
 - Write our C++ program and save it to the file `<file>.cc` in file extension `.cc`.
-- Compile the file by running `g++ -o <file>.out <file>.cc`, then this step produces a new file `<file>.out` which is executable.  
+- Compile the file by running `g++ <file>.cc -o <file>.out`, then this step produces a new file `<file>.out` which is executable.  
 - Finally, execute `./<file>.out`.
 
 ```bash
