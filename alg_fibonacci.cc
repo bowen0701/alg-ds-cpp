@@ -48,8 +48,24 @@ int FibonacciDp(int n) {
   for (int i = 2; i <= n; i++) {
     fib[i] = fib[i - 1] + fib[i - 2];
   }
-  
+
   return fib[n];
+}
+
+int FibonacciIter(int n) {
+  // Fibonacci series by bottom-up iteration w/ optimizaed space.
+  // Time complexity: O(n).
+  // Space complexity: O(1).
+  if (n <= 1)
+    return n;
+
+  int a = 0;
+  int b = 1;
+  for (int i = 2; i <= n; i++) {
+    b = a + b;
+    a = b - a;
+  }
+  return b;
 }
 
 int main() {
@@ -58,6 +74,7 @@ int main() {
   std::cout << "Recur: " << FibonacciRecur(n) << std::endl;
   std::cout << "Memo: " << FibonacciMemo(n) << std::endl;
   std::cout << "DP: " << FibonacciDp(n) << std::endl;
+  std::cout << "Iter: " << FibonacciIter(n) << std::endl;
 
   return 0;
 }
