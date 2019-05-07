@@ -1,11 +1,16 @@
 #include <iostream>
 
-using namespace std;
+int FibonacciRecur(int n) {
+  if (n <= 1)
+    return n;
 
-long fibonacci(int n) {}
+  return FibonacciRecur(n - 1) + FibonacciRecur(n - 2);
+}
 
 int main() {
-	int n = 20;
+  int n = 20;
 
-	return 0;
+  std::cout << "Recur: " << FibonacciRecur(n) << std::endl;
+
+  return 0;
 }
