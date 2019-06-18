@@ -15,8 +15,10 @@ bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
       is_found = true;
     else
       if (sorted_nums[mid] < target)
+        // Search vector's right part.
         first = mid + 1;
       else
+        // Search vector's left part.
         last = mid - 1;
   }
   return is_found;
