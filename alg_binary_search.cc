@@ -2,6 +2,9 @@
 #include <vector>
 
 bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
+  // Binary search by iteration.
+  // Time complexity: O(logn).
+  // Space complexity: O(1).
   int first = 0;
   int last = sorted_nums.size() - 1;
   bool is_found = false;
@@ -20,6 +23,9 @@ bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
 }
 
 bool BinarySearchRecur(std::vector<int>& sorted_nums, int target) {
+  // Binary search by recursion.
+  // Time complexity: O(logn).
+  // Space complexity: O(n).
   if (sorted_nums.size() == 0)
     return false;
   else {
