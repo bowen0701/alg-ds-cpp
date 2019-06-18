@@ -2,8 +2,8 @@
 
 ## Workflow
 
-- Write our C++ program and save it to the file `<file>.cc` in file extension `.cc`.
-- Compile the file by running `g++ <file>.cc -o <file>.out`, then this step produces a new file `<file>.out` which is executable.  
+- Write our C++ program and save it to the file `<file>.cc` in file extension `.cc`. Note that all of the C++ scripts here are writen in C++11.
+- Compile the file by running `g++ -std=c++11 <file>.cc -o <file>.out`, then this step produces a new file `<file>.out` which is executable.  
 - Finally, execute `./<file>.out`.
 
 ```bash
@@ -11,7 +11,7 @@
 vim file.cc
 
 # Compile your program.
-g++ file.cc -o file.out
+g++ -std=c++11 file.cc -o file.out
 
 # Execute compiled output.
 ./file.out
