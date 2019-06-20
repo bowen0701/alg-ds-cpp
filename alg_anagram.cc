@@ -22,7 +22,7 @@ bool AnagramIter(std::string& str1, std::string& str2) {
     int pos2 = 0;
     bool is_found = false;
 
-    while (pos2 < len_str2 && not is_found) {
+    while (pos2 < len_str2 && !is_found) {
       if (str1[pos1] == str2[pos2]) {
         is_found = true;
       } else {
