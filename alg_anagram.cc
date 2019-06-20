@@ -31,7 +31,7 @@ bool AnagramIter(std::string& str1, std::string& str2) {
     }
 
     if (is_found) {
-      str2_chars[pos2] = '_';
+      str2_chars[pos2] = ' ';
     } else {
       is_match = false;
       break;
