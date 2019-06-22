@@ -53,6 +53,9 @@ bool BinarySearchRecurFast(std::vector<int>& sorted_nums,
                            int target, 
                            int first,
                            int last) {
+  // Binary search by fast recursion with two pointers method.
+  // Time complexity: O(logn).
+  // Space complexity: O(1).
   if (first > last)
     return false;
 
