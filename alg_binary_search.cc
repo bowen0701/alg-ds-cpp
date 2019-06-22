@@ -49,8 +49,23 @@ bool BinarySearchRecur(std::vector<int>& sorted_nums, int target) {
   }
 }
 
-bool BinarySearchRecurFast(std::vector<int>& sorted_nums, int target) {
-  return true;
+bool BinarySearchRecurFast(std::vector<int>& sorted_nums, 
+                           int target, 
+                           int first,
+                           int last) {
+  if (first > last)
+    return false;
+
+  int mid = first + (last - first) / 2;
+  if (sorted_nums[mid] == target) {
+    return true;
+  }
+  else {
+    if (sorted_nums[mid] < target)
+      return BinarySearchRecurFast(sorted_nums, target, mid + 1, last);
+    else
+      return BinarySearchRecurFast(sorted_nums, target, first, mid - 1);
+  }
 }
 
 int main() {
@@ -63,6 +78,11 @@ int main() {
 
   std::cout << "Recur: " << std::boolalpha <<
       BinarySearchRecur(sorted_nums, target) << std::endl;
+
+  std::cout << "RecurFast: " << std::boolalpha <<
+      BinarySearchRecurFast(
+          sorted_nums, target, 0, sorted_nums.size()) 
+      << std::endl;
 
   return 0;
 }
