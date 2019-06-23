@@ -11,7 +11,10 @@ bool AnagramIter(std::string& str1, std::string& str2) {
   int len_str1 = str1.length();
   int len_str2 = str2.length();
 
-  // Copy str2 to char array for match memoization.
+  if (len_str1 != len_str2)
+    return false;
+
+  // Copy str2 to vector for match memoization.
   std::vector<char> str2_chars(str2.begin(), str2.end());
 
   int pos1 = 0;
@@ -44,7 +47,32 @@ bool AnagramIter(std::string& str1, std::string& str2) {
 
 bool AnagramSort(std::string& str1, std::string& str2) {
   // Anagram by sorting.
-  return true;
+  int len_str1 = str1.length();
+  int len_str2 = str2.length();
+
+  if (len_str1 != len_str2)
+    return false;
+
+  // Copy two strings and sort them for one-by-one char comparison.
+  std::string sorted_str1 = str1;
+  std::string sorted_str2 = str2;
+  std::sort(sorted_str1.begin(), sorted_str1.end());
+  std::sort(sorted_str2.begin(), sorted_str2.end());
+
+  int pos = 0;
+  bool is_match = true;
+
+  while (pos < len_str1 && is_match) {
+    if (sorted_str1[pos] == sorted_str2[pos]) {
+      pos++;
+    }
+    else {
+      is_match = false;
+      break;
+    }
+  }
+
+  return is_match;
 }
 
 bool AnagramCount(std::string& str1, std::string& str2) {
@@ -58,6 +86,9 @@ int main() {
 
   std::cout << "Iter: " << std::boolalpha << 
       AnagramIter(str1, str2) << std::endl;
+
+  std::cout << "Iter: " << std::boolalpha << 
+      AnagramSort(str1, str2) << std::endl;
 
   return 0;
 }
