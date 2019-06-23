@@ -12,8 +12,7 @@ bool AnagramIter(std::string& str1, std::string& str2) {
   int len_str2 = str2.length();
 
   // Copy str2 to char array for match memoization.
-  char str2_chars[len_str2];
-  str2.copy(str2_chars, len_str2, 0);
+  std::vector<char> str2_chars(str2.begin(), str2.end());
 
   int pos1 = 0;
   bool is_match = true;
