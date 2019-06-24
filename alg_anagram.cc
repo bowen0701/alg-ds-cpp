@@ -79,18 +79,54 @@ bool AnagramSort(std::string& str1, std::string& str2) {
 
 bool AnagramCount(std::string& str1, std::string& str2) {
   // Anagram by counting.
-  return true;
+  int len_str1 = str1.length();
+  int len_str2 = str2.length();
+
+  if (len_str1 != len_str2)
+    return false;
+
+  std::vector<int> char_vec1(26, 0);
+  std::vector<int> char_vec2(26, 0);
+
+  for (int i = 0; i < len_str1; i++) {
+    int pos = abs(str1[i] - 'a');
+    ++char_vec1[pos];
+  }
+
+  for (int i = 0; i < len_str2; i++) {
+    int pos = abs(str2[i] - 'a');
+    ++char_vec2[pos];
+  }
+
+  int j = 0;
+  bool is_match = true;
+
+  while (j < 26 && is_match) {
+    if (char_vec1[j] == char_vec2[j]) {
+      ++j;
+    }
+    else {
+      is_match = false;
+      break;
+    }
+  }
+
+  return is_match;
 }
 
 int main() {
   std::string str1 = "abcd";
-  std::string str2 = "dcba";
+  std::string str2 = "dcba";     // should be true.
+  // std::string str2 = "deba";  // should be false.
 
   std::cout << "By iteration: " << std::boolalpha << 
       AnagramIter(str1, str2) << std::endl;
 
   std::cout << "By sorting: " << std::boolalpha << 
       AnagramSort(str1, str2) << std::endl;
+
+  std::cout << "By counting: " << std::boolalpha <<
+      AnagramCount(str1, str2) << std::endl;
 
   return 0;
 }
