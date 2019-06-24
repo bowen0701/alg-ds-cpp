@@ -79,6 +79,8 @@ bool AnagramSort(std::string& str1, std::string& str2) {
 
 bool AnagramCount(std::string& str1, std::string& str2) {
   // Anagram by counting.
+  // Time complexity: O(n).
+  // Space complexity: O(1).
   int len_str1 = str1.length();
   int len_str2 = str2.length();
 
@@ -98,12 +100,12 @@ bool AnagramCount(std::string& str1, std::string& str2) {
     ++char_vec2[pos];
   }
 
-  int j = 0;
+  int pos = 0;
   bool is_match = true;
 
-  while (j < 26 && is_match) {
-    if (char_vec1[j] == char_vec2[j]) {
-      ++j;
+  while (pos < 26 && is_match) {
+    if (char_vec1[pos] == char_vec2[pos]) {
+      ++pos;
     }
     else {
       is_match = false;
