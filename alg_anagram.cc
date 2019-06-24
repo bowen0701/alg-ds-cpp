@@ -86,10 +86,10 @@ int main() {
   std::string str1 = "abcd";
   std::string str2 = "dcba";
 
-  std::cout << "Iter: " << std::boolalpha << 
+  std::cout << "By iteration: " << std::boolalpha << 
       AnagramIter(str1, str2) << std::endl;
 
-  std::cout << "Iter: " << std::boolalpha << 
+  std::cout << "By sorting: " << std::boolalpha << 
       AnagramSort(str1, str2) << std::endl;
 
   return 0;
