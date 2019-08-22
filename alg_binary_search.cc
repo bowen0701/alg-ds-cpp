@@ -7,21 +7,23 @@ bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
   // Space complexity: O(1).
   int first = 0;
   int last = sorted_nums.size() - 1;
-  bool is_found = false;
 
-  while (first <= last && !is_found) {
+  while (first < last) {
     int mid = first + (last - first) / 2;
     if (sorted_nums[mid] == target)
-      is_found = true;
+      return true;
+    else if (sorted_nums[mid] < target)
+      // Search vector's right part.
+      first = mid + 1;
     else
-      if (sorted_nums[mid] < target)
-        // Search vector's right part.
-        first = mid + 1;
-      else
-        // Search vector's left part.
-        last = mid - 1;
+      // Search vector's left part.
+      last = mid - 1;
   }
-  return is_found;
+
+  if (sorted_nums[first] == target)
+    return true;
+  else
+    return false;
 }
 
 bool BinarySearchRecur(std::vector<int>& sorted_nums, int target) {
