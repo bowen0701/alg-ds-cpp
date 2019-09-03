@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int gcd(int m, int n) {
+int GCD(int m, int n) {
   // Greatest common divisor (GCD) by Euclid's algorithm.
   //
   // Time complexity: O(m%n).
@@ -19,6 +19,6 @@ int gcd(int m, int n) {
 int main() {
   int m = 10;
   int n = 4;
-  cout << "gcd of " << m << ", " << n << ": " << gcd(m, n) << endl;
+  cout << "gcd of " << m << ", " << n << ": " << GCD(m, n) << endl;
   return 0;
 }
