@@ -75,19 +75,19 @@ bool BinarySearchRecurFast(std::vector<int>& sorted_nums,
 
 int main() {
   std::vector<int> sorted_nums = 
-      {17, 20, 26, 31, 44, 54, 55, 65, 77, 93, 100};
+    {17, 20, 26, 31, 44, 54, 55, 65, 77, 93, 100};
   int target = 65;
 
   std::cout << "Iter: " << std::boolalpha <<
-      BinarySearchIter(sorted_nums, target) << std::endl;
+    BinarySearchIter(sorted_nums, target) << std::endl;
 
   std::cout << "Recur: " << std::boolalpha <<
-      BinarySearchRecur(sorted_nums, target) << std::endl;
+    BinarySearchRecur(sorted_nums, target) << std::endl;
 
   std::cout << "RecurFast: " << std::boolalpha <<
-      BinarySearchRecurFast(
-          sorted_nums, target, 0, sorted_nums.size()) 
-      << std::endl;
+    BinarySearchRecurFast(
+      sorted_nums, target, 0, sorted_nums.size()) 
+    << std::endl;
 
   return 0;
 }
