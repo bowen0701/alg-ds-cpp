@@ -122,13 +122,13 @@ int main() {
   // std::string str2 = "deba";  // should be false.
 
   std::cout << "By iteration: " << std::boolalpha << 
-      AnagramIter(str1, str2) << std::endl;
+    AnagramIter(str1, str2) << std::endl;
 
   std::cout << "By sorting: " << std::boolalpha << 
-      AnagramSort(str1, str2) << std::endl;
+    AnagramSort(str1, str2) << std::endl;
 
   std::cout << "By counting: " << std::boolalpha <<
-      AnagramCount(str1, str2) << std::endl;
+    AnagramCount(str1, str2) << std::endl;
 
   return 0;
 }
