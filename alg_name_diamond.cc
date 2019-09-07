@@ -18,6 +18,11 @@
 //       I
 
 void NameDiamond(std::string& name) {
+  // Name diamond.
+  //
+  // Time complexity: O(n^2), where n is the length of name.
+  // Space complexity: O(1).
+
   // Print the 1st half.
   for (int i = 0; i < name.length(); i++) {
     std::cout << name.substr(0, i + 1) << std::endl;
