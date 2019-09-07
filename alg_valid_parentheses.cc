@@ -2,9 +2,9 @@
 #include <string>
 
 bool ValideParentheses(std::string s) {
-	return true
+	return true;
 } 
 
 int main() {
-	return 0
+	return 0;
 }
