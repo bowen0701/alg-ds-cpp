@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int GCD(int m, int n) {
   // Greatest common divisor (GCD) by Euclid's algorithm.
   //
@@ -19,6 +17,6 @@ int GCD(int m, int n) {
 int main() {
   int m = 10;
   int n = 4;
-  cout << "gcd of " << m << ", " << n << ": " << GCD(m, n) << endl;
+  std::cout << "gcd of " << m << ", " << n << ": " << GCD(m, n) << std::endl;
   return 0;
 }
