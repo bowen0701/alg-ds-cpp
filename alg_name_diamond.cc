@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 // Print name diamond on console.
 // For name = BOWENLI,
