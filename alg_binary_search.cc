@@ -5,22 +5,22 @@ bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
   // Binary search by iteration.
   // Time complexity: O(logn).
   // Space complexity: O(1).
-  int first = 0;
-  int last = sorted_nums.size() - 1;
+  int left = 0;
+  int right = sorted_nums.size() - 1;
 
-  while (first < last) {
-    int mid = first + (last - first) / 2;
+  while (left < right) {
+    int mid = left + (right - left) / 2;
     if (sorted_nums[mid] == target)
       return true;
     else if (sorted_nums[mid] < target)
       // Search vector's right part.
-      first = mid + 1;
+      left = mid + 1;
     else
       // Search vector's left part.
-      last = mid - 1;
+      right = mid - 1;
   }
 
-  if (sorted_nums[first] == target)
+  if (sorted_nums[left] == target)
     return true;
   else
     return false;
@@ -53,23 +53,23 @@ bool BinarySearchRecur(std::vector<int>& sorted_nums, int target) {
 
 bool BinarySearchRecurFast(std::vector<int>& sorted_nums, 
                            int target, 
-                           int first,
-                           int last) {
+                           int left,
+                           int right) {
   // Binary search by fast recursion with two pointers method.
   // Time complexity: O(logn).
   // Space complexity: O(1).
-  if (first > last)
+  if (left > right)
     return false;
 
-  int mid = first + (last - first) / 2;
+  int mid = left + (right - left) / 2;
   if (sorted_nums[mid] == target) {
     return true;
   }
   else {
     if (sorted_nums[mid] < target)
-      return BinarySearchRecurFast(sorted_nums, target, mid + 1, last);
+      return BinarySearchRecurFast(sorted_nums, target, mid + 1, right);
     else
-      return BinarySearchRecurFast(sorted_nums, target, first, mid - 1);
+      return BinarySearchRecurFast(sorted_nums, target, left, mid - 1);
   }
 }
 
