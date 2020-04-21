@@ -18,5 +18,6 @@ int main() {
   int m = 10;
   int n = 4;
   std::cout << "gcd of " << m << ", " << n << ": " << GCD(m, n) << std::endl;
+
   return 0;
 }
