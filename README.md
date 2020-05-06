@@ -2,12 +2,12 @@
 
 ## Introduction
 
-- Write our C++ program and save it to the file `<file>.cc` in file extension `.cc`. Note that all of the C++ scripts here are writen in C++11.
-- Compile the file by running the following; this step will produce an executable file `<file>.out`.
+- Write your C++ scripts and save it to the file `<file>.cc` in file extension `.cc`. Note that all of the C++ scripts here are writen in C++11.
+- Compile the file by running the following scripts; this step will produce an executable output file `<file>.out`.
 ```bash
 g++ -std=c++11 <file>.cc -o <file>.out
 ```
-- Finally, execute the file.
+- Finally, run the output file.
 ```bash
 ./<file>.out
 ```
