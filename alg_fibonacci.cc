@@ -11,7 +11,7 @@ int FibonacciRecur(int n) {
   return FibonacciRecur(n - 1) + FibonacciRecur(n - 2);
 }
 
-int FibonacciMemoUtil(int n, std::vector<int>& fib) {
+int FibonacciMemoUtil(int n, std::vector<int> &fib) {
   // Helper function for FibonacciMemo().
   if (fib[n] > 0)
     return fib[n];

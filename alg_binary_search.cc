@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
+bool BinarySearchIter(std::vector<int> &sorted_nums, int target) {
   // Binary search by iteration.
   // Time complexity: O(logn).
   // Space complexity: O(1).
@@ -26,7 +26,7 @@ bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
     return false;
 }
 
-bool BinarySearchRecur(std::vector<int>& sorted_nums, int target) {
+bool BinarySearchRecur(std::vector<int> &sorted_nums, int target) {
   // Binary search by recursion.
   // Time complexity: O(logn).
   // Space complexity: O(n).
@@ -51,7 +51,7 @@ bool BinarySearchRecur(std::vector<int>& sorted_nums, int target) {
   }
 }
 
-bool BinarySearchRecurFast(std::vector<int>& sorted_nums, 
+bool BinarySearchRecurFast(std::vector<int> &sorted_nums, 
                            int target, 
                            int left,
                            int right) {
