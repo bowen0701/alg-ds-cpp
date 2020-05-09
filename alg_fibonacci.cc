@@ -11,45 +11,45 @@ int FibonacciRecur(int n) {
   return FibonacciRecur(n - 1) + FibonacciRecur(n - 2);
 }
 
-int FibonacciMemoUtil(int n, std::vector<int>& fib) {
+int FibonacciMemoUtil(int n, std::vector<int>& T) {
   // Helper function for FibonacciMemo().
-  if (fib[n] > 0)
-    return fib[n];
+  if (T[n] > 0)
+    return T[n];
 
   if (n <= 1)
     return n;
 
-  fib[n] = FibonacciMemoUtil(n - 1, fib) + FibonacciMemoUtil(n - 2, fib);
-  return fib[n];
+  T[n] = FibonacciMemoUtil(n - 1, T) + FibonacciMemoUtil(n - 2, T);
+  return T[n];
 }
 
 int FibonacciMemo(int n) {
   // Fibonacci series by top-down memoization.
   // Time complexity: O(n).
   // Space complexity: O(n).
-  std::vector<int> fib(n + 1, 0);
-  fib[0] = 0;
-  fib[1] = 1;
+  std::vector<int> T(n + 1, 0);
+  T[0] = 0;
+  T[1] = 1;
 
-  return FibonacciMemoUtil(n, fib);
+  return FibonacciMemoUtil(n, T);
 }
 
 int FibonacciDp(int n) {
   // Fibonacci series by bottom-up dynamic programming.
   // Time complexity: O(n).
   // Space complexity: O(n).
-  std::vector<int> fib(n + 1, 0);
-  fib[0] = 0;
-  fib[1] = 1;
+  std::vector<int> T(n + 1, 0);
+  T[0] = 0;
+  T[1] = 1;
 
   if (n <= 1)
     return n;
 
   for (int i = 2; i <= n; i++) {
-    fib[i] = fib[i - 1] + fib[i - 2];
+    T[i] = T[i - 1] + T[i - 2];
   }
 
-  return fib[n];
+  return T[n];
 }
 
 int FibonacciIter(int n) {
