@@ -4,7 +4,7 @@
 
 // Anagram: Two strings are anagram if one is a rearrangement of the other.
 
-bool AnagramIter(std::string &str1, std::string &str2) {
+bool AnagramIter(std::string& str1, std::string& str2) {
   // Anagram by iteration.
   // Time complexity: O(n^2).
   // Space complexity: O(n).
@@ -45,7 +45,7 @@ bool AnagramIter(std::string &str1, std::string &str2) {
   return is_match;
 }
 
-bool AnagramSort(std::string &str1, std::string &str2) {
+bool AnagramSort(std::string& str1, std::string& str2) {
   // Anagram by sorting.
   // Time complexity: O(nlogn).
   // Space complexity: O(n).
@@ -77,7 +77,7 @@ bool AnagramSort(std::string &str1, std::string &str2) {
   return is_match;
 }
 
-bool AnagramCount(std::string &str1, std::string &str2) {
+bool AnagramCount(std::string& str1, std::string& str2) {
   // Anagram by counting.
   // Time complexity: O(n).
   // Space complexity: O(1).

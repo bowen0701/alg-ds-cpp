@@ -11,7 +11,7 @@ int FactorialRecur(int n) {
   return n * FactorialRecur(n - 1);
 }
 
-int FactorialMemoUtil(int n, std::vector<int> &fact) {
+int FactorialMemoUtil(int n, std::vector<int>& fact) {
   // Helper function for FactorialMemo().
   if (fact[n] > 0)
     return fact[n];

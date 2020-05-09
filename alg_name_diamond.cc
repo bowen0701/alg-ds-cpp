@@ -18,7 +18,7 @@
 //      LI
 //       I
 
-void NameDiamond(std::string &name) {
+void NameDiamond(std::string& name) {
   // Name diamond.
   //
   // Time complexity: O(n^2), where n is the length of name.
