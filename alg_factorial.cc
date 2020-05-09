@@ -11,41 +11,41 @@ int FactorialRecur(int n) {
   return n * FactorialRecur(n - 1);
 }
 
-int FactorialMemoUtil(int n, std::vector<int>& fact) {
+int FactorialMemoUtil(int n, std::vector<int>& T) {
   // Helper function for FactorialMemo().
-  if (fact[n] > 0)
-    return fact[n];
+  if (T[n] > 0)
+    return T[n];
 
   if (n <= 1)
     return 1;
 
-  fact[n] = n * FactorialMemoUtil(n - 1, fact);
-  return fact[n];
+  T[n] = n * FactorialMemoUtil(n - 1, T);
+  return T[n];
 }
 
 int FactorialMemo(int n) {
   // Factorial by top-down recursion w/ memoization.
   // Time complexity: O(n).
   // Space complexity: O(n).
-  std::vector<int> fact(n + 1, 0);
-  fact[0] = 1;
-  fact[1] = 1;
+  std::vector<int> T(n + 1, 0);
+  T[0] = 1;
+  T[1] = 1;
 
-  return FactorialMemoUtil(n, fact);
+  return FactorialMemoUtil(n, T);
 }
 
 int FactorialDp(int n) {
   // Factorial by bottom-up dynamic programming.
   // Time complexity: O(n).
   // Space complexity: O(n).
-  std::vector<int> fact(n + 1, 0);
-  fact[0] = 1;
-  fact[1] = 1;
+  std::vector<int> T(n + 1, 0);
+  T[0] = 1;
+  T[1] = 1;
 
   for (int i = 2; i <= n; i++)
-    fact[i] = i * fact[i - 1];
+    T[i] = i * T[i - 1];
 
-  return fact[n];
+  return T[n];
 }
 
 int FactorialIter(int n) {
