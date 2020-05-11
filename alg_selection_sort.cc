@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector& SelectionSort(std::vector& vec) {
+void SelectionSort(std::vector<int>& nums) {
   ;
 }
 
