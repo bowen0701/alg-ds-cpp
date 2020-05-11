@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int>& InsertionSort(std::vector<int>& vec) {
+void InsertionSort(std::vector<int>& nums) {
   ;
 }
 
