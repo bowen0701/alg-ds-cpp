@@ -30,7 +30,7 @@ int main() {
   }
   
   // Shuffle nums.
-  unsigned seed = 0; 
+  unsigned seed = 71; 
   std::shuffle(nums.begin(), nums.end(), std::default_random_engine(seed)); 
   std::cout << "nums: " << std::endl;
   for (int i = 0; i < n; i++) {
