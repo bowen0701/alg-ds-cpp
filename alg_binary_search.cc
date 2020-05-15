@@ -3,6 +3,7 @@
 
 bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
   // Binary search by iteration.
+  //
   // Time complexity: O(logn).
   // Space complexity: O(1).
   int left = 0;
