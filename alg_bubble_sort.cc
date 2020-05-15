@@ -3,7 +3,8 @@
 #include <random>
 
 void BubbleSort(std::vector<int>& nums) {
-  // Bubble sort.
+  // Bubble sort algorithm.
+  //
   // Time complexity: O(n^2).
   // Space complexity: O(1).
   int n = nums.size();

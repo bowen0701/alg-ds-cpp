@@ -3,7 +3,8 @@
 #include <random>
 
 void InsertionSort(std::vector<int>& nums) {
-  // Insertion sort.
+  // Insertion sort algorithm.
+  //
   // Time complexity: O(n^2).
   // Space complexity: O(1).
   int n = nums.size();
