@@ -9,8 +9,8 @@ void InsertionSort(std::vector<int>& nums) {
   // Space complexity: O(1).
   int n = nums.size();
 
-  // Start from i=1,...,n-1, swap (nums[j-1], nums[j]),
-  // for j=i,i-1,...,1, if their order is not correct.
+  // Start from i=1,...,n-1, 
+  // swap (nums[j-1], nums[j]), for j=i,..,1, if not sorted.
   for (int i = 1; i < n; i++) {
     for (int j = i; j >= 0; j--) {
       if (j > 0 && nums[j - 1] > nums[j]) {
