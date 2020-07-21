@@ -4,5 +4,8 @@
 #include <vector>
 
 class Board {
-  // Board. 
+ public:
+  Board {
+    // Board's constructor.
+  }
 }
