@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-const int kDim = 4
+const int kDim = 4;
 const int kNRows = kDim;
 const int kNCols = kDim;
 const char kCross = 'X';
@@ -13,7 +13,7 @@ const char kEmpty = ' ';
 
 class Board {
  public:
-  Board {
+  Board() {
     // Board's constructor.
     for (int r = 0; r < kNRows; r++) {
       for (int c = 0; c < kNCols; c++) {
@@ -33,8 +33,7 @@ class Board {
       board_[row][col] = symbol;
       return 0;
     } else {
-      std::cout << "The position (" << row << ", " << col << ") 
-                    is occupied."
+      std::cout << "The position (" << row << ", " << col << ") is occupied. ";
       return -1;
     }
   }
@@ -51,16 +50,30 @@ class Board {
 
   void ShowBoard() {
     // Show board.
+    std::cout << "Board:" << std::endl;
+    std::string bottom = "--";
+    std::string col_ids = "  ";
     for (int r = 0; r < kNRows; r++) {
+      std::cout << r << "|";
       for (int c = 0; c < kNCols; c++) {
         std::cout << board_[r][c];
       }
-      std::endl;
+      std::cout << std::endl;
+      bottom += "-";
     }
+
+    std::cout << bottom << std::endl;
+    for (int c = 0; c < kNCols; c++) {
+      col_ids += '0' + c;
+    }
+    std::cout << col_ids << std::endl;
   }
  
  private:
-  void CheckRows() {
+  std::vector<std::vector<char>> board_{kNRows, std::vector<char>(kNCols)};
+  char winner_;
+
+  char CheckRows() {
     // Check rows.
     int n_crosses = 0;
     int n_circles = 0;
@@ -76,15 +89,18 @@ class Board {
 
       if (n_crosses == kDim) {
         winner_ = kCross;
+        break;
       }
       if (n_circles == kDim) {
         winner_ = kCircle;
+        break;
       }
       n_crosses = 0, n_circles = 0;
     }
+    return winner_;
   }
 
-  void CheckCols() {
+  char CheckCols() {
     // Check columns.
     int n_crosses = 0;
     int n_circles = 0;
@@ -100,15 +116,18 @@ class Board {
 
       if (n_crosses == kDim) {
         winner_ = kCross;
+        break;
       }
       if (n_circles == kDim) {
         winner_ = kCircle;
+        break;
       }
       n_crosses = 0, n_circles = 0;
     }
+    return winner_;
   }
 
-  void CheckDiags() {
+  char CheckDiags() {
     // Check diagonals.
     int n_crosses_diag1 = 0, n_crosses_diag2 = 0;
     int n_circles_diag1 = 0, n_circles_diag2 = 0;
@@ -128,21 +147,15 @@ class Board {
 
     if (n_crosses_diag1 == kDim || n_crosses_diag2 == kDim) {
       winner_ = kCross;
-      return kCross;
     }
     if (n_circles_diag1 == kDim || n_circles_diag2 == kDim) {
       winner_ = kCircle;
-      return kCircle;
     }
-    return kEmpty;
+    return winner_;
   }
+};
 
-  std::vector<char><std::vector<char>> board_(
-    kNRows, std::vector<char>(kNCols, kEmpty));
-  char winner_;
-}
-
-void GetUserNames(std::string user1, std::string user2) {
+void GetUserNames(std::string& user1, std::string& user2) {
   // Get user names.
   std::cout << "Input user1's name: ";
   std::cin >> user1;
@@ -151,18 +164,26 @@ void GetUserNames(std::string user1, std::string user2) {
   std::cin >> user2;
 }
 
-void GetUserPlay(std::string user, int row, int col) {
-  // Get user's play.
+void GetUserPlay(std::string& user, int& row, int& col) {
+  // Get user's play position.
+  std::cout << "User " << user << ", please select a position:" << std::endl;
+  std::cout << "- Enter an integer between 0 and " << kNRows - 1 
+    << " for row index:" << std::endl;
+  std::cin >> row;
+  std::cout << "- Enter an integer between 0 and " << kNCols - 1 
+    << " for col index" << std::endl;
+  std::cin >> col;
 }
 
 int main() {
   Board board;
   std::string user, user1, user2;
   char winner;
-  int n_plays;
+  char symbol = kEmpty;
+  int n_plays = 0;
 
   // Get two user names.
-  GetUserName(user1, user2);
+  GetUserNames(user1, user2);
 
   // Show initial board.
   board.ShowBoard();
@@ -173,16 +194,19 @@ int main() {
 
     if (n_plays % 2 == 0) {
       user = user1;
+      symbol = kCross;
     } else {
       user = user2;
+      symbol = kCircle;
     }
 
     // Put user's play.
     do {
       GetUserPlay(user, row, col);
-    } while (SetNextState(row, col, kCross) == -1);
+    } while (board.SetNextState(row, col, symbol) == -1);
 
-    winner = JudgeWinner();
+    board.ShowBoard();
+    winner = board.JudgeWinner();
     if (winner != kEmpty) {
       std::cout << "Congrats " << user << ", you won!" << std::endl;
       break;
