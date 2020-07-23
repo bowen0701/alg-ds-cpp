@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-const int kDim = 4;
+const int kDim = 5;
 const int kNRows = kDim;
 const int kNCols = kDim;
 const char kCross = 'X';
@@ -51,22 +51,22 @@ class Board {
   void ShowBoard() {
     // Show board.
     std::cout << "Board:" << std::endl;
-    std::string bottom = "--";
+    std::string cap = " -";
     std::string col_ids = "  ";
+    for (int c = 0; c < kNCols; c++) {
+      col_ids += '0' + c, col_ids += ' ';
+      cap += "--";
+    }
+    std::cout << col_ids << std::endl;
+    std::cout << cap << std::endl;
+
     for (int r = 0; r < kNRows; r++) {
       std::cout << r << "|";
       for (int c = 0; c < kNCols; c++) {
-        std::cout << board_[r][c];
+        std::cout << board_[r][c] << "|";
       }
       std::cout << std::endl;
-      bottom += "-";
     }
-
-    std::cout << bottom << std::endl;
-    for (int c = 0; c < kNCols; c++) {
-      col_ids += '0' + c;
-    }
-    std::cout << col_ids << std::endl;
   }
  
  private:
@@ -211,6 +211,7 @@ int main() {
       std::cout << "Congrats " << user << ", you won!" << std::endl;
       break;
     }
+    std::cout << std::endl;
 
     n_plays++;
   }
