@@ -24,6 +24,7 @@ class Board {
   }
 
   char winner() {
+    // Get winner.
     return winner_;
   }
 
@@ -74,7 +75,7 @@ class Board {
   char winner_;
 
   char CheckRows() {
-    // Check rows.
+    // Check rows for winner.
     int n_crosses = 0;
     int n_circles = 0;
 
@@ -101,7 +102,7 @@ class Board {
   }
 
   char CheckCols() {
-    // Check columns.
+    // Check columns for winner.
     int n_crosses = 0;
     int n_circles = 0;
 
@@ -128,7 +129,7 @@ class Board {
   }
 
   char CheckDiags() {
-    // Check diagonals.
+    // Check diagonals for winner.
     int n_crosses_diag1 = 0, n_crosses_diag2 = 0;
     int n_circles_diag1 = 0, n_circles_diag2 = 0;
 
@@ -190,6 +191,7 @@ int main() {
   std::cout << std::endl;
   
   while (n_plays < kDim * kDim) {
+    // Interchangeably let user play.
     int row, col;
 
     if (n_plays % 2 == 0) {
