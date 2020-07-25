@@ -47,14 +47,14 @@ class Board {
     }
   }
 
-  char JudgeWinner() {
+  int JudgeWinner() {
     // Judge winner by checking rows, columns, and diagonals.
     if (CheckRows() != kEmpty or
         CheckCols() != kEmpty or
         CheckDiags() != kEmpty) {
-      return winner_;
+      return 0;
     }
-    return winner_;
+    return 0;
   }
 
   void ShowBoard() {
@@ -216,8 +216,8 @@ int main() {
     } while (board.SetNextState(row, col, symbol) == -1);
 
     board.ShowBoard();
-    winner = board.JudgeWinner();
-    if (winner != kEmpty) {
+    board.JudgeWinner();
+    if (board.winner() != kEmpty) {
       std::cout << "Congrats " << user << ", you won!" << std::endl;
       break;
     }
