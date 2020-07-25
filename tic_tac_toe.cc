@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-const int kDim = 5;
+const int kDim = 3;
 const int kNRows = kDim;
 const int kNCols = kDim;
 const char kCross = 'X';
@@ -28,13 +28,21 @@ class Board {
     return winner_;
   }
 
-  int SetNextState(int row, int col, char symbol) {
+  int SetNextState(int& row, int& col, char symbol) {
+    // Check (row, col) is out of boundary.
+    if (row < 0 || row >= kNRows || col < 0 || col >= kNCols) {
+      std::cout << "The position (" << row << ", " << col 
+        << ") is out of boundary. ";
+      return -1;
+    }
+
     // Set board's next state.
     if (board_[row][col] == kEmpty) {
       board_[row][col] = symbol;
       return 0;
     } else {
-      std::cout << "The position (" << row << ", " << col << ") is occupied. ";
+      std::cout << "The position (" << row << ", " << col
+        << ") is occupied. ";
       return -1;
     }
   }
