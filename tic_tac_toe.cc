@@ -168,7 +168,6 @@ void GetUserNames(std::string& user1, std::string& user2) {
   // Get user names.
   std::cout << "Input user1's name: ";
   std::cin >> user1;
-
   std::cout << "Input user2's name: ";
   std::cin >> user2;
 }
@@ -214,7 +213,6 @@ int main() {
     do {
       GetUserPlay(user, row, col);
     } while (board.SetNextState(row, col, symbol) == -1);
-
     board.ShowBoard();
     board.JudgeWinner();
     if (board.winner() != kEmpty) {
