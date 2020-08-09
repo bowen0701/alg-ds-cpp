@@ -216,7 +216,7 @@ int main() {
     board.ShowBoard();
     board.JudgeWinner();
     if (board.winner() != kEmpty) {
-      std::cout << "Congrats " << user << ", you won!" << std::endl;
+      std::cout << "Congrats " << user << ", you win!" << std::endl;
       break;
     }
     std::cout << std::endl;
