@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <stack>
+#include <set>
 #include <string>
 
 bool ValideParentheses(std::string s) {
@@ -8,8 +9,8 @@ bool ValideParentheses(std::string s) {
   //
   // Time complexity: O(n), where n is the lenght of s.
   // Space complexity: O(n).
-  std::string opens = "([{";
-  std::string closes = ")]}";
+  std::set<char> opens = {'(', '[', '{'};
+  std::set<char> closes = {')', ']', '}'};
 
   std::map<char, char> open_close_map = {
     {'(', ')'},
@@ -21,14 +22,16 @@ bool ValideParentheses(std::string s) {
   std::stack<char> stack;
 
   for (char& c : s) {
-    // Check if char is open parentheses. 
-    if (opens.find(c) != std::string::npos) {
+    // Check if char is open parentheses.
+    auto search_open = opens.find(c);
+    if (search_open != opens.end()) {
       stack.push(c);
       continue;
     }
     
     // Check if char is close parentheses. 
-    if (closes.find(c) != std::string::npos) {
+    auto search_close = closes.find(c);
+    if (search_close != closes.end()) {
       // Check if there is open parentheses, return not valid.
       if (stack.empty())
         return false;
