@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
 #include <stack>
-#include <set>
+#include <unordered_set>
 #include <string>
 
 bool ValideParentheses(std::string s) {
@@ -9,8 +9,8 @@ bool ValideParentheses(std::string s) {
   //
   // Time complexity: O(n), where n is the lenght of s.
   // Space complexity: O(n).
-  std::set<char> opens = {'(', '[', '{'};
-  std::set<char> closes = {')', ']', '}'};
+  std::unordered_set<char> opens = {'(', '[', '{'};
+  std::unordered_set<char> closes = {')', ']', '}'};
 
   std::map<char, char> open_close_map = {
     {'(', ')'},
