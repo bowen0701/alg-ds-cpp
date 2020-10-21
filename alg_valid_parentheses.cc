@@ -1,7 +1,7 @@
 #include <iostream>
-#include <map>
 #include <stack>
 #include <unordered_set>
+#include <unordered_map>
 #include <string>
 
 bool ValideParentheses(std::string s) {
@@ -12,7 +12,7 @@ bool ValideParentheses(std::string s) {
   std::unordered_set<char> opens = {'(', '[', '{'};
   std::unordered_set<char> closes = {')', ']', '}'};
 
-  std::map<char, char> open_close_map = {
+  std::unordered_map<char, char> open_close_map = {
     {'(', ')'},
     {'[', ']'},
     {'{', '}'}
