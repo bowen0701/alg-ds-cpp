@@ -2,7 +2,7 @@
 #include <vector>
 
 bool Palindrome(std::string& s) {
-	// Palindrome: the string is read the same forward & backward.
+	// Palindrome: the string is read the same forwards & backwards.
 	// TODO.
 	return true;
 }
