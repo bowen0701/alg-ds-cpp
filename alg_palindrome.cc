@@ -1,21 +1,27 @@
 #include <iostream>
 #include <vector>
 
-bool Palindrome(std::string& s) {
+bool PalindromeRecur(std::string& s) {
 	// Palindrome: the string is read the same forwards & backwards.
-	// TODO.
-	return true;
+	if (s.length() <= 1) {
+		return true;
+	}
+	std::string s_sub = s.substr(1, s.length() - 2);
+	return s[0] == s[s.length() - 1] && PalindromeRecur(s_sub);
 }
 
 int main() {
-	// Output: True.
+	// Output: true.
 	std::string s1 = "radar";
+	std::cout << std::boolalpha << PalindromeRecur(s1) << std::endl;
 
-	// Output: False.
+	// Output: false.
 	std::string s2 = "bowen";
+	std::cout << std::boolalpha << PalindromeRecur(s2) << std::endl;
 
-	// Output: True.
+	// Output: true.
 	std::string s3 = "madam";
+	std::cout << std::boolalpha << PalindromeRecur(s3) << std::endl;
 
 	return 0;
 }
