@@ -6,7 +6,6 @@
 
 bool ValideParentheses(std::string s) {
   // Valide parentheses.
-  //
   // Time complexity: O(n), where n is the lenght of s.
   // Space complexity: O(n).
   std::unordered_set<char> opens = {'(', '[', '{'};

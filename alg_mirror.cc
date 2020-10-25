@@ -5,6 +5,8 @@
 void Mirror(std::deque<char>& deque) {
   // Mirror a deque and append to it.
   // Example: {'a', 'b', 'c'} => {'a', 'b', 'c', 'c', 'b', 'a'}
+  // Time complexity: O(n), where n is the size of deque.
+  // Space complexity: O(n).
   std::stack<char> stack;
 
   // Pop & push back to deque and use stack to collect reverse items.

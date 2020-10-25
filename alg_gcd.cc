@@ -2,7 +2,6 @@
 
 int GCD(int m, int n) {
   // Greatest common divisor (GCD) by Euclid's algorithm.
-  //
   // Time complexity: O(m%n).
   // Space complexity: O(1).
   int r;
