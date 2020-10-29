@@ -14,8 +14,10 @@ void PrintAllBinaryUtil(int digits, std::string output) {
 }
 
 void PrintAllBinary(int digits) {
-  // Print all binary by backtracking.
+  // Print all binary by exaustive search.
   // Example: PrintAllBinary(2): 00, 01, 10, 11.
+  // Time complexity: O(2^n), where n is digits.
+  // Space complexity: O(2^n).
   std::string output = "";
   PrintAllBinaryUtil(digits, output);
 }
