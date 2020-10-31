@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
-void SumDicesUtil(int dices, int sum, std::vector<int>& output) {
+void PrintSumDicesUtil(int dices, int sum, std::vector<int>& output) {
   // Base case.
   if (dices == 0) {
     if (sum == 0) {
@@ -20,7 +19,7 @@ void SumDicesUtil(int dices, int sum, std::vector<int>& output) {
       output.push_back(i);
 
       // Explore what will follow that.
-      SumDicesUtil(dices - 1, sum - i, output);
+      PrintSumDicesUtil(dices - 1, sum - i, output);
 
       // Backtracking: un-choose i.
       output.pop_back();
@@ -28,7 +27,7 @@ void SumDicesUtil(int dices, int sum, std::vector<int>& output) {
   }
 }
 
-void SumDices(int dices, int sum) {
+void PrintSumDices(int dices, int sum) {
   // List dices where their sums equal to sum. 
   // For example: dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
   // Procedure: 
@@ -38,17 +37,17 @@ void SumDices(int dices, int sum) {
   // Time complexity: O(6^n).
   // Space complexity: O(6^n).
   std::vector<int> output;
-  SumDicesUtil(dices, sum, output);
+  PrintSumDicesUtil(dices, sum, output);
 }
 
 int main() {
   int dices1 = 2;
   int sum1 = 7;
-  SumDices(dices1, sum1);
+  PrintSumDices(dices1, sum1);
 
   int dices2 = 4;
   int sum2 = 11;
-  SumDices(dices2, sum2);
+  PrintSumDices(dices2, sum2);
 
   return 0;
 }
