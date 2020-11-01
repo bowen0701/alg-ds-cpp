@@ -11,8 +11,7 @@ void PrintSumDicesUtil(int dices, int sum, std::vector<int>& output) {
     return;
   }
 
-  // Recursive cases.
-  // Speed up by skipping wasteful explorations.
+  // Recursive case: speed up by skipping wasteful explorations.
   if (dices * 1 <= sum <= dices * 6) {
     for (int i = 1; i <= 6; i++) {
       // Choose i.
