@@ -30,9 +30,9 @@ void PrintSumDices(int dices, int sum) {
   // List dices where their sums equal to sum. 
   // For example: dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
   // Procedure: 
-  // - choose i, 
-  // - explore, and 
-  // - backtrack by un-choosing i.
+  //   - choose i
+  //   - explore
+  //   - backtrack by un-choosing i
   // Time complexity: O(6^n).
   // Space complexity: O(6^n).
   std::vector<int> output;
