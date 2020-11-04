@@ -5,10 +5,10 @@
 void SumDicesUtil(int n_dices, 
                   int sum,
                   std::vector<int>& dices, 
-                  std::vector<std::vector<int>>& output) {
+                  std::vector<std::vector<int>>& result) {
   // Base case.
   if (n_dices == 0) {
-    if (sum == 0) output.push_back(dices);
+    if (sum == 0) result.push_back(dices);
     return;
   }
 
@@ -19,7 +19,7 @@ void SumDicesUtil(int n_dices,
       dices.push_back(i);
 
       // Explore what will follow that.
-      SumDicesUtil(n_dices - 1, sum - i, dices, output);
+      SumDicesUtil(n_dices - 1, sum - i, dices, result);
 
       // Backtracking: un-choose i.
       dices.pop_back();
@@ -37,21 +37,21 @@ std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
   // Time complexity: O(6^n).
   // Space complexity: O(6^n).
   std::vector<int> dices;
-  std::vector<std::vector<int>> output;
-  SumDicesUtil(n_dices, sum, dices, output);
-  return output;
+  std::vector<std::vector<int>> result;
+  SumDicesUtil(n_dices, sum, dices, result);
+  return result;
 }
 
 int main() {
   int n_dices1 = 2;
   int sum1 = 7;
-  std::vector<std::vector<int>> output1 = SumDices(n_dices1, sum1);
-  Print2DVector(output1);
+  std::vector<std::vector<int>> result1 = SumDices(n_dices1, sum1);
+  Print2DVector(result1);
 
   int n_dices2 = 4;
   int sum2 = 11;
-  std::vector<std::vector<int>> output2 = SumDices(n_dices2, sum2);
-  Print2DVector(output2);
+  std::vector<std::vector<int>> result2 = SumDices(n_dices2, sum2);
+  Print2DVector(result2);
 
   return 0;
 }
