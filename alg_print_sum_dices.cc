@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 
-void PrintSumDicesUtil(int dices, int sum, std::vector<int>& output) {
+void PrintSumn_dicesUtil(int n_dices, int sum, std::vector<int>& output) {
   // Base case.
-  if (dices == 0) {
+  if (n_dices == 0) {
     if (sum == 0) {
       for (auto i : output) std::cout << i << " ";
       std::cout << std::endl;
@@ -12,13 +12,13 @@ void PrintSumDicesUtil(int dices, int sum, std::vector<int>& output) {
   }
 
   // Recursive case: speed up by skipping wasteful explorations.
-  if (dices * 1 <= sum <= dices * 6) {
+  if (n_dices * 1 <= sum <= n_dices * 6) {
     for (int i = 1; i <= 6; i++) {
       // Choose i.
       output.push_back(i);
 
       // Explore what will follow that.
-      PrintSumDicesUtil(dices - 1, sum - i, output);
+      PrintSumn_dicesUtil(n_dices - 1, sum - i, output);
 
       // Backtracking: un-choose i.
       output.pop_back();
@@ -26,9 +26,9 @@ void PrintSumDicesUtil(int dices, int sum, std::vector<int>& output) {
   }
 }
 
-void PrintSumDices(int dices, int sum) {
-  // List dices where their sums equal to sum. 
-  // For example: dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
+void PrintSumn_dices(int n_dices, int sum) {
+  // List n_dices where their sums equal to sum. 
+  // For example: n_dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
   // Procedure: 
   //   - choose i
   //   - explore
@@ -36,17 +36,17 @@ void PrintSumDices(int dices, int sum) {
   // Time complexity: O(6^n).
   // Space complexity: O(6^n).
   std::vector<int> output;
-  PrintSumDicesUtil(dices, sum, output);
+  PrintSumn_dicesUtil(n_dices, sum, output);
 }
 
 int main() {
-  int dices1 = 2;
+  int n_dices1 = 2;
   int sum1 = 7;
-  PrintSumDices(dices1, sum1);
+  PrintSumn_dices(n_dices1, sum1);
 
-  int dices2 = 4;
+  int n_dices2 = 4;
   int sum2 = 11;
-  PrintSumDices(dices2, sum2);
+  PrintSumn_dices(n_dices2, sum2);
 
   return 0;
 }
