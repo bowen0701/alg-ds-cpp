@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-void PrintSumn_dicesUtil(int n_dices, int sum, std::vector<int>& output) {
+void PrintSumDicesUtil(int n_dices, int sum, std::vector<int>& output) {
   // Base case.
   if (n_dices == 0) {
     if (sum == 0) {
@@ -18,7 +18,7 @@ void PrintSumn_dicesUtil(int n_dices, int sum, std::vector<int>& output) {
       output.push_back(i);
 
       // Explore what will follow that.
-      PrintSumn_dicesUtil(n_dices - 1, sum - i, output);
+      PrintSumDicesUtil(n_dices - 1, sum - i, output);
 
       // Backtracking: un-choose i.
       output.pop_back();
@@ -26,7 +26,7 @@ void PrintSumn_dicesUtil(int n_dices, int sum, std::vector<int>& output) {
   }
 }
 
-void PrintSumn_dices(int n_dices, int sum) {
+void PrintSumDices(int n_dices, int sum) {
   // List n_dices where their sums equal to sum. 
   // For example: n_dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
   // Procedure: 
@@ -36,17 +36,17 @@ void PrintSumn_dices(int n_dices, int sum) {
   // Time complexity: O(6^n).
   // Space complexity: O(6^n).
   std::vector<int> output;
-  PrintSumn_dicesUtil(n_dices, sum, output);
+  PrintSumDicesUtil(n_dices, sum, output);
 }
 
 int main() {
   int n_dices1 = 2;
   int sum1 = 7;
-  PrintSumn_dices(n_dices1, sum1);
+  PrintSumDices(n_dices1, sum1);
 
   int n_dices2 = 4;
   int sum2 = 11;
-  PrintSumn_dices(n_dices2, sum2);
+  PrintSumDices(n_dices2, sum2);
 
   return 0;
 }
