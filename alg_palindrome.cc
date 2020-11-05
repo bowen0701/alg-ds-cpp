@@ -1,7 +1,7 @@
+// Palindrome: the string is read the same forwards & backwards.
+
 #include <iostream>
 #include <vector>
-
-// Palindrome: the string is read the same forwards & backwards.
 
 bool PalindromeRecur(std::string& s) {
   // Palindrome by recursion.
