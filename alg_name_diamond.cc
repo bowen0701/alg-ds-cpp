@@ -1,9 +1,5 @@
-#include <iostream>
-#include <string>
-
 // Print name diamond on console.
-// For name = BOWENLI,
-// output:
+// For name = BOWENLI, output:
 // B
 // BO
 // BOW
@@ -17,6 +13,9 @@
 //     NLI
 //      LI
 //       I
+
+#include <iostream>
+#include <string>
 
 void NameDiamond(std::string& name) {
   // Name diamond.
