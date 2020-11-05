@@ -1,8 +1,9 @@
+// Anagram: Two strings are anagram if one is a rearrangement of 
+// the other.
+
 #include <iostream>
 #include <string>
 #include <vector>
-
-// Anagram: Two strings are anagram if one is a rearrangement of the other.
 
 bool AnagramIter(std::string& str1, std::string& str2) {
   // Anagram by iteration.
