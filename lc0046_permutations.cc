@@ -29,7 +29,7 @@ public:
     void permuteUtil(vector<int>& nums,
                      vector<int>& vec,
                      vector<std::vector<int>>& result) {
-        // Permute util function: backtracking.
+        // Util for permute(): backtracking.
 
         // Base case.
         if (vec.size() == nums.size()) {
@@ -55,6 +55,8 @@ public:
 
     vector<vector<int>> permute(vector<int>& nums) {
         // Permute number vector.
+        // Time complexity: O(n*n!).
+        // Space complexity: O(n*n!).
         vector<int> vec;
         vector<vector<int>> result;
         permuteUtil(nums, vec, result);
