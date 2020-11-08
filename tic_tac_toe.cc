@@ -79,7 +79,8 @@ class Board {
   }
  
  private:
-  std::vector<std::vector<char>> board_{kNRows, std::vector<char>(kNCols)};
+  std::vector<std::vector<char>> board_{
+    kNRows, std::vector<char>(kNCols)};
   char winner_;
 
   char CheckRows() {
@@ -174,7 +175,8 @@ void GetUserNames(std::string& user1, std::string& user2) {
 
 void GetUserPlay(std::string& user, int& row, int& col) {
   // Get user's play position.
-  std::cout << "User " << user << ", please select a position:" << std::endl;
+  std::cout << "User " << user << ", please select a position:" 
+    << std::endl;
   std::cout << "- Enter an integer between 0 and " << kNRows - 1 
     << " for row index:" << std::endl;
   std::cin >> row;
