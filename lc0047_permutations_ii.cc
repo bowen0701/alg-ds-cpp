@@ -22,6 +22,12 @@ Constraints:
 - -10 <= nums[i] <= 10
 */
 
+#include <vector>
+#include <algorithm>
+#include "util.h"
+
+using namespace std;
+
 class Solution {
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
