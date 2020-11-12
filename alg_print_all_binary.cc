@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 
-void PrintAllBinaryUtil(int n_digits, std::string output) {
+void PrintAllBinaryUtil(int n_digits, std::string result) {
   // Base case when n_digits = 0.
   if (n_digits == 0) {
-    std::cout << output << std::endl;
+    std::cout << result << std::endl;
     return;
   }
 
   // Recursive case.
-  PrintAllBinaryUtil(n_digits - 1, output + "0");
-  PrintAllBinaryUtil(n_digits - 1, output + "1");
+  PrintAllBinaryUtil(n_digits - 1, result + "0");
+  PrintAllBinaryUtil(n_digits - 1, result + "1");
 }
 
 void PrintAllBinary(int n_digits) {
@@ -18,8 +18,8 @@ void PrintAllBinary(int n_digits) {
   // Example: PrintAllBinary(2): 00, 01, 10, 11.
   // Time complexity: O(2^n), where n is n_digits.
   // Space complexity: O(2^n).
-  std::string output = "";
-  PrintAllBinaryUtil(n_digits, output);
+  std::string result = "";
+  PrintAllBinaryUtil(n_digits, result);
 }
 
 int main() {
