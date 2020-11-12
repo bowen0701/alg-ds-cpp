@@ -30,7 +30,7 @@ public:
     void permuteUtil(vector<int>& nums,
                      vector<int>& vec,
                      vector<std::vector<int>>& result) {
-        // Util for permute(): backtracking.
+        // Util for permute() by backtracking.
 
         // Base case.
         if (vec.size() == nums.size()) {
