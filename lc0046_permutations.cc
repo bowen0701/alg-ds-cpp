@@ -28,29 +28,29 @@ using namespace std;
 class Solution {
 public:
     void permuteUtil(vector<int>& nums,
-                     vector<int>& vec,
+                     vector<int>& temp,
                      vector<std::vector<int>>& result) {
         // Util for permute() by backtracking.
 
         // Base case.
-        if (vec.size() == nums.size()) {
-            result.push_back(vec);
+        if (temp.size() == nums.size()) {
+            result.push_back(temp);
             return;
         }
 
         for (int i = 0; i < nums.size(); i++) {
-            // If nums[i] exists in temp vec, skip nums[i].
-            if (find(vec.begin(), vec.end(), nums[i]) != vec.end())
+            // If nums[i] exists in temp vector, skip nums[i].
+            if (find(temp.begin(), temp.end(), nums[i]) != temp.end())
                 continue;
 
             // Choose nums[i].
-            vec.push_back(nums[i]);
+            temp.push_back(nums[i]);
 
             // Explore what will follow that.
-            permuteUtil(nums, vec, result);
+            permuteUtil(nums, temp, result);
 
             // Backtrack by unchoosing nums[i].
-            vec.pop_back();
+            temp.pop_back();
         }
     }
 
@@ -58,9 +58,9 @@ public:
         // Permute number vector.
         // Time complexity: O(n*n!).
         // Space complexity: O(n*n!).
-        vector<int> vec;
+        vector<int> temp;
         vector<vector<int>> result;
-        permuteUtil(nums, vec, result);
+        permuteUtil(nums, temp, result);
         return result;
     }
 };
