@@ -30,11 +30,62 @@ using namespace std;
 
 class Solution {
 public:
+    void permuteUniqueUtil(vector<int>& temp,
+                           vector<vector<int>>& result,
+                           vector<bool>& is_used,
+                           vector<int>& nums) {
+        // Util for permuteUnique() by backtracking.
+
+        // Base case.
+        if (temp.size() == nums.size()) {
+            result.push_back(temp);
+            return;
+        }
+
+        for (int i = 0; i < nums.size(); i++) {
+            // Skip number i if it's used or is the same as used (i-1).
+            if (is_used[i] || 
+                (i > 0 && nums[i] == nums[i - 1] && is_used[i - 1])) {
+                continue;
+            }
+
+            // Choose number i.
+            is_used[i] = true;
+            temp.push_back(nums[i]);
+
+            // Explore what will follow that.
+            permuteUniqueUtil(temp, result, is_used, nums);
+
+            // Backtrack by unchoosing number i.
+            is_used[i] = false;
+            temp.pop_back();
+        }
+    }
+
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        // TODO    
+        // Sort nums to avoid duplicates.
+        sort(nums.begin(), nums.end());
+
+        // Apply backtracking.
+        vector<int> temp;
+        vector<vector<int>> result;
+
+        vector<bool> is_used;
+        for (int i = 0; i < nums.size(); i++) is_used.push_back(false);
+
+        permuteUniqueUtil(temp, result, is_used, nums);
+        return result;
     }
 };
 
 int main() {
+    vector<int> nums1 {1, 2, 1};
+    vector<vector<int>> result1 = Solution().permuteUnique(nums1);
+    Print2DVector(result1);
+
+    vector<int> nums2 {1, 2, 3};
+    vector<vector<int>> result2 = Solution().permuteUnique(nums2);
+    Print2DVector(result2);
+
     return 0;
 }
