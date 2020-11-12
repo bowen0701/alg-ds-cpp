@@ -4,11 +4,11 @@
 
 void SumDicesUtil(int n_dices, 
                   int sum,
-                  std::vector<int>& dices, 
+                  std::vector<int>& temp, 
                   std::vector<std::vector<int>>& result) {
   // Base case.
   if (n_dices == 0) {
-    if (sum == 0) result.push_back(dices);
+    if (sum == 0) result.push_back(temp);
     return;
   }
 
@@ -16,13 +16,13 @@ void SumDicesUtil(int n_dices,
   if (n_dices * 1 <= sum <= n_dices * 6) {
     for (int i = 1; i <= 6; i++) {
       // Choose i.
-      dices.push_back(i);
+      temp.push_back(i);
 
       // Explore what will follow that.
-      SumDicesUtil(n_dices - 1, sum - i, dices, result);
+      SumDicesUtil(n_dices - 1, sum - i, temp, result);
 
       // Backtracking: un-choose i.
-      dices.pop_back();
+      temp.pop_back();
     }
   }
 }
@@ -36,9 +36,9 @@ std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
   // - backtrack by un-choosing i
   // Time complexity: O(6^n).
   // Space complexity: O(6^n).
-  std::vector<int> dices;
+  std::vector<int> temp;
   std::vector<std::vector<int>> result;
-  SumDicesUtil(n_dices, sum, dices, result);
+  SumDicesUtil(n_dices, sum, temp, result);
   return result;
 }
 
