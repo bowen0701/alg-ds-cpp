@@ -6,6 +6,8 @@ void SumDicesUtil(int n_dices,
                   int sum,
                   std::vector<int>& temp, 
                   std::vector<std::vector<int>>& result) {
+  // Util for SumDices() by backtracking.
+
   // Base case.
   if (n_dices == 0) {
     if (sum == 0) result.push_back(temp);
