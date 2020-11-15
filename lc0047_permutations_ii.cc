@@ -49,7 +49,7 @@ public:
                 continue;
             }
 
-            // Choose i, explore what will follow that, and backtrack.
+            // Choose i, explore, and backtrack.
             is_used[i] = true;
             temp.push_back(nums[i]);
 
@@ -69,7 +69,8 @@ public:
         vector<vector<int>> result;
 
         vector<bool> is_used;
-        for (int i = 0; i < nums.size(); i++) is_used.push_back(false);
+        for (int i = 0; i < nums.size(); i++) 
+            is_used.push_back(false);
 
         permuteUniqueUtil(temp, result, is_used, nums);
         return result;
