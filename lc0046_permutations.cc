@@ -27,9 +27,10 @@ using namespace std;
 
 class Solution {
 public:
-    void permuteUtil(vector<int>& nums,
-                     vector<int>& temp,
-                     vector<std::vector<int>>& result) {
+    void permuteUtil(vector<int>& temp,
+                     vector<std::vector<int>>& result,
+                     vector<bool>& is_used,
+                     vector<int>& nums) {
         // Util for permute() by backtracking.
 
         // Base case.
@@ -40,12 +41,15 @@ public:
 
         for (int i = 0; i < nums.size(); i++) {
             // If nums[i] exists in temp vector, skip nums[i].
-            if (find(temp.begin(), temp.end(), nums[i]) != temp.end())
-                continue;
+            if (is_used[i]) continue;
 
-            // Choose i, explore what will follow that, and backtrack.
+            // Choose i, explore, and backtrack.
+            is_used[i] = true;
             temp.push_back(nums[i]);
-            permuteUtil(nums, temp, result);
+
+            permuteUtil(temp, result, is_used, nums);
+
+            is_used[i] = false;
             temp.pop_back();
         }
     }
@@ -56,7 +60,12 @@ public:
         // Space complexity: O(n*n!).
         vector<int> temp;
         vector<vector<int>> result;
-        permuteUtil(nums, temp, result);
+
+        vector<bool> is_used;
+        for (int i = 0; i < nums.size(); i++)
+            is_used.push_back(false);
+
+        permuteUtil(temp, result, is_used, nums);
         return result;
     }
 };
