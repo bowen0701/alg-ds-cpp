@@ -49,14 +49,12 @@ public:
                 continue;
             }
 
-            // Choose number i.
+            // Choose i, explore what will follow that, and backtrack.
             is_used[i] = true;
             temp.push_back(nums[i]);
 
-            // Explore what will follow that.
             permuteUniqueUtil(temp, result, is_used, nums);
 
-            // Backtrack by unchoosing number i.
             is_used[i] = false;
             temp.pop_back();
         }

@@ -43,13 +43,9 @@ public:
             if (find(temp.begin(), temp.end(), nums[i]) != temp.end())
                 continue;
 
-            // Choose nums[i].
+            // Choose i, explore what will follow that, and backtrack.
             temp.push_back(nums[i]);
-
-            // Explore what will follow that.
             permuteUtil(nums, temp, result);
-
-            // Backtrack by unchoosing nums[i].
             temp.pop_back();
         }
     }
