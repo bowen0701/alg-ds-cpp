@@ -31,7 +31,7 @@ using namespace std;
 class Solution {
 public:
     void permuteUniqueUtil(vector<int>& nums,
-                           vector<int>& temp,
+                           vector<int> temp,
                            vector<vector<int>>& result,
                            vector<bool>& is_used) {
         // Util for permuteUnique() by backtracking.
@@ -82,10 +82,12 @@ public:
 };
 
 int main() {
+    cout << "For [1, 2, 1]:" << endl;
     vector<int> nums1 {1, 2, 1};
     vector<vector<int>> result1 = Solution().permuteUnique(nums1);
     Print2DVector(result1);
 
+    cout << "For [1, 2, 3]:" << endl;
     vector<int> nums2 {1, 2, 3};
     vector<vector<int>> result2 = Solution().permuteUnique(nums2);
     Print2DVector(result2);

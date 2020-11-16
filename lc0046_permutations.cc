@@ -28,7 +28,7 @@ using namespace std;
 class Solution {
 public:
     void permuteUtil(vector<int>& nums,
-                     vector<int>& temp,
+                     vector<int> temp,
                      vector<std::vector<int>>& result,
                      vector<bool>& is_used) {
         // Util for permute() by backtracking.
