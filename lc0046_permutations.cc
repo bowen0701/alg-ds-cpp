@@ -27,10 +27,10 @@ using namespace std;
 
 class Solution {
 public:
-    void permuteUtil(vector<int>& temp,
+    void permuteUtil(vector<int>& nums,
+                     vector<int>& temp,
                      vector<std::vector<int>>& result,
-                     vector<bool>& is_used,
-                     vector<int>& nums) {
+                     vector<bool>& is_used) {
         // Util for permute() by backtracking.
 
         // Base case.
@@ -47,7 +47,7 @@ public:
             is_used[i] = true;
             temp.push_back(nums[i]);
 
-            permuteUtil(temp, result, is_used, nums);
+            permuteUtil(nums, temp, result, is_used);
 
             is_used[i] = false;
             temp.pop_back();
@@ -65,7 +65,7 @@ public:
         for (int i = 0; i < nums.size(); i++)
             is_used.push_back(false);
 
-        permuteUtil(temp, result, is_used, nums);
+        permuteUtil(nums, temp, result, is_used);
         return result;
     }
 };
