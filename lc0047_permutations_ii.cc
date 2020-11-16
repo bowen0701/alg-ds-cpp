@@ -61,6 +61,10 @@ public:
     }
 
     vector<vector<int>> permuteUnique(vector<int>& nums) {
+        // Permute numbers with duplicates.
+        // Time complexity: O(n*n!).
+        // Space complexity: O(n*n!).
+
         // Sort nums to avoid duplicates.
         sort(nums.begin(), nums.end());
 
