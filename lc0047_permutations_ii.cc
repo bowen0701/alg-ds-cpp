@@ -31,7 +31,7 @@ using namespace std;
 class Solution {
 public:
     void permuteUniqueUtil(vector<int>& nums,
-                           vector<int> temp,
+                           vector<int>& temp,
                            vector<vector<int>>& result,
                            vector<bool>& is_used) {
         // Util for permuteUnique() by backtracking.

@@ -4,7 +4,7 @@
 
 void SumDicesUtil(int n_dices, 
                   int sum,
-                  std::vector<int> temp, 
+                  std::vector<int>& temp, 
                   std::vector<std::vector<int>>& result) {
   // Util for SumDices() by backtracking.
 
