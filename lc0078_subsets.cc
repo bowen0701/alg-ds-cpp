@@ -47,7 +47,7 @@ public:
     }
 
     vector<vector<int>> subsets(vector<int>& nums) {
-        // Create subsets of numbers.
+        // Subsets of numbers.
         // Time complexity: O(n*2^n).
         // Space complexity: O(n*2^n).
         vector<int> temp;
