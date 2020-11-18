@@ -71,6 +71,15 @@ public:
 };
 
 int main() {
+    // Output:
+    // [
+    //   [1,2,3],
+    //   [1,3,2],
+    //   [2,1,3],
+    //   [2,3,1],
+    //   [3,1,2],
+    //   [3,2,1]
+    // ] 
     vector<int> nums {1, 2, 3};
     vector<vector<int>> result = Solution().permute(nums);
     Print2DVector(result);

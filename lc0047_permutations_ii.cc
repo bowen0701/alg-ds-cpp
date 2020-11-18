@@ -82,11 +82,16 @@ public:
 };
 
 int main() {
+    // Output:
+    // [[1,1,2],
+    //  [1,2,1],
+    //  [2,1,1]]
     cout << "For [1, 2, 1]:" << endl;
     vector<int> nums1 {1, 2, 1};
     vector<vector<int>> result1 = Solution().permuteUnique(nums1);
     Print2DVector(result1);
 
+    // Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
     cout << "For [1, 2, 3]:" << endl;
     vector<int> nums2 {1, 2, 3};
     vector<vector<int>> result2 = Solution().permuteUnique(nums2);
