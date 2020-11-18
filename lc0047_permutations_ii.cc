@@ -42,6 +42,7 @@ public:
             return;
         }
 
+        // Recursive case: Choose i, explore, and backtrack.
         for (int i = 0; i < nums.size(); i++) {
             // Skip number i if it's used or is the same as used (i-1).
             if (is_used[i] || 
@@ -49,7 +50,6 @@ public:
                 continue;
             }
 
-            // Choose i, explore, and backtrack.
             is_used[i] = true;
             temp.push_back(nums[i]);
 

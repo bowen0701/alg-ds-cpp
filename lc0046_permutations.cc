@@ -39,11 +39,11 @@ public:
             return;
         }
 
+        // Recursive case: Choose i, explore, and backtrack.
         for (int i = 0; i < nums.size(); i++) {
             // If nums[i] exists in temp vector, skip nums[i].
             if (is_used[i]) continue;
 
-            // Choose i, explore, and backtrack.
             is_used[i] = true;
             temp.push_back(nums[i]);
 

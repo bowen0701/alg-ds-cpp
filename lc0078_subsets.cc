@@ -38,7 +38,7 @@ public:
         // Base case.
         result.push_back(temp);
 
-        // Choose i, explore and backtrack.
+        // Recursive case: Choose i, explore and backtrack.
         for (int i = start; i < nums.size(); i++) {
             temp.push_back(nums[i]);
             subsetsUtil(nums, temp, result, i + 1);

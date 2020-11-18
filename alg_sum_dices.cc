@@ -14,10 +14,10 @@ void SumDicesUtil(int n_dices,
     return;
   }
 
-  // Recursive case: speed up by skipping wasteful explorations.
+  // Recursive case: Choose i, explore, and backtrack.
+  // Speed up by skipping wasteful explorations.
   if (n_dices * 1 <= sum <= n_dices * 6) {
     for (int i = 1; i <= 6; i++) {
-      // Choose i, explore, and backtrack.
       temp.push_back(i);
       SumDicesUtil(n_dices - 1, sum - i, temp, result);
       temp.pop_back();
