@@ -4,12 +4,15 @@
 
 void InsertionSort(std::vector<int>& nums) {
   // Insertion sort algorithm.
+  //
+  // Procedure:
+  // - Start from i>=1, 
+  // - Swap (nums[j-1], nums[j]) if not sorted, for j=i,..,1.
+  //
   // Time complexity: O(n^2).
   // Space complexity: O(1).
   int n = nums.size();
 
-  // Start from i>=1, 
-  // swap (nums[j-1], nums[j]) if not sorted, for j=i,..,1.
   for (int i = 1; i < n; i++) {
     for (int j = i; j >= 0; j--) {
       if (j > 0 && nums[j - 1] > nums[j]) {

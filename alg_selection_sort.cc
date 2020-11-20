@@ -4,12 +4,15 @@
 
 void SelectionSort(std::vector<int>& nums) {
   // Selection sort algorithm.
+  //
+  // Procedure:
+  // - Start reversely from pos=n-1,..1, 
+  // - Select next max num to swap with num at pos.
+  //
   // Time complexity: O(n^2).
   // Space complexity: O(1).
   int n = nums.size();
-
-  // Start reversely from pos=n-1,..1, 
-  // select next max num to swap with num at pos.  
+ 
   for (int i = n - 1; i >= 1; i--) {
     int i_max = 0;
     for (int j = 1; j <= i; j++) {

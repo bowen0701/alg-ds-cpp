@@ -4,12 +4,15 @@
 
 void BubbleSort(std::vector<int>& nums) {
   // Bubble sort algorithm.
+  // 
+  // Procedure:
+  // - Start from i=n-1,...,1, 
+  // - Swap (nums[j], nums[j+1]) if not sorted, for j=0,...,i-1.
+  //
   // Time complexity: O(n^2).
   // Space complexity: O(1).
   int n = nums.size();
 
-  // Start from i=n-1,...,1, 
-  // swap (nums[j], nums[j+1]) if not sorted, for j=0,...,i-1.
   for (int i = n - 1; i > 0; i--) {
     for (int j = 0; j < i; j++) {
       if (nums[j] > nums[j + 1]) {
