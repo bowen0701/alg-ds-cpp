@@ -30,11 +30,11 @@ using namespace std;
 
 class Solution {
 public:
-    void permuteUniqueUtil(vector<int>& nums,
-                           vector<int>& temp,
-                           vector<vector<int>>& result,
-                           vector<bool>& is_used) {
-        // Util for permuteUnique() by backtracking.
+    void dfsBacktrack(vector<int>& nums,
+                      vector<int>& temp,
+                      vector<vector<int>>& result,
+                      vector<bool>& is_used) {
+        // Util for permuteUnique() by DFS with backtracking.
 
         // Base case.
         if (temp.size() == nums.size()) {
@@ -53,7 +53,7 @@ public:
             is_used[i] = true;
             temp.push_back(nums[i]);
 
-            permuteUniqueUtil(nums, temp, result, is_used);
+            dfsBacktrack(nums, temp, result, is_used);
 
             is_used[i] = false;
             temp.pop_back();
@@ -76,7 +76,7 @@ public:
         for (int i = 0; i < nums.size(); i++) 
             is_used.push_back(false);
 
-        permuteUniqueUtil(nums, temp, result, is_used);
+        dfsBacktrack(nums, temp, result, is_used);
         return result;
     }
 };

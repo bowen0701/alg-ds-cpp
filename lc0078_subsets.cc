@@ -29,11 +29,11 @@ using namespace std;
 
 class Solution {
 public:
-    void subsetsUtil(vector<int>& nums,
-                     vector<int>& temp,
-                     vector<vector<int>>& result,
-                     int start) {
-        // Util for subsets() by backtracking.
+    void dfsBacktrack(vector<int>& nums,
+                      vector<int>& temp,
+                      vector<vector<int>>& result,
+                      int start) {
+        // Util for subsets() by DFS with backtracking.
 
         // Base case.
         result.push_back(temp);
@@ -41,7 +41,7 @@ public:
         // Recursive case: Choose i, explore and backtrack.
         for (int i = start; i < nums.size(); i++) {
             temp.push_back(nums[i]);
-            subsetsUtil(nums, temp, result, i + 1);
+            dfsBacktrack(nums, temp, result, i + 1);
             temp.pop_back();
         }
     }
@@ -53,7 +53,7 @@ public:
         vector<int> temp;
         vector<vector<int>> result;
         int start = 0;
-        subsetsUtil(nums, temp, result, start);
+        dfsBacktrack(nums, temp, result, start);
         return result;
     }
 };

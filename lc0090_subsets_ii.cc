@@ -29,11 +29,11 @@ using namespace std;
 
 class Solution {
 public:
-    void subsetsWithDupUtil(vector<int>& nums, 
-                            vector<int>& temp,
-                            vector<vector<int>>& result,
-                            int start) {
-        // Util for subsetsWithDup() by backtracking.
+    void dfsBacktrack(vector<int>& nums, 
+                      vector<int>& temp,
+                      vector<vector<int>>& result,
+                      int start) {
+        // Util for subsetsWithDup() by DFS with backtracking.
 
         // Base case.
         result.push_back(temp);
@@ -45,7 +45,7 @@ public:
             }
 
             temp.push_back(nums[i]);
-            subsetsWithDupUtil(nums, temp, result, i + 1);
+            dfsBacktrack(nums, temp, result, i + 1);
             temp.pop_back();
         }
     }
@@ -61,7 +61,7 @@ public:
         vector<int> temp;
         vector<vector<int>> result;
         int start = 0;
-        subsetsWithDupUtil(nums, temp, result, start);
+        dfsBacktrack(nums, temp, result, start);
         return result;
     }
 };

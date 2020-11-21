@@ -2,11 +2,11 @@
 #include <vector>
 #include "util.h"
 
-void SumDicesUtil(int n_dices, 
+void dfsBacktrack(int n_dices, 
                   int sum,
                   std::vector<int>& temp, 
                   std::vector<std::vector<int>>& result) {
-  // Util for SumDices() by backtracking.
+  // Util for SumDices() by DFS with backtracking.
 
   // Base case.
   if (n_dices == 0) {
@@ -19,7 +19,7 @@ void SumDicesUtil(int n_dices,
   if (n_dices * 1 <= sum <= n_dices * 6) {
     for (int i = 1; i <= 6; i++) {
       temp.push_back(i);
-      SumDicesUtil(n_dices - 1, sum - i, temp, result);
+      dfsBacktrack(n_dices - 1, sum - i, temp, result);
       temp.pop_back();
     }
   }
@@ -36,7 +36,7 @@ std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
   // Space complexity: O(6^n).
   std::vector<int> temp;
   std::vector<std::vector<int>> result;
-  SumDicesUtil(n_dices, sum, temp, result);
+  dfsBacktrack(n_dices, sum, temp, result);
   return result;
 }
 
