@@ -29,17 +29,103 @@ as shown above.
 */
 
 #include <vector>
+#include <string>
 #include "util.h"
 
 using namespace std;
 
 class Solution {
 public:
+    bool isValid(vector<int> queens) {
+        // Check current queen position is valid among previous queens.
+        int cur_row = queens.size() - 1;
+        int cur_col = queens[cur_row];
+
+        PrintVector(queens);
+
+        // Check any queens can attack the current queen.
+        for (int row = 0; row < cur_row - 1; row++) {
+            int col = queens[row];
+            int col_diff = abs(cur_col - col);
+            int row_diff = abs(cur_row - row);
+
+            // If two queens are in the same column or diagonal.
+            if (col_diff == 0 || col_diff == row_diff)
+                cout << "false" << endl;
+                return false;
+        }
+
+        cout << "true" << endl;
+        return true; 
+    }
+
+    void dfsBacktrack(int n, 
+                      vector<int>& queens,
+                      vector<vector<int>>& result) {
+        // DFS with backtracking.
+        // Base case.
+        if (queens.size() == n) {
+            result.push_back(queens);
+            return;
+        }
+
+        // Recursive case: choose i, explore and backtrack.
+        for (int col = 0; col < n; col++) {
+            queens.push_back(col);
+
+            if (isValid(queens))
+                dfsBacktrack(n, queens, result);
+
+            queens.pop_back();
+        }
+    }
+
+    vector<vector<string>> resultToStrings(int n,
+                                           vector<vector<int>>& result) {
+        // Convert result to strings.
+        vector<vector<string>> resultStrings;
+
+        for (auto queens : result) {
+            vector<string> strings;
+
+            for (auto i : queens) {
+                int queen_col = queens[i];
+                string s = string(queen_col, '.') + 
+                           'Q' + 
+                           string(n - queen_col - 1, '.');
+                strings.push_back(s);
+            }
+
+            resultStrings.push_back(strings);
+        }
+
+        return resultStrings;
+    }
+
     vector<vector<string>> solveNQueens(int n) {
-        // TODO
+        vector<vector<int>> result;
+        vector<int> queens;
+        dfsBacktrack(n, queens, result);
+        Print2DVector(result);
+        cout << "---" << endl;
+        return resultToStrings(n, result);
     }
 };
 
 int main() {
+    // Output: [
+    // [".Q..",  // Solution 1
+    //  "...Q",
+    //  "Q...",
+    //  "..Q."],
+    // ["..Q.",  // Solution 2
+    //  "Q...",
+    //  "...Q",
+    //  ".Q.."]
+    // ]
+    int n = 4;
+    vector<vector<string>> resultStrings = Solution().solveNQueens(n);
+    Print2DStringVector(resultStrings);
+
     return 0;
 }
