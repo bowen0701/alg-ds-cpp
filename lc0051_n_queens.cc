@@ -36,26 +36,22 @@ using namespace std;
 
 class Solution {
 public:
-    bool isValid(vector<int> queens) {
+    bool isValid(vector<int>& queens) {
         // Check current queen position is valid among previous queens.
         int cur_row = queens.size() - 1;
         int cur_col = queens[cur_row];
 
-        PrintVector(queens);
-
         // Check any queens can attack the current queen.
-        for (int row = 0; row < cur_row - 1; row++) {
+        for (int row = 0; row < cur_row; row++) {
             int col = queens[row];
             int col_diff = abs(cur_col - col);
             int row_diff = abs(cur_row - row);
 
             // If two queens are in the same column or diagonal.
             if (col_diff == 0 || col_diff == row_diff)
-                cout << "false" << endl;
                 return false;
         }
 
-        cout << "true" << endl;
         return true; 
     }
 
@@ -72,10 +68,8 @@ public:
         // Recursive case: choose i, explore and backtrack.
         for (int col = 0; col < n; col++) {
             queens.push_back(col);
-
             if (isValid(queens))
                 dfsBacktrack(n, queens, result);
-
             queens.pop_back();
         }
     }
@@ -87,15 +81,12 @@ public:
 
         for (auto queens : result) {
             vector<string> strings;
-
-            for (auto i : queens) {
-                int queen_col = queens[i];
-                string s = string(queen_col, '.') + 
+            for (auto col : queens) {
+                string s = string(col, '.') + 
                            'Q' + 
-                           string(n - queen_col - 1, '.');
+                           string(n - col - 1, '.');
                 strings.push_back(s);
             }
-
             resultStrings.push_back(strings);
         }
 
@@ -106,8 +97,6 @@ public:
         vector<vector<int>> result;
         vector<int> queens;
         dfsBacktrack(n, queens, result);
-        Print2DVector(result);
-        cout << "---" << endl;
         return resultToStrings(n, result);
     }
 };
