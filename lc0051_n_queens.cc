@@ -94,6 +94,9 @@ public:
     }
 
     vector<vector<string>> solveNQueens(int n) {
+        // Solve N-Queens.
+        // Time complexity: O(n!).
+        // Space complexity: O(n).
         vector<vector<int>> result;
         vector<int> queens;
         dfsBacktrack(n, queens, result);
