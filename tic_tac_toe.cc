@@ -13,8 +13,8 @@ const char kEmpty = ' ';
 
 class Board {
  public:
+  // Board's constructor.
   Board() {
-    // Board's constructor.
     for (int r = 0; r < kNRows; r++) {
       for (int c = 0; c < kNCols; c++) {
         board_[r][c] = kEmpty;
@@ -23,13 +23,13 @@ class Board {
     winner_ = kEmpty;
   }
 
+  // Get winner.
   char winner() {
-    // Get winner.
     return winner_;
   }
 
+  // Check (row, col) is out of boundary.
   int SetNextState(int& row, int& col, char symbol) {
-    // Check (row, col) is out of boundary.
     if (row < 0 || row >= kNRows || col < 0 || col >= kNCols) {
       std::cout << "The position (" << row << ", " << col 
         << ") is out of boundary. ";
@@ -47,8 +47,8 @@ class Board {
     }
   }
 
+  // Judge winner by checking rows, columns, and diagonals.
   int JudgeWinner() {
-    // Judge winner by checking rows, columns, and diagonals.
     if (CheckRows() != kEmpty or
         CheckCols() != kEmpty or
         CheckDiags() != kEmpty) {
@@ -57,8 +57,8 @@ class Board {
     return 0;
   }
 
+  // Show board.
   void ShowBoard() {
-    // Show board.
     std::cout << "Board:" << std::endl;
     std::string cap = " -";
     std::string col_ids = "  ";
@@ -83,8 +83,8 @@ class Board {
     kNRows, std::vector<char>(kNCols)};
   char winner_;
 
+  // Check rows for winner.
   char CheckRows() {
-    // Check rows for winner.
     int n_crosses = 0;
     int n_circles = 0;
 
@@ -110,8 +110,8 @@ class Board {
     return winner_;
   }
 
+  // Check columns for winner.
   char CheckCols() {
-    // Check columns for winner.
     int n_crosses = 0;
     int n_circles = 0;
 
@@ -137,8 +137,8 @@ class Board {
     return winner_;
   }
 
+  // Check diagonals for winner.
   char CheckDiags() {
-    // Check diagonals for winner.
     int n_crosses_diag1 = 0, n_crosses_diag2 = 0;
     int n_circles_diag1 = 0, n_circles_diag2 = 0;
 
@@ -165,16 +165,16 @@ class Board {
   }
 };
 
+// Get user names.
 void GetUserNames(std::string& user1, std::string& user2) {
-  // Get user names.
   std::cout << "Input user1's name: ";
   std::cin >> user1;
   std::cout << "Input user2's name: ";
   std::cin >> user2;
 }
 
+// Get user's play position.
 void GetUserPlay(std::string& user, int& row, int& col) {
-  // Get user's play position.
   std::cout << "User " << user << ", please select a position:" 
     << std::endl;
   std::cout << "- Enter an integer between 0 and " << kNRows - 1 

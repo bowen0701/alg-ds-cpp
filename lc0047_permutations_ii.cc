@@ -30,12 +30,11 @@ using namespace std;
 
 class Solution {
 public:
+    // Util for permuteUnique() by DFS with backtracking.
     void dfsBacktrack(vector<int>& nums,
                       vector<int>& temp,
                       vector<vector<int>>& result,
                       vector<bool>& is_used) {
-        // Util for permuteUnique() by DFS with backtracking.
-
         // Base case.
         if (temp.size() == nums.size()) {
             result.push_back(temp);
@@ -60,11 +59,11 @@ public:
         }
     }
 
+    // Permute numbers with duplicates.
+    //
+    // Time complexity: O(n*n!).
+    // Space complexity: O(n*n!).
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        // Permute numbers with duplicates.
-        // Time complexity: O(n*n!).
-        // Space complexity: O(n*n!).
-
         // Sort nums to avoid duplicates.
         sort(nums.begin(), nums.end());
 

@@ -2,9 +2,9 @@
 #include <vector>
 
 void MergeSort(std::vector<int>& nums) {
-	// TODO
+  // TODO
 }
 
 int main() {
-	return 0;
+  return 0;
 }

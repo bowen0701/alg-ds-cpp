@@ -29,12 +29,11 @@ using namespace std;
 
 class Solution {
 public:
+    // Util for subsetsWithDup() by DFS with backtracking.
     void dfsBacktrack(vector<int>& nums, 
                       vector<int>& temp,
                       vector<vector<int>>& result,
                       int start) {
-        // Util for subsetsWithDup() by DFS with backtracking.
-
         // Base case.
         result.push_back(temp);
 
@@ -50,14 +49,15 @@ public:
         }
     }
 
+    // Subsets with duplicates.
+    //
+    // Time complexity: O(n*2^n).
+    // Space complexity: O(n*2^n).
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        // Subsets with duplicates.
-        // Time complexity: O(n*2^n).
-        // Space complexity: O(n*2^n).
-
         // Sort nums to avoid duplicates.
         sort(nums.begin(), nums.end());
 
+        // Apply DFS backtracking.
         vector<int> temp;
         vector<vector<int>> result;
         int start = 0;

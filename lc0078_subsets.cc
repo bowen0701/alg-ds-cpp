@@ -29,12 +29,11 @@ using namespace std;
 
 class Solution {
 public:
+    // Util for subsets() by DFS with backtracking.
     void dfsBacktrack(vector<int>& nums,
                       vector<int>& temp,
                       vector<vector<int>>& result,
                       int start) {
-        // Util for subsets() by DFS with backtracking.
-
         // Base case.
         result.push_back(temp);
 
@@ -46,10 +45,11 @@ public:
         }
     }
 
+    // Subsets of numbers.
+    //
+    // Time complexity: O(n*2^n).
+    // Space complexity: O(n*2^n).
     vector<vector<int>> subsets(vector<int>& nums) {
-        // Subsets of numbers.
-        // Time complexity: O(n*2^n).
-        // Space complexity: O(n*2^n).
         vector<int> temp;
         vector<vector<int>> result;
         int start = 0;

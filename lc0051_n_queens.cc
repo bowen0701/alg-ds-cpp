@@ -36,8 +36,8 @@ using namespace std;
 
 class Solution {
 public:
+    // Check current queen position is valid among previous queens.
     bool isValid(vector<int>& queens) {
-        // Check current queen position is valid among previous queens.
         int cur_row = queens.size() - 1;
         int cur_col = queens[cur_row];
 
@@ -55,10 +55,10 @@ public:
         return true; 
     }
 
+    // DFS with backtracking.
     void dfsBacktrack(int n, 
                       vector<int>& queens,
                       vector<vector<int>>& result) {
-        // DFS with backtracking.
         // Base case.
         if (queens.size() == n) {
             result.push_back(queens);
@@ -74,9 +74,9 @@ public:
         }
     }
 
+    // Convert result to strings.
     vector<vector<string>> resultToStrings(int n,
                                            vector<vector<int>>& result) {
-        // Convert result to strings.
         vector<vector<string>> resultStrings;
 
         for (auto queens : result) {
@@ -93,10 +93,11 @@ public:
         return resultStrings;
     }
 
+    // Solve N-Queens.
+    //
+    // Time complexity: O(n!).
+    // Space complexity: O(n).
     vector<vector<string>> solveNQueens(int n) {
-        // Solve N-Queens.
-        // Time complexity: O(n!).
-        // Space complexity: O(n).
         vector<vector<int>> result;
         vector<int> queens;
         dfsBacktrack(n, queens, result);

@@ -2,15 +2,15 @@
 #include <vector>
 #include <random>
 
+// Insertion sort algorithm.
+//
+// Procedure:
+// - Start from i>=1, 
+// - Swap (nums[j-1], nums[j]) if not sorted, for j=i,..,1.
+//
+// Time complexity: O(n^2).
+// Space complexity: O(1).
 void InsertionSort(std::vector<int>& nums) {
-  // Insertion sort algorithm.
-  //
-  // Procedure:
-  // - Start from i>=1, 
-  // - Swap (nums[j-1], nums[j]) if not sorted, for j=i,..,1.
-  //
-  // Time complexity: O(n^2).
-  // Space complexity: O(1).
   int n = nums.size();
 
   for (int i = 1; i < n; i++) {

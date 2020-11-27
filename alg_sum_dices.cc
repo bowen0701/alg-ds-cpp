@@ -2,12 +2,11 @@
 #include <vector>
 #include "util.h"
 
+// Util for SumDices() by DFS with backtracking.
 void dfsBacktrack(int n_dices, 
                   int sum,
                   std::vector<int>& temp, 
                   std::vector<std::vector<int>>& result) {
-  // Util for SumDices() by DFS with backtracking.
-
   // Base case.
   if (n_dices == 0) {
     if (sum == 0) result.push_back(temp);
@@ -25,15 +24,17 @@ void dfsBacktrack(int n_dices,
   }
 }
 
+// List n_dices where their sums equal to sum. 
+// For example: n_dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
+//
+// Procedure: for each element i
+// - choose i
+// - explore
+// - backtrack by un-choosing i
+//
+// Time complexity: O(6^n).
+// Space complexity: O(6^n).
 std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
-  // List n_dices where their sums equal to sum. 
-  // For example: n_dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
-  // Procedure: for each element i
-  // - choose i
-  // - explore
-  // - backtrack by un-choosing i
-  // Time complexity: O(6^n).
-  // Space complexity: O(6^n).
   std::vector<int> temp;
   std::vector<std::vector<int>> result;
   dfsBacktrack(n_dices, sum, temp, result);

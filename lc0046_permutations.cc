@@ -27,12 +27,11 @@ using namespace std;
 
 class Solution {
 public:
+    // Util for permute() by DFS with backtracking.
     void dfsBacktrack(vector<int>& nums,
                       vector<int>& temp,
                       vector<std::vector<int>>& result,
                       vector<bool>& is_used) {
-        // Util for permute() by DFS with backtracking.
-
         // Base case.
         if (temp.size() == nums.size()) {
             result.push_back(temp);
@@ -54,10 +53,11 @@ public:
         }
     }
 
+    // Permute numbers.
+    //
+    // Time complexity: O(n*n!).
+    // Space complexity: O(n*n!).
     vector<vector<int>> permute(vector<int>& nums) {
-        // Permute numbers.
-        // Time complexity: O(n*n!).
-        // Space complexity: O(n*n!).
         vector<int> temp;
         vector<vector<int>> result;
 

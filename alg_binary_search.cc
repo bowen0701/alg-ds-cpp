@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 
+// Binary search by iteration.
+//
+// Time complexity: O(logn).
+// Space complexity: O(1).
 bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
-  // Binary search by iteration.
-  // Time complexity: O(logn).
-  // Space complexity: O(1).
   int left = 0;
   int right = sorted_nums.size() - 1;
 

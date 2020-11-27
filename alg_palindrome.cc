@@ -1,13 +1,12 @@
-// Palindrome: the string is read the same forwards & backwards.
-
 #include <iostream>
 #include <vector>
 
+// Palindrome: the string is read the same forwards & backwards.
+// Palindrome by recursion.
+//
+// Time complexity: O(n^2), where n is the length of s.
+// Space complexity: O(n).
 bool PalindromeRecur(std::string& s) {
-  // Palindrome by recursion.
-  // Time complexity: O(n^2), where n is the length of s.
-  // Space complexity: O(n).
-
   // Base case.
   if (s.length() <= 1) {
       return true;
@@ -18,11 +17,11 @@ bool PalindromeRecur(std::string& s) {
   return s[0] == s[s.length() - 1] && PalindromeRecur(s_sub);
 }
 
+// Palindrome by iteration.
+//
+// Time complexity: O(n), where n is the length of s.
+// Space complexity: O(1).
 bool PalindromeIter(std::string& s) {
-  // Palindrome by iteration.
-  // Time complexity: O(n), where n is the length of s.
-  // Space complexity: O(1).
-
   // Base case.
   if (s.length() <= 1)
     return true;

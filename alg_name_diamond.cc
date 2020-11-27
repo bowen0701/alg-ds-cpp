@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+
+// Name diamond.
 // Print name diamond on console.
 // For name = BOWENLI, output:
 // B
@@ -13,16 +17,10 @@
 //     NLI
 //      LI
 //       I
-
-#include <iostream>
-#include <string>
-
+//
+// Time complexity: O(n^2), where n is the length of name.
+// Space complexity: O(1).
 void NameDiamond(std::string& name) {
-  // Name diamond.
-  //
-  // Time complexity: O(n^2), where n is the length of name.
-  // Space complexity: O(1).
-
   // Print the 1st half.
   for (int i = 0; i < name.length(); i++) {
     std::cout << name.substr(0, i + 1) << std::endl;

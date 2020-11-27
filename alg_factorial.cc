@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 
+// Factorial by recursion.
+//
+// Time complexity: O(n).
+// Space complexity: O(n).
 int FactorialRecur(int n) {
-  // Factorial by recursion.
-  // Time complexity: O(n).
-  // Space complexity: O(n).
   if (n <= 1)
     return 1;
   
@@ -23,10 +24,11 @@ int FactorialMemoUtil(int n, std::vector<int>& T) {
   return T[n];
 }
 
+// Factorial by top-down recursion w/ memoization.
+//
+// Time complexity: O(n).
+// Space complexity: O(n).
 int FactorialMemo(int n) {
-  // Factorial by top-down recursion w/ memoization.
-  // Time complexity: O(n).
-  // Space complexity: O(n).
   std::vector<int> T(n + 1, 0);
   T[0] = 1;
   T[1] = 1;
@@ -34,10 +36,11 @@ int FactorialMemo(int n) {
   return FactorialMemoUtil(n, T);
 }
 
+// Factorial by bottom-up dynamic programming.
+//
+// Time complexity: O(n).
+// Space complexity: O(n).
 int FactorialDp(int n) {
-  // Factorial by bottom-up dynamic programming.
-  // Time complexity: O(n).
-  // Space complexity: O(n).
   std::vector<int> T(n + 1, 0);
   T[0] = 1;
   T[1] = 1;
@@ -48,10 +51,11 @@ int FactorialDp(int n) {
   return T[n];
 }
 
+// Factorial by bottom-up dynamic programming w/ optimized space.
+//
+// Time complexity: O(n).
+// Space complexity: O(1).
 int FactorialIter(int n) {
-  // Factorial by bottom-up dynamic programming w/ optimized space.
-  // Time complexity: O(n).
-  // Space complexity: O(1).
   int fact = 1;
 
   if (n <= 1)
