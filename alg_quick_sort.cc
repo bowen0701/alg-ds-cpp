@@ -100,10 +100,12 @@ void QuickSortInPlace(std::vector<int>& nums) {
 int main() {
   std::vector<int> nums1 = {5, 2, 3, 1, 4};
   std::vector<int> result1 = QuickSortByNewVector(nums1);
+  std::cout << "By QuickSortByNewVector:" << std::endl;
   PrintVector(result1);
 
   std::vector<int> nums2 = {5, 2, 3, 1, 4};
   QuickSortInPlace(nums2);
+  std::cout << "By QuickSortInPlace:" << std::endl;
   PrintVector(nums2);
 
   return 0;
