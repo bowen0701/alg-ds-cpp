@@ -2,15 +2,19 @@
 #include <vector>
 #include "util.h"
 
-// Merge sort algorithm by divide and conquer.
-//
-// Two merge sorted list methods:
-// - Merge by recursion.
-// - Merge by iteration with two pointers.
+// Merge sort algorithm by recursively merging two sorted numbers.
 //
 // Time complexity: O(n*logn).
 // Space complexity: O(n).
-void MergeSort(std::vector<int>& nums) {
+void MergeSortRecur(std::vector<int>& nums) {
+  // TODO
+}
+
+// Merge sort algorithm by iteratively merging two sorted numbers.
+//
+// Time complexity: O(n*logn).
+// Space complexity: O(n).
+void MergeSortIter(std::vector<int>& nums) {
   // TODO
 }
 
