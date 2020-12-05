@@ -22,12 +22,12 @@ std::vector<int> MergeSortedVectorsRecur(
   std::vector<int> result, result2;
   if (sorted1[0] <= sorted2[0]) {
     result = std::vector<int>(sorted1.begin(), sorted1.begin() + 1);
-    std::vector<int> temp(sorted1.begin() + 1, sorted1.end());
-    result2 = MergeSortedVectorsRecur(temp, sorted2);
+    std::vector<int> sorted1_right(sorted1.begin() + 1, sorted1.end());
+    result2 = MergeSortedVectorsRecur(sorted1_right, sorted2);
   } else {
     result = std::vector<int>(sorted2.begin(), sorted2.begin() + 1);
-    std::vector<int> temp(sorted2.begin() + 1, sorted2.end());
-    result2 = MergeSortedVectorsRecur(sorted1, temp);
+    std::vector<int> sorted2_right(sorted2.begin() + 1, sorted2.end());
+    result2 = MergeSortedVectorsRecur(sorted1, sorted2_right);
   }
   result.insert(result.end(), result2.begin(), result2.end());
   return result;
@@ -51,7 +51,7 @@ std::vector<int> MergeSortRecur(std::vector<int>& nums) {
 }
 
 int main() {
-  std::vector<int> nums = {};
+  std::vector<int> nums = {5, 2, 3, 1, 4};
   std::vector<int> result = MergeSortRecur(nums);
   std::cout << "By MergeSortRecur:" << std::endl;
   PrintVector(result);
