@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
 template<typename T>
 void PrintVector(std::vector<T>& vec) {
