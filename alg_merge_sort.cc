@@ -50,6 +50,32 @@ std::vector<int> MergeSortRecur(std::vector<int>& nums) {
   return MergeSortedVectorsRecur(sorted1, sorted2);
 }
 
+// Helper method for MergeSortIter().
+// Merge two sorted vectors.
+std::vector<int> MergeSortedVectorsIter(
+  std::vector<int>& sorted1, 
+  std::vector<int>& sorted2) {
+  // TODO
+}
+
+// Merge sort algorithm by iteratively merging two sorted numbers.
+//
+// Time complexity: O(n*logn).
+// Space complexity: O(n).
+std::vector<int> MergeSortIter(std::vector<int>& nums) {
+  // Base case.
+  if (nums.size() <= 1) return nums;
+
+  // Sort the 1st & 2nd halves respectively and merge them.
+  auto mid = nums.size() / 2;
+  std::vector<int> left(nums.begin(), nums.begin() + mid);
+  std::vector<int> right(nums.begin() + mid, nums.end());
+  auto sorted1 = MergeSortIter(left);
+  auto sorted2 = MergeSortIter(right);
+  // return MergeSortedVectorsIter(sorted1, sorted2);
+  // TODO
+}
+
 int main() {
   std::vector<int> nums = {5, 2, 3, 1, 4};
   std::vector<int> result = MergeSortRecur(nums);
