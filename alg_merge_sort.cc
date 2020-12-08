@@ -65,7 +65,7 @@ std::vector<int> MergeSortedVectorsIter(
   int n = n1 + n2;
 
   for (int k = 0; k < n; k++) {
-    if (i <= n1 && j <= n2) {
+    if (i < n1 && j < n2) {
       if (sorted1[i] <= sorted2[j]) {
         result.push_back(sorted1[i]);
         i++;
@@ -73,10 +73,10 @@ std::vector<int> MergeSortedVectorsIter(
         result.push_back(sorted2[j]);
         j++;
       }
-    } else if (i <= n1 && j > n2) {
+    } else if (i < n1 && j >= n2) {
       result.push_back(sorted1[i]);
       i++;
-    } else if (i > n1 && j <= n2) {
+    } else if (i >= n1 && j < n2) {
       result.push_back(sorted2[j]);
       j++;
     }
