@@ -3,7 +3,7 @@
 #include "util.h"
 
 // Helper method for MergeSortRecur().
-// Merge two sorted vectors.
+// Merge two sorted vectors by recursion.
 std::vector<int> MergeSortedVectorsRecur(
   std::vector<int>& sorted1, 
   std::vector<int>& sorted2) {
@@ -55,7 +55,7 @@ std::vector<int> MergeSortRecur(std::vector<int>& nums) {
 std::vector<int> MergeSortedVectorsIter(
   std::vector<int>& sorted1, 
   std::vector<int>& sorted2) {
-  // TODO
+  
 }
 
 // Merge sort algorithm by iteratively merging two sorted numbers.
@@ -72,8 +72,7 @@ std::vector<int> MergeSortIter(std::vector<int>& nums) {
   std::vector<int> right(nums.begin() + mid, nums.end());
   auto sorted1 = MergeSortIter(left);
   auto sorted2 = MergeSortIter(right);
-  // return MergeSortedVectorsIter(sorted1, sorted2);
-  // TODO
+  return MergeSortedVectorsIter(sorted1, sorted2);
 }
 
 int main() {
