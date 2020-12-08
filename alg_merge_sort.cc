@@ -51,11 +51,38 @@ std::vector<int> MergeSortRecur(std::vector<int>& nums) {
 }
 
 // Helper method for MergeSortIter().
-// Merge two sorted vectors.
+// Merge two sorted vectors by iteration.
 std::vector<int> MergeSortedVectorsIter(
   std::vector<int>& sorted1, 
   std::vector<int>& sorted2) {
-  
+  // Apply two pointer method.
+  int i = 0, j = 0;
+  std::vector<int> result;
+
+  // Iteratively select small number to put into result.
+  int n1 = sorted1.size();
+  int n2 = sorted2.size();
+  int n = n1 + n2;
+
+  for (int k = 0; k < n; k++) {
+    if (i <= n1 && j <= n2) {
+      if (sorted1[i] <= sorted2[j]) {
+        result.push_back(sorted1[i]);
+        i++;
+      } else {
+        result.push_back(sorted2[j]);
+        j++;
+      }
+    } else if (i <= n1 && j > n2) {
+      result.push_back(sorted1[i]);
+      i++;
+    } else if (i > n1 && j <= n2) {
+      result.push_back(sorted2[j]);
+      j++;
+    }
+  }
+
+  return result;
 }
 
 // Merge sort algorithm by iteratively merging two sorted numbers.
@@ -77,9 +104,14 @@ std::vector<int> MergeSortIter(std::vector<int>& nums) {
 
 int main() {
   std::vector<int> nums = {5, 2, 3, 1, 4};
-  std::vector<int> result = MergeSortRecur(nums);
+
+  std::vector<int> result1 = MergeSortRecur(nums);
   std::cout << "By MergeSortRecur:" << std::endl;
-  PrintVector(result);
+  PrintVector(result1);
+
+  std::vector<int> result2 = MergeSortIter(nums);
+  std::cout << "By MergeSortIter:" << std::endl;
+  PrintVector(result2);
 
   return 0;
 }
