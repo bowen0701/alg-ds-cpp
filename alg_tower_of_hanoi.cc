@@ -6,9 +6,7 @@
 // height = 3: 3 + 1 + 3 = 7 steps,
 // height = 4: 7 + 1 + 7 = 15 steps,
 // and so on.
-// 
 // TowerOfHanoi(n) = 2^n - 1.
-//
 // Time complexity: T(1) = 1, T(n) = 2T(n - 1) + 1 => O(2^n).
 // Space complexity: O(1).
 void TowerOfHanoi(int height, 

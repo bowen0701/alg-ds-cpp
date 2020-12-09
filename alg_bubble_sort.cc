@@ -3,11 +3,9 @@
 #include <random>
 
 // Bubble sort algorithm.
-// 
 // Procedure:
 // - Start from i=n-1,...,1, 
 // - Swap (nums[j], nums[j+1]) if not sorted, for j=0,...,i-1.
-//
 // Time complexity: O(n^2).
 // Space complexity: O(1).
 void BubbleSort(std::vector<int>& nums) {

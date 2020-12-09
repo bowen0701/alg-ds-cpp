@@ -4,7 +4,6 @@
 
 // Mirror a deque and append to it.
 // Example: {'a', 'b', 'c'} => {'a', 'b', 'c', 'c', 'b', 'a'}
-//
 // Time complexity: O(n), where n is the size of deque.
 // Space complexity: O(n).
 void Mirror(std::deque<char>& deque) {

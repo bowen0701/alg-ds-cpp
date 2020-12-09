@@ -60,7 +60,6 @@ public:
     }
 
     // Permute numbers with duplicates.
-    //
     // Time complexity: O(n*n!).
     // Space complexity: O(n*n!).
     vector<vector<int>> permuteUnique(vector<int>& nums) {

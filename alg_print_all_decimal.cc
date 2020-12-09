@@ -16,7 +16,6 @@ void PrintAllDecimalUtil(int n_digits, std::string result) {
 
 // Print all decimal by exaustive search.
 // Example: PrintAllBinary(): 00, 01, 02,..., 99.
-//
 // Time complexity: O(10^n), where n is n_digits.
 // Space complexity: O(10^n).
 void PrintAllDecimal(int n_digits) {

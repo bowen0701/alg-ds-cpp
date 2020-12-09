@@ -3,11 +3,9 @@
 #include <random>
 
 // Selection sort algorithm.
-//
 // Procedure:
 // - Start reversely from pos=n-1,..1, 
 // - Select next max num to swap with num at pos.
-//
 // Time complexity: O(n^2).
 // Space complexity: O(1).
 void SelectionSort(std::vector<int>& nums) {

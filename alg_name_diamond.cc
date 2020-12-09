@@ -17,7 +17,6 @@
 //     NLI
 //      LI
 //       I
-//
 // Time complexity: O(n^2), where n is the length of name.
 // Space complexity: O(1).
 void NameDiamond(std::string& name) {

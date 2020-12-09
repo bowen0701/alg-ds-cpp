@@ -94,7 +94,6 @@ public:
     }
 
     // Solve N-Queens.
-    //
     // Time complexity: O(n!).
     // Space complexity: O(n).
     vector<vector<string>> solveNQueens(int n) {

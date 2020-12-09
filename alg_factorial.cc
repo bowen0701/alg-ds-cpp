@@ -2,7 +2,6 @@
 #include <vector>
 
 // Factorial by recursion.
-//
 // Time complexity: O(n).
 // Space complexity: O(n).
 int FactorialRecur(int n) {
@@ -12,8 +11,8 @@ int FactorialRecur(int n) {
   return n * FactorialRecur(n - 1);
 }
 
+// Helper function for FactorialMemo().
 int FactorialMemoUtil(int n, std::vector<int>& T) {
-  // Helper function for FactorialMemo().
   if (T[n] > 0)
     return T[n];
 
@@ -25,7 +24,6 @@ int FactorialMemoUtil(int n, std::vector<int>& T) {
 }
 
 // Factorial by top-down recursion w/ memoization.
-//
 // Time complexity: O(n).
 // Space complexity: O(n).
 int FactorialMemo(int n) {
@@ -37,7 +35,6 @@ int FactorialMemo(int n) {
 }
 
 // Factorial by bottom-up dynamic programming.
-//
 // Time complexity: O(n).
 // Space complexity: O(n).
 int FactorialDp(int n) {
@@ -52,7 +49,6 @@ int FactorialDp(int n) {
 }
 
 // Factorial by bottom-up dynamic programming w/ optimized space.
-//
 // Time complexity: O(n).
 // Space complexity: O(1).
 int FactorialIter(int n) {

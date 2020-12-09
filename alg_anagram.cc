@@ -6,7 +6,6 @@
 #include <vector>
 
 // Anagram by iteration.
-//
 // Time complexity: O(n^2).
 // Space complexity: O(n).
 bool AnagramIter(std::string& str1, std::string& str2) {

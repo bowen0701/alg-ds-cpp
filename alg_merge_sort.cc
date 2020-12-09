@@ -34,7 +34,6 @@ std::vector<int> MergeSortedVectorsRecur(
 }
 
 // Merge sort algorithm by recursively merging two sorted numbers.
-//
 // Time complexity: O(n*logn).
 // Space complexity: O(n).
 std::vector<int> MergeSortRecur(std::vector<int>& nums) {
@@ -86,7 +85,6 @@ std::vector<int> MergeSortedVectorsIter(
 }
 
 // Merge sort algorithm by iteratively merging two sorted numbers.
-//
 // Time complexity: O(n*logn).
 // Space complexity: O(n).
 std::vector<int> MergeSortIter(std::vector<int>& nums) {

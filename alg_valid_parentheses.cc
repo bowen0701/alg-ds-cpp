@@ -5,7 +5,6 @@
 #include <string>
 
 // Valide parentheses.
-//
 // Time complexity: O(n), where n is the lenght of s.
 // Space complexity: O(n).
 bool ValideParentheses(std::string s) {

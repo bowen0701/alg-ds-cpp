@@ -15,7 +15,6 @@ void PrintAllBinaryUtil(int n_digits, std::string result) {
 
 // Print all binary by exaustive search.
 // Example: PrintAllBinary(2): 00, 01, 10, 11.
-//
 // Time complexity: O(2^n), where n is n_digits.
 // Space complexity: O(2^n).
 void PrintAllBinary(int n_digits) {

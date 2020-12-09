@@ -4,7 +4,6 @@
 const std::string kDigits = "0123456789ABCDEF";
 
 // Convert decimal to base by iteration.
-//
 // Time complexity: O(d/b).
 // Space complexity: O(d/b).
 std::string DecimalToBaseIter(int decimal, int base) {

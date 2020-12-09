@@ -2,7 +2,6 @@
 #include <vector>
 
 // Fibonacci series by top-down recursion.
-//
 // Time complexity: O(2^n).
 // Space complexity: O(n).
 int FibonacciRecur(int n) {
@@ -25,7 +24,6 @@ int FibonacciMemoUtil(int n, std::vector<int>& T) {
 }
 
 // Fibonacci series by top-down memoization.
-//
 // Time complexity: O(n).
 // Space complexity: O(n).
 int FibonacciMemo(int n) {
@@ -37,7 +35,6 @@ int FibonacciMemo(int n) {
 }
 
 // Fibonacci series by bottom-up dynamic programming.
-//
 // Time complexity: O(n).
 // Space complexity: O(n).
 int FibonacciDp(int n) {
@@ -55,10 +52,10 @@ int FibonacciDp(int n) {
   return T[n];
 }
 
+// Fibonacci series by bottom-up iteration w/ optimizaed space.
+// Time complexity: O(n).
+// Space complexity: O(1).
 int FibonacciIter(int n) {
-  // Fibonacci series by bottom-up iteration w/ optimizaed space.
-  // Time complexity: O(n).
-  // Space complexity: O(1).
   if (n <= 1)
     return n;
 

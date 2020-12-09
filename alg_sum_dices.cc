@@ -26,12 +26,10 @@ void dfsBacktrack(int n_dices,
 
 // List n_dices where their sums equal to sum. 
 // For example: n_dices = 2, sum = 3 => {{1, 2}, {2, 1}}.
-//
 // Procedure: for each element i
 // - choose i
 // - explore
 // - backtrack by un-choosing i
-//
 // Time complexity: O(6^n).
 // Space complexity: O(6^n).
 std::vector<std::vector<int>> SumDices(int n_dices, int sum) {

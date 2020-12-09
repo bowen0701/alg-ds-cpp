@@ -3,13 +3,11 @@
 #include "util.h"
 
 // Quick sort algorithm by recursion with new vectors.
-//
 // Procedure:
 // - Pick a pivot which ideally is a median pf the list.
 // - Arrange half elements which are smaller than pivot to left,
 //   and the other half ones that are bigger than pivot to right.
 // - Then to each half, recursively apply quicksort.
-//
 // Time complexity: O(n*logn).
 // Space complexity: O(n).
 std::vector<int> QuickSortByNewVector(std::vector<int>& nums) {
@@ -83,7 +81,6 @@ void QuickSortRecur(std::vector<int>& nums, int left, int right) {
 }
 
 // Quick sort algorithm by recursion in place.
-//
 // Time complexity: O(n*logn).
 // Space complexity: O(1).
 void QuickSortInPlace(std::vector<int>& nums) {

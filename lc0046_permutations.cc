@@ -54,7 +54,6 @@ public:
     }
 
     // Permute numbers.
-    //
     // Time complexity: O(n*n!).
     // Space complexity: O(n*n!).
     vector<vector<int>> permute(vector<int>& nums) {
