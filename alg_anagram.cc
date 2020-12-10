@@ -46,10 +46,10 @@ bool AnagramIter(std::string& str1, std::string& str2) {
   return is_match;
 }
 
+// Anagram by sorting.
+// Time complexity: O(nlogn).
+// Space complexity: O(n).
 bool AnagramSort(std::string& str1, std::string& str2) {
-  // Anagram by sorting.
-  // Time complexity: O(nlogn).
-  // Space complexity: O(n).
   int len_str1 = str1.length();
   int len_str2 = str2.length();
 
