@@ -29,15 +29,15 @@ std::string DecimalToBaseIter(int decimal, int base) {
 
 int main() {
   // Binary: (37)_10 = (100101)_2
-  int dec1 = 37;
-  int base1 = 2;
-  std::cout << "Iter: " << dec1 << " -> " << DecimalToBaseIter(dec1, base1);
+  int dec = 37;
+  int base = 2;
+  std::cout << "Iter: " << dec << " -> " << DecimalToBaseIter(dec, base);
   std::cout << std::endl;
 
   // Hexadecimal: (1728)_10 = (6C0)_16
-  int dec2 = 1728;
-  int base2 = 16;
-  std::cout << "Iter: " << dec2 << " -> " << DecimalToBaseIter(dec2, base2);
+  dec = 1728;
+  base = 16;
+  std::cout << "Iter: " << dec << " -> " << DecimalToBaseIter(dec, base);
   std::cout << std::endl;
 
   return 0;
