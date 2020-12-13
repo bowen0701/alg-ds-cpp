@@ -33,25 +33,25 @@ int main() {
   std::string with_pole = "C";
 
   // Output: 1.
-  int height1 = 1;
-  int counter1 = 0;
-  std::cout << "height: " << height1 << std::endl;
-  TowerOfHanoi(height1, from_pole, to_pole, with_pole, counter1);
-  std::cout << "Counter: " << counter1 << std::endl;
+  int height = 1;
+  int counter = 0;
+  std::cout << "height: " << height << std::endl;
+  TowerOfHanoi(height, from_pole, to_pole, with_pole, counter);
+  std::cout << "Counter: " << counter << std::endl;
 
   // Output: 3.
-  int height2 = 2;
-  int counter2 = 0;
-  std::cout << "height: " << height2 << std::endl;
-  TowerOfHanoi(height2, from_pole, to_pole, with_pole, counter2);
-  std::cout << "Counter: " << counter2 << std::endl;
+  height = 2;
+  counter = 0;
+  std::cout << "height: " << height << std::endl;
+  TowerOfHanoi(height, from_pole, to_pole, with_pole, counter);
+  std::cout << "Counter: " << counter << std::endl;
 
   // Output: 31.
-  int height3 = 5;
-  int counter3 = 0;
-  std::cout << "height: " << height3 << std::endl;
-  TowerOfHanoi(height3, from_pole, to_pole, with_pole, counter3);
-  std::cout << "Counter: " << counter3 << std::endl;
+  height = 5;
+  counter = 0;
+  std::cout << "height: " << height << std::endl;
+  TowerOfHanoi(height, from_pole, to_pole, with_pole, counter);
+  std::cout << "Counter: " << counter << std::endl;
 
   return 0;
 }
