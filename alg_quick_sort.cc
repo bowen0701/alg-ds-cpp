@@ -95,15 +95,15 @@ void QuickSortInPlace(std::vector<int>& nums) {
 }
 
 int main() {
-  std::vector<int> nums1 = {5, 2, 3, 1, 4};
-  std::vector<int> result1 = QuickSortByNewVector(nums1);
+  std::vector<int> nums = {5, 2, 3, 1, 4};
+  std::vector<int> result = QuickSortByNewVector(nums);
   std::cout << "By QuickSortByNewVector:" << std::endl;
-  PrintVector(result1);
+  PrintVector(result);
 
-  std::vector<int> nums2 = {5, 2, 3, 1, 4};
-  QuickSortInPlace(nums2);
+  nums = {5, 2, 3, 1, 4};
+  QuickSortInPlace(nums);
   std::cout << "By QuickSortInPlace:" << std::endl;
-  PrintVector(nums2);
+  PrintVector(nums);
 
   return 0;
 }
