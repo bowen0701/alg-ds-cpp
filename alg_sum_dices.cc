@@ -40,15 +40,15 @@ std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
 }
 
 int main() {
-  int n_dices1 = 2;
-  int sum1 = 7;
-  std::vector<std::vector<int>> result1 = SumDices(n_dices1, sum1);
-  Print2DVector(result1);
+  int n_dices = 2;
+  int sum = 7;
+  std::vector<std::vector<int>> result = SumDices(n_dices, sum);
+  Print2DVector(result);
 
-  int n_dices2 = 4;
-  int sum2 = 11;
-  std::vector<std::vector<int>> result2 = SumDices(n_dices2, sum2);
-  Print2DVector(result2);
+  n_dices = 4;
+  sum = 11;
+  result = SumDices(n_dices, sum);
+  Print2DVector(result);
 
   return 0;
 }
