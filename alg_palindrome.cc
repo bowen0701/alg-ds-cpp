@@ -38,19 +38,19 @@ bool PalindromeIter(std::string& s) {
 
 int main() {
   // Output: true.
-  std::string s1 = "radar";
-  std::cout << std::boolalpha << PalindromeRecur(s1) << std::endl;
-  std::cout << std::boolalpha << PalindromeIter(s1) << std::endl;
+  std::string s = "radar";
+  std::cout << std::boolalpha << PalindromeRecur(s) << std::endl;
+  std::cout << std::boolalpha << PalindromeIter(s) << std::endl;
 
   // Output: false.
-  std::string s2 = "bowen";
-  std::cout << std::boolalpha << PalindromeRecur(s2) << std::endl;
-  std::cout << std::boolalpha << PalindromeIter(s2) << std::endl;
+  s = "bowen";
+  std::cout << std::boolalpha << PalindromeRecur(s) << std::endl;
+  std::cout << std::boolalpha << PalindromeIter(s) << std::endl;
 
   // Output: true.
-  std::string s3 = "madam";
-  std::cout << std::boolalpha << PalindromeRecur(s3) << std::endl;
-  std::cout << std::boolalpha << PalindromeIter(s3) << std::endl;
+  s = "madam";
+  std::cout << std::boolalpha << PalindromeRecur(s) << std::endl;
+  std::cout << std::boolalpha << PalindromeIter(s) << std::endl;
 
   return 0;
 }
