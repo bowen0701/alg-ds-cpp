@@ -89,7 +89,6 @@ public:
         vector<vector<string>> result;
         vector<int> queens;
         dfsBacktrack(n, queens, result);
-        // return resultToStrings(n, result);
         return result;
     }
 };
