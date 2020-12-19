@@ -68,15 +68,17 @@ public:
         // Recursive case: choose i, explore and backtrack.
         for (int col = 0; col < n; col++) {
             queens.push_back(col);
-            if (isValid(queens))
+            if (isValid(queens)) {
                 dfsBacktrack(n, queens, result);
+            }
             queens.pop_back();
         }
     }
 
     // Convert result to strings.
-    vector<vector<string>> resultToStrings(int n,
-                                           vector<vector<int>>& result) {
+    vector<vector<string>> resultToStrings(
+        int n, vector<vector<int>>& result) {
+
         vector<vector<string>> resultStrings;
 
         for (auto queens : result) {
