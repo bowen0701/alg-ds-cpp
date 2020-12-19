@@ -38,17 +38,17 @@ class Solution {
 public:
     // Check current queen position is valid among previous queens.
     bool isValid(vector<int>& queens) {
-        int cur_row = queens.size() - 1;
-        int cur_col = queens[cur_row];
+        int r_cur = queens.size() - 1;
+        int c_cur = queens[r_cur];
 
         // Check any queens can attack the current queen.
-        for (int row = 0; row < cur_row; row++) {
-            int col = queens[row];
-            int col_diff = abs(cur_col - col);
-            int row_diff = abs(cur_row - row);
+        for (int r = 0; r < r_cur; r++) {
+            int c = queens[r];
+            int c_diff = abs(c_cur - c);
+            int r_diff = abs(r_cur - r);
 
             // If two queens are in the same column or diagonal.
-            if (col_diff == 0 || col_diff == row_diff)
+            if (c_diff == 0 || c_diff == r_diff)
                 return false;
         }
 
@@ -62,10 +62,8 @@ public:
         // Base case.
         if (queens.size() == n) {
             vector<string> str;
-            for (auto col : queens) {
-                string s = string(col, '.') + 
-                           'Q' + 
-                           string(n - col - 1, '.');
+            for (auto c : queens) {
+                string s = string(c, '.') + 'Q' + string(n - c - 1, '.');
                 str.push_back(s);
             }
             result.push_back(str);
@@ -73,8 +71,8 @@ public:
         }
 
         // Recursive case: choose i, explore and backtrack.
-        for (int col = 0; col < n; col++) {
-            queens.push_back(col);
+        for (int c = 0; c < n; c++) {
+            queens.push_back(c);
             if (isValid(queens)) {
                 dfsBacktrack(n, queens, result);
             }
