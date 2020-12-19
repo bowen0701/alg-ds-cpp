@@ -58,10 +58,17 @@ public:
     // DFS with backtracking.
     void dfsBacktrack(int n, 
                       vector<int>& queens,
-                      vector<vector<int>>& result) {
+                      vector<vector<string>>& result) {
         // Base case.
         if (queens.size() == n) {
-            result.push_back(queens);
+            vector<string> str;
+            for (auto col : queens) {
+                string s = string(col, '.') + 
+                           'Q' + 
+                           string(n - col - 1, '.');
+                str.push_back(s);
+            }
+            result.push_back(str);
             return;
         }
 
@@ -75,34 +82,15 @@ public:
         }
     }
 
-    // Convert result to strings.
-    vector<vector<string>> resultToStrings(
-        int n, vector<vector<int>>& result) {
-
-        vector<vector<string>> resultStrings;
-
-        for (auto queens : result) {
-            vector<string> strings;
-            for (auto col : queens) {
-                string s = string(col, '.') + 
-                           'Q' + 
-                           string(n - col - 1, '.');
-                strings.push_back(s);
-            }
-            resultStrings.push_back(strings);
-        }
-
-        return resultStrings;
-    }
-
     // Solve N-Queens.
     // Time complexity: O(n!).
     // Space complexity: O(n).
     vector<vector<string>> solveNQueens(int n) {
-        vector<vector<int>> result;
+        vector<vector<string>> result;
         vector<int> queens;
         dfsBacktrack(n, queens, result);
-        return resultToStrings(n, result);
+        // return resultToStrings(n, result);
+        return result;
     }
 };
 
