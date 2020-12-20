@@ -5,8 +5,8 @@
 // Helper method for MergeSortRecur().
 // Merge two sorted vectors by recursion.
 std::vector<int> MergeSortedVectorsRecur(
-  std::vector<int>& sorted1, 
-  std::vector<int>& sorted2) {
+    std::vector<int>& sorted1, 
+    std::vector<int>& sorted2) {
   // Base case.
   if (sorted1.size() != 0 && sorted2.size() == 0) {
     return sorted1;
@@ -52,8 +52,8 @@ std::vector<int> MergeSortRecur(std::vector<int>& nums) {
 // Helper method for MergeSortIter().
 // Merge two sorted vectors by iteration.
 std::vector<int> MergeSortedVectorsIter(
-  std::vector<int>& sorted1, 
-  std::vector<int>& sorted2) {
+    std::vector<int>& sorted1, 
+    std::vector<int>& sorted2) {
   // Apply two pointer method.
   int i = 0, j = 0;
   std::vector<int> result;
