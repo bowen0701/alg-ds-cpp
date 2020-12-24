@@ -1,12 +1,14 @@
-// Linked list.
+// Linked list of integers.
 
-struct ListNode {
-  int val;
-  ListNode *next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+#include "ds_linked_list.h"
+
+// TODO
+IntLinkedList::IntLinkedList()
+IntLinkedList::~IntLinkedList()
+IntLinkedList::IsEmpty() const
+const int& IntLinkedList::front() const
+void IntLinkedList::AddFront(const int& data)
+void IntLinkedList::RemoveFront()
 
 int main() {
   return 0;
