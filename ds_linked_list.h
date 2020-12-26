@@ -14,9 +14,10 @@ class IntLinkedList {
   IntLinkedList();
   ~IntLinkedList();
   bool IsEmpty() const;
-  const int& front() const;
+  const int& Front() const;
   void AddFront(const int& data);
   void RemoveFront();
+  void Show() const;
  private:
   IntNode* head;
 };
