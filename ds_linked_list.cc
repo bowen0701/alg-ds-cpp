@@ -3,8 +3,7 @@
 #include <iostream>
 #include "ds_linked_list.h"
 
-IntLinkedList::IntLinkedList()
-  : head(NULL) {}
+IntLinkedList::IntLinkedList() : head(NULL) {}
 
 IntLinkedList::~IntLinkedList() {
   while (!IsEmpty()) RemoveFront();
