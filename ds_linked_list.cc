@@ -13,6 +13,21 @@ bool IntLinkedList::IsEmpty() const {
   return head == NULL;
 }
 
+int IntLinkedList::Size() const {
+  // TODO
+}
+
+void IntLinkedList::Show() const {
+  IntNode* current = new IntNode;
+  current = head;
+  while (current != NULL) {
+    std::cout << current->data << " ";
+    current = current->next;
+  }
+  delete current;
+}
+
+
 const int& IntLinkedList::Front() const {
   return head->data;
 }
@@ -24,6 +39,14 @@ void IntLinkedList::AddFront(const int& data) {
   head = new_head;
 }
 
+void AddBack(const int& data) {
+  // TODO
+}
+
+void RemoveNode(const int& data) {
+  // TODO
+}
+
 void IntLinkedList::RemoveFront() {
   if (head != NULL) {
     IntNode* old_head = head;
@@ -32,14 +55,20 @@ void IntLinkedList::RemoveFront() {
   }
 }
 
-void IntLinkedList::Show() const {
-  IntNode* current = new IntNode;
-  current = head;
-  while (current != NULL) {
-    std::cout << current->data << " ";
-    current = current->next;
-  }
-  delete current;
+void Insert(const int& pos, const int& data) {
+  // TODO
+}
+
+int Pop(const int& pos) {
+  // TODO
+}
+
+bool Search(const int& data) {
+  // TODO
+}
+
+int Index(const int& data) {
+  // TODO
 }
 
 int main() {
