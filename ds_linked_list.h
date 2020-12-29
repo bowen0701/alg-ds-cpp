@@ -2,6 +2,9 @@
 #define INT_LINKED_LIST_H_
 
 class IntNode {
+ public:
+  IntNode() : data(0), next(NULL) {}
+  IntNode(int x) : data(x), next(NULL) {}
  private:
   int data;
   IntNode* next;
@@ -14,7 +17,7 @@ class IntLinkedList {
   IntLinkedList();
   ~IntLinkedList();
   bool IsEmpty() const;
-  int Size();
+  int Size() const;
   void Show() const;
   const int& Front() const;
   void AddFront(const int& data);
