@@ -71,7 +71,7 @@ void IntLinkedList::RemoveNode(const int& data) {
 void IntLinkedList::RemoveFront() {
   if (head != NULL) {
     IntNode* old_head = head;
-    head = old_head->next;
+    head = head->next;
     delete old_head;
   }
 }
