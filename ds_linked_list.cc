@@ -65,7 +65,22 @@ void IntLinkedList::AddBack(const int& data) {
 }
 
 void IntLinkedList::RemoveNode(const int& data) {
-  // TODO
+  // Edge case: no head.
+  if (head == NULL) return;
+
+  // Edge case: head contains data to be removed.
+  if (head->data == data) RemoveFront();
+
+  // Iterate through list to find node.
+  IntNode* current = head;
+  while (current->next != NULL) {
+    if (current->next->data == data) {
+      current->next = current->next->next;
+      return;
+    } else {
+      current = current->next;
+    }
+  }
 }
 
 void IntLinkedList::RemoveFront() {
@@ -122,8 +137,12 @@ int main() {
   ll.Show();
   std::cout << "size: " << ll.Size() << std::endl;
 
+  // Output: 3 1 0
+  ll.RemoveNode(2);
+  ll.Show();
+  std::cout << "size: " << ll.Size() << std::endl;
+
   // Output: true
-  ll.RemoveFront();
   ll.RemoveFront();
   ll.RemoveFront();
   ll.RemoveFront();
