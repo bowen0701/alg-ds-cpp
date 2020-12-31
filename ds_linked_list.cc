@@ -17,7 +17,7 @@ int IntLinkedList::Size() const {
   int counter = 0;
 
   IntNode* current = head;
-  while (current != NULL) {
+  while (current) {
     counter++;
     current = current->next;
   }
@@ -28,7 +28,7 @@ int IntLinkedList::Size() const {
 
 void IntLinkedList::Show() const {
   IntNode* current = head;
-  while (current != NULL) {
+  while (current) {
     std::cout << current->data << " ";
     current = current->next;
   }
@@ -51,14 +51,14 @@ void IntLinkedList::AddBack(const int& data) {
   IntNode* new_node = new IntNode(data);
 
   // Edge case.
-  if (head == NULL) {
+  if (!head) {
     head = new_node;
     return;
   }
 
   // Add new node to back.
   IntNode* current = head;
-  while (current->next != NULL) {
+  while (current->next) {
     current = current->next;
   }
   current->next = new_node;
@@ -66,14 +66,14 @@ void IntLinkedList::AddBack(const int& data) {
 
 void IntLinkedList::RemoveNode(const int& data) {
   // Edge case: no head.
-  if (head == NULL) return;
+  if (!head) return;
 
   // Edge case: head contains data to be removed.
   if (head->data == data) RemoveFront();
 
   // Iterate through list to find node.
   IntNode* current = head;
-  while (current->next != NULL) {
+  while (current->next) {
     if (current->next->data == data) {
       current->next = current->next->next;
       return;
@@ -84,7 +84,7 @@ void IntLinkedList::RemoveNode(const int& data) {
 }
 
 void IntLinkedList::RemoveFront() {
-  if (head != NULL) {
+  if (head) {
     IntNode* old_head = head;
     head = head->next;
     delete old_head;
@@ -92,7 +92,33 @@ void IntLinkedList::RemoveFront() {
 }
 
 void IntLinkedList::Insert(const int& pos, const int& data) {
-  // TODO
+  // Edge case: empty head and insert position > 0.
+  if (!head && pos > 0) {
+    std::cout << "Cannot insert to empty linked list." << std::endl;
+    return;
+  }
+
+  // Two pointer method: previous & current.
+  IntNode* current = head;
+  IntNode* previous = NULL;
+  int counter = 0;
+
+  if (!head) AddFront(data);
+
+  while (counter < pos && current->next) {
+    previous = current;
+    current = current->next;
+    counter++;
+  }
+
+  IntNode* new_node = new IntNode(data);
+  new_node->next = current;
+
+  if (pos == 0) {
+    head = new_node;
+  } else {
+    previous->next = new_node;
+  }
 }
 
 int IntLinkedList::Pop(const int& pos) {
