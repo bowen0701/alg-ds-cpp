@@ -168,6 +168,19 @@ int main() {
   ll.Show();
   std::cout << "size: " << ll.Size() << std::endl;
 
+  // Output: 4 3 1 0
+  ll.Insert(0, 4);
+  ll.Show();
+  std::cout << "size: " << ll.Size() << std::endl;
+
+  // Output: 4 3 1 2 0
+  ll.Insert(3, 2);
+  ll.Show();
+  std::cout << "size: " << ll.Size() << std::endl;
+
+  ll.RemoveNode(4);
+  ll.RemoveNode(2);
+
   // Output: true
   ll.RemoveFront();
   ll.RemoveFront();
