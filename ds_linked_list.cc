@@ -118,7 +118,26 @@ void IntLinkedList::Insert(int pos, const int& data) {
 }
 
 int IntLinkedList::Pop(int pos = -1) {
-  // TODO
+  // Edge case: no head.
+  if (!head) return 0;
+
+  // When no input for pos, set to tail position.
+  if (pos == -1) pos = Size() - 1;
+
+  // Two pointer method: previous & current.
+  IntNode* previous = NULL;
+  IntNode* current = head;
+  int counter = 0;
+  while (counter < pos && current->next) {
+    previous = current;
+    current = current->next;
+    counter++;
+  }
+
+  int pop_data = current->data;
+  previous->next = NULL;
+  delete current;
+  return pop_data;
 }
 
 bool IntLinkedList::Search(const int& data) {
@@ -162,6 +181,11 @@ int main() {
 
   // Output: 3 1 2 0
   ll.Insert(3, 2);
+  ll.Show();
+  std::cout << "size: " << ll.Size() << std::endl;
+
+  // Output: 3 1 2
+  std::cout << "pop: " << ll.Pop() << std::endl;
   ll.Show();
   std::cout << "size: " << ll.Size() << std::endl;
 
