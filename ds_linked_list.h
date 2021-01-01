@@ -19,13 +19,12 @@ class IntLinkedList {
   bool IsEmpty() const;
   int Size() const;
   void Show() const;
-  const int& Front() const;
   void AddFront(const int& data);
   void AddBack(const int& data);
   void RemoveNode(const int& data);
   void RemoveFront();
-  void Insert(const int& pos, const int& data);
-  int Pop(const int& pos);
+  void Insert(int pos, const int& data);
+  int Pop(int pos);
   bool Search(const int& data);
   int Index(const int& data);
  private:

@@ -36,10 +36,6 @@ void IntLinkedList::Show() const {
   delete current;
 }
 
-const int& IntLinkedList::Front() const {
-  return head->data;
-}
-
 void IntLinkedList::AddFront(const int& data) {
   IntNode* new_head = new IntNode(data);
   new_head->next = head;
@@ -91,7 +87,7 @@ void IntLinkedList::RemoveFront() {
   }
 }
 
-void IntLinkedList::Insert(const int& pos, const int& data) {
+void IntLinkedList::Insert(int pos, const int& data) {
   // Edge case: empty head and insert position > 0.
   if (!head && pos > 0) {
     std::cout << "Cannot insert to empty linked list." << std::endl;
@@ -121,9 +117,8 @@ void IntLinkedList::Insert(const int& pos, const int& data) {
   }
 }
 
-int IntLinkedList::Pop(const int& pos) {
+int IntLinkedList::Pop(int pos = -1) {
   // TODO
-  return 0;
 }
 
 bool IntLinkedList::Search(const int& data) {
@@ -143,10 +138,7 @@ int main() {
   ll.AddFront(3);
   ll.AddFront(4);
 
-  // Output: 1.
-  std::cout << "front: " << ll.Front() << std::endl;
-
-  // // Output: 4 3 2 1
+  // Output: 4 3 2 1
   ll.Show();
   std::cout << "size: " << ll.Size() << std::endl;
 
@@ -168,18 +160,10 @@ int main() {
   ll.Show();
   std::cout << "size: " << ll.Size() << std::endl;
 
-  // Output: 4 3 1 0
-  ll.Insert(0, 4);
-  ll.Show();
-  std::cout << "size: " << ll.Size() << std::endl;
-
-  // Output: 4 3 1 2 0
+  // Output: 3 1 2 0
   ll.Insert(3, 2);
   ll.Show();
   std::cout << "size: " << ll.Size() << std::endl;
-
-  ll.RemoveNode(4);
-  ll.RemoveNode(2);
 
   // Output: true
   ll.RemoveFront();
