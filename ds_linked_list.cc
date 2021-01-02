@@ -141,8 +141,19 @@ int IntLinkedList::Pop(int pos = -1) {
 }
 
 bool IntLinkedList::Search(const int& data) {
-  // TODO
-  return true;
+  // Edge case: no head.
+  if (!head) return false;
+
+  // Iterate through list to find data.
+  IntNode* current = head;
+  while (current) {
+    if (current->data == data) {
+      return true;
+    } else {
+      current = current->next;
+    }
+  }
+  return false;
 }
 
 int IntLinkedList::Index(const int& data) {
@@ -188,6 +199,10 @@ int main() {
   std::cout << "pop: " << ll.Pop() << std::endl;
   ll.Show();
   std::cout << "size: " << ll.Size() << std::endl;
+
+  // Output: true false
+  std::cout << std::boolalpha << ll.Search(2) << std::endl;
+  std::cout << std::boolalpha << ll.Search(0) << std::endl; 
 
   // Output: true
   ll.RemoveFront();
