@@ -157,8 +157,25 @@ bool IntLinkedList::Search(const int& data) {
 }
 
 int IntLinkedList::Index(const int& data) {
-  // TODO
-  return 0;
+  // Edge case: no head.
+  if (!head) return -1;
+
+  // Iterate through list.
+  IntNode* current = head;
+  int counter = 0;
+
+  while (current->next) {
+    if (current->data == data) {
+      return counter;
+    }
+    else {
+      current = current->next;
+      counter++;
+    }
+  }
+
+  if (current->data == data) return counter;
+  else return -1;
 }
 
 int main() {
@@ -202,7 +219,11 @@ int main() {
 
   // Output: true false
   std::cout << std::boolalpha << ll.Search(2) << std::endl;
-  std::cout << std::boolalpha << ll.Search(0) << std::endl; 
+  std::cout << std::boolalpha << ll.Search(0) << std::endl;
+
+  // Output: -1 1
+  std::cout << ll.Index(4) << std::endl;
+  std::cout << ll.Index(1) << std::endl;
 
   // Output: true
   ll.RemoveFront();
