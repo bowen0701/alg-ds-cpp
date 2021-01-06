@@ -9,7 +9,7 @@
 // Example:
 // Input: 1->2->4, 1->3->4
 // Output: 1->1->2->3->4->4
-
+·
 // Definition for singly-linked list.
 struct ListNode {
     int val;
@@ -19,7 +19,7 @@ struct ListNode {
     ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
  
-class Solution {
+class SolutionSortAll {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         // TODO
