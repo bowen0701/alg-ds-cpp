@@ -26,6 +26,20 @@ public:
     }
 };
 
+class SolutionRecur {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // TODO
+    }
+};
+
+class SolutionIter {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // TODO
+    }
+};
+
 int main() {
 	return 0;
 }
