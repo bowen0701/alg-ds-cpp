@@ -22,7 +22,11 @@ struct ListNode {
 class SolutionSortAll {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        // TODO
+        // Edge cases: list1 or list2 is empty.
+
+        // Append list1 and list2's all values into a vector and sort them.
+
+        // Create a new list based on the sorted vector. 
     }
 };
 
