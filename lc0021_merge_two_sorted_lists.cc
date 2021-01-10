@@ -9,7 +9,12 @@
 // Example:
 // Input: 1->2->4, 1->3->4
 // Output: 1->1->2->3->4->4
-·
+
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 // Definition for singly-linked list.
 struct ListNode {
     int val;
@@ -23,10 +28,21 @@ class SolutionSortAll {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         // Edge cases: list1 or list2 is empty.
+        if (!l1) return l2;
+        if (!l2) return l1;
 
         // Append list1 and list2's all values into a vector and sort them.
+        auto vec = std::vector<ListNode*>{l1, l2};
+        for (auto ls : vec) {
+            while (ls) {
+                vec.push_back(ls->val);
+                ls = ls->next;
+            }
+        }
+        sort(vec.begin(), vec.end());
 
-        // Create a new list based on the sorted vector. 
+        // Create a new list based on the sorted vector.
+        // TODO
     }
 };
 
@@ -45,5 +61,5 @@ public:
 };
 
 int main() {
-	return 0;
+    return 0;
 }
