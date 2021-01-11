@@ -24,7 +24,10 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
- 
+
+// Merge two sorted list by sorting all values.
+// Time complexity: O((n1+n2)*log(n1+n2)), where ni is the length of listi.
+// Space complexity: O((n1+n2)).
 class SolutionSortAll {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
