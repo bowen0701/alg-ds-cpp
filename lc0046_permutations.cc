@@ -30,7 +30,7 @@ public:
     // Util for permute() by DFS with backtracking.
     void dfsBacktrack(vector<int>& nums,
                       vector<int>& temp,
-                      vector<std::vector<int>>& result,
+                      vector<vector<int>>& result,
                       vector<bool>& is_used) {
         // Base case.
         if (temp.size() == nums.size()) {
