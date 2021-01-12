@@ -57,12 +57,27 @@ public:
     }
 };
 
-// class SolutionRecur {
-// public:
-//     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-//         // TODO
-//     }
-// };
+// Merge two sorted list by recursion.
+// Time complexity: O(n1+n2).
+// Space complexity: O(n1+n2).
+class SolutionRecur {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // Edge cases: list1 or list2 is empty.
+        if (!l1) return l2;
+        if (!l2) return l1;
+
+        // If list1 is smaller, append smaller of list1.next and list2 
+        // to list1.next.
+        if (l1->val < l2->val) {
+            l1->next = mergeTwoLists(l1->next, l2);
+            return l1;
+        } else {
+            l2->next = mergeTwoLists(l1, l2->next);
+            return l2;
+        }
+    }
+};
 
 // class SolutionIter {
 // public:
@@ -91,6 +106,10 @@ int main() {
     l2->next->next = new ListNode(4);
 
     ListNode* ls = SolutionSortAll().mergeTwoLists(l1, l2);
+    show(ls);
+    cout << endl;
+
+    ls = SolutionRecur().mergeTwoLists(l1, l2);
     show(ls);
     cout << endl;
 
