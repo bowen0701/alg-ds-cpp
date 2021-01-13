@@ -79,12 +79,15 @@ public:
     }
 };
 
-// class SolutionIter {
-// public:
-//     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-//         // TODO
-//     }
-// };
+// Merge two sorted list by recursion.
+// Time complexity: O(n1+n2).
+// Space complexity: O(1).
+class SolutionIter {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // TODO
+    }
+};
 
 // TODO: revise show().
 void show(ListNode* ls) {
