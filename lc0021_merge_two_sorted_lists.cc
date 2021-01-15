@@ -67,8 +67,7 @@ public:
         if (!l1) return l2;
         if (!l2) return l1;
 
-        // If list1 is smaller, append smaller of list1.next and list2 
-        // to list1.next.
+        // Recusively append next node to the smaller node.
         if (l1->val < l2->val) {
             l1->next = mergeTwoLists(l1->next, l2);
             return l1;
@@ -79,17 +78,41 @@ public:
     }
 };
 
-// Merge two sorted list by recursion.
+// Merge two sorted list by iteration.
 // Time complexity: O(n1+n2).
 // Space complexity: O(1).
 class SolutionIter {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        // TODO
+        // Edge cases: list1 or list2 is empty.
+        if (!l1) return l2;
+        if (!l2) return l1;
+
+        // Iteratively append smaller node to the tail when both exist.
+        ListNode* dummy = new ListNode();
+        ListNode* current = dummy;
+        while (l1 && l2) {
+            if (l1->val < l2->val) {
+                current->next = l1;
+                l1 = l1->next;
+            } else {
+                current->next = l2;
+                l2 = l2->next;
+            }
+            current = current->next;
+        }
+
+        // Append the remaining node.
+        if (!l1) {
+            current->next = l2;
+        } else {
+            current->next = l1;
+        }
+
+        return dummy->next;
     }
 };
 
-// TODO: revise show().
 void show(ListNode* ls) {
     while (ls) {
         cout << ls->val << "->";
@@ -108,13 +131,33 @@ int main() {
     l2->next = new ListNode(3);
     l2->next->next = new ListNode(4);
 
+    show(l1); cout << "; ";
+    show(l2); cout << endl;
+
     ListNode* ls = SolutionSortAll().mergeTwoLists(l1, l2);
-    show(ls);
-    cout << endl;
+    show(ls); cout << endl;
+
+    l1 = new ListNode(1);
+    l1->next = new ListNode(2);
+    l1->next->next = new ListNode(4);
+
+    l2 = new ListNode(1);
+    l2->next = new ListNode(3);
+    l2->next->next = new ListNode(4);
 
     ls = SolutionRecur().mergeTwoLists(l1, l2);
-    show(ls);
-    cout << endl;
+    show(ls); cout << endl;
+
+    l1 = new ListNode(1);
+    l1->next = new ListNode(2);
+    l1->next->next = new ListNode(4);
+
+    l2 = new ListNode(1);
+    l2->next = new ListNode(3);
+    l2->next->next = new ListNode(4);
+
+    ls = SolutionIter().mergeTwoLists(l1, l2);
+    show(ls); cout << endl;
 
     return 0;
 }
