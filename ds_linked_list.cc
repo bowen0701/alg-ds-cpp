@@ -38,10 +38,10 @@ int IntLinkedList::Size() const {
 void IntLinkedList::Show() const {
   IntNode* current = head;
   while (current) {
-    std::cout << current->data << " ";
+    std::cout << current->data;
+    if (current->next) std::cout << "->";
     current = current->next;
   }
-  std::cout << std::endl;
   delete current;
 }
 
@@ -220,12 +220,12 @@ int main() {
   ll.AddFront(4);
 
   // Output: 4 3 2 1
-  ll.Show();
+  ll.Show(); std::cout << std::endl;
   std::cout << "size: " << ll.Size() << std::endl;
 
   // Output: 3 2 1
   ll.RemoveFront();
-  ll.Show();
+  ll.Show(); std::cout << std::endl;
   std::cout << "size: " << ll.Size() << std::endl;
 
   // Output: false
@@ -233,22 +233,22 @@ int main() {
 
   // Output: 3 2 1 0
   ll.AddBack(0);
-  ll.Show();
+  ll.Show(); std::cout << std::endl;
   std::cout << "size: " << ll.Size() << std::endl;
 
   // Output: 3 1 0
   ll.RemoveNode(2);
-  ll.Show();
+  ll.Show(); std::cout << std::endl;
   std::cout << "size: " << ll.Size() << std::endl;
 
   // Output: 3 1 2 0
   ll.Insert(3, 2);
-  ll.Show();
+  ll.Show(); std::cout << std::endl;
   std::cout << "size: " << ll.Size() << std::endl;
 
   // Output: 3 1 2
   std::cout << "pop: " << ll.Pop() << std::endl;
-  ll.Show();
+  ll.Show(); std::cout << std::endl;
   std::cout << "size: " << ll.Size() << std::endl;
 
   // Output: true false
