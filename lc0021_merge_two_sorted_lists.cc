@@ -115,7 +115,8 @@ public:
 
 void show(ListNode* ls) {
     while (ls) {
-        cout << ls->val << "->";
+        cout << ls->val;
+        if (ls->next) cout << "->";
         ls = ls->next;
     }
 }
