@@ -3,7 +3,7 @@
 
 #include <vector>
 
-class Queue {
+class IntQueue {
  public:
   Queue();
   ~Queue();

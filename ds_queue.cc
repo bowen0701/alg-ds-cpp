@@ -1,9 +1,10 @@
 // Queue.
 
 #include <iostream>
-#include <vector>
+#include "ds_queue.h"
 
-class Queue {
+// Queue using vector.
+class IntQueue {
   // TODO
 };
 
