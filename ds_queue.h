@@ -5,16 +5,16 @@
 
 class IntQueue {
  public:
-  Queue();
-  ~Queue();
+  IntQueue();
+  ~IntQueue();
   bool IsEmpty() const;
   int Peek() const;
   void Enqueue(int item);
   int Dequeue();
-  int Size();
-  void Show();
+  int Size() const;
+  void Show() const;
  private:
-  vector<int> items;
+  std::vector<int> items;
 };
 
 #endif // INT_QUEUE_H_
