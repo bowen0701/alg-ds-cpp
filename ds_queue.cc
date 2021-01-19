@@ -9,24 +9,24 @@ IntQueue::IntQueue() : items(std::vector<int>()) {}
 
 IntQueue::~IntQueue() {}
 
-bool IntQueue::IsEmpty() const {
+bool IntQueue::isEmpty() const {
   return items.empty();
 }
 
-int IntQueue::Peek() const  {
-  if (!IsEmpty()) {
+int IntQueue::peek() const  {
+  if (!isEmpty()) {
     return items[items.size() - 1];
   } else {
     throw std::out_of_range("The queue is empty!");
   }
 }
 
-void IntQueue::Enqueue(int item)  {
+void IntQueue::enqueue(int item)  {
   items.insert(items.begin(), item);
 }
 
-int IntQueue::Dequeue()  {
-  if (!IsEmpty()) {
+int IntQueue::dequeue()  {
+  if (!isEmpty()) {
     int back = items.back();
     items.pop_back();
     return back;
@@ -35,11 +35,11 @@ int IntQueue::Dequeue()  {
   }
 }
 
-int IntQueue::Size() const  {
+int IntQueue::size() const  {
   return items.size();
 }
 
-void IntQueue::Show() const  {
+void IntQueue::show() const  {
   std::cout << "[";
   for (int i = 0; i < items.size(); i++) {
     std::cout << items[i];
@@ -50,30 +50,30 @@ void IntQueue::Show() const  {
 
 int main() {
   IntQueue q;
-  std::cout << "Is empty: " << std::boolalpha << q.IsEmpty() << std::endl;
+  std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
 
   // Output: [3, 2, 1].
-  q.Enqueue(1);
-  q.Enqueue(2);
-  q.Enqueue(3);
-  std::cout << "Is empty: " << std::boolalpha << q.IsEmpty() << std::endl;
-  std::cout << "Show: "; q.Show(); std::cout << std::endl;
-  std::cout << "Size: " << q.Size() << std::endl;
-  std::cout << "Peek: " << q.Peek() << std::endl;
+  q.enqueue(1);
+  q.enqueue(2);
+  q.enqueue(3);
+  std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
+  std::cout << "Show: "; q.show(); std::cout << std::endl;
+  std::cout << "Size: " << q.size() << std::endl;
+  std::cout << "Peek: " << q.peek() << std::endl;
 
   // Output: [3].
-  q.Dequeue();
-  q.Dequeue();
-  std::cout << "Is empty: " << std::boolalpha << q.IsEmpty() << std::endl;
-  std::cout << "Show: "; q.Show(); std::cout << std::endl;
-  std::cout << "Size: " << q.Size() << std::endl;
-  std::cout << "Peek: " << q.Peek() << std::endl;
+  q.dequeue();
+  q.dequeue();
+  std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
+  std::cout << "Show: "; q.show(); std::cout << std::endl;
+  std::cout << "Size: " << q.size() << std::endl;
+  std::cout << "Peek: " << q.peek() << std::endl;
 
   // Output: [].
-  q.Dequeue();
-  std::cout << "Is empty: " << std::boolalpha << q.IsEmpty() << std::endl;
-  std::cout << "Show: "; q.Show(); std::cout << std::endl;
-  std::cout << "Size: " << q.Size() << std::endl;
+  q.dequeue();
+  std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
+  std::cout << "Show: "; q.show(); std::cout << std::endl;
+  std::cout << "Size: " << q.size() << std::endl;
 
   return 0;
 }

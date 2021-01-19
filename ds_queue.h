@@ -7,12 +7,12 @@ class IntQueue {
  public:
   IntQueue();
   ~IntQueue();
-  bool IsEmpty() const;
-  int Peek() const;
-  void Enqueue(int item);
-  int Dequeue();
-  int Size() const;
-  void Show() const;
+  bool isEmpty() const;
+  int peek() const;
+  void enqueue(int item);
+  int dequeue();
+  int size() const;
+  void show() const;
  private:
   std::vector<int> items;
 };
