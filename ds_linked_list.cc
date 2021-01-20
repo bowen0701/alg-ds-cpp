@@ -6,20 +6,20 @@
 IntLinkedList::IntLinkedList() : head(NULL) {}
 
 IntLinkedList::~IntLinkedList() {
-  while (!IsEmpty()) RemoveFront();
+  while (!isEmpty()) removeFront();
 }
 
 // Check list is empty or not.
 // Time complexity: O(1).
 // Space complexity: O(1).
-bool IntLinkedList::IsEmpty() const {
+bool IntLinkedList::isEmpty() const {
   return head == NULL;
 }
 
 // Obtain list size.
 // Time complexity: O(n).
 // Space complexity: O(1).
-int IntLinkedList::Size() const {
+int IntLinkedList::size() const {
   int counter = 0;
 
   IntNode* current = head;
@@ -35,7 +35,7 @@ int IntLinkedList::Size() const {
 // Show the list.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void IntLinkedList::Show() const {
+void IntLinkedList::show() const {
   IntNode* current = head;
   while (current) {
     std::cout << current->data;
@@ -48,7 +48,7 @@ void IntLinkedList::Show() const {
 // Prepend data to list head.
 // Time complexity: O(1).
 // Space complexity: O(1).
-void IntLinkedList::AddFront(const int& data) {
+void IntLinkedList::addFront(const int& data) {
   IntNode* new_head = new IntNode(data);
   new_head->next = head;
   head = new_head;
@@ -58,7 +58,7 @@ void IntLinkedList::AddFront(const int& data) {
 // Append data to list tail.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void IntLinkedList::AddBack(const int& data) {
+void IntLinkedList::addBack(const int& data) {
   // Create new node.
   IntNode* new_node = new IntNode(data);
 
@@ -79,12 +79,12 @@ void IntLinkedList::AddBack(const int& data) {
 // Remove data from list, if existed.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void IntLinkedList::RemoveNode(const int& data) {
+void IntLinkedList::removeNode(const int& data) {
   // Edge case: no head.
   if (!head) return;
 
   // Edge case: head contains data to be removed.
-  if (head->data == data) RemoveFront();
+  if (head->data == data) removeFront();
 
   // Iterate through list to find node.
   IntNode* current = head;
@@ -101,7 +101,7 @@ void IntLinkedList::RemoveNode(const int& data) {
 // Remove front node.
 // Time complexity: O(1).
 // Space complexity: O(1).
-void IntLinkedList::RemoveFront() {
+void IntLinkedList::removeFront() {
   if (head) {
     IntNode* old_head = head;
     head = head->next;
@@ -112,7 +112,7 @@ void IntLinkedList::RemoveFront() {
 // Insert data to specified position of list.
 // Time complexity = O(pos).
 // Space complexity: O(1).
-void IntLinkedList::Insert(int pos, const int& data) {
+void IntLinkedList::insert(int pos, const int& data) {
   // Edge case: empty head and insert position > 0.
   if (!head && pos > 0) {
     std::cout << "Cannot insert to empty linked list." << std::endl;
@@ -124,7 +124,7 @@ void IntLinkedList::Insert(int pos, const int& data) {
   IntNode* previous = NULL;
   int counter = 0;
 
-  if (!head) AddFront(data);
+  if (!head) addFront(data);
 
   while (counter < pos && current->next) {
     previous = current;
@@ -145,12 +145,12 @@ void IntLinkedList::Insert(int pos, const int& data) {
 // Pop list node at specified position.
 // Time complexity: O(pos).
 // Space complexity: O(1).
-int IntLinkedList::Pop(int pos = -1) {
+int IntLinkedList::pop(int pos = -1) {
   // Edge case: no head.
   if (!head) return 0;
 
   // When no input for pos, set to tail position.
-  if (pos == -1) pos = Size() - 1;
+  if (pos == -1) pos = size() - 1;
 
   // Two pointer method: previous & current.
   IntNode* previous = NULL;
@@ -171,7 +171,7 @@ int IntLinkedList::Pop(int pos = -1) {
 // Search data in list.
 // Time complexity: O(n).
 // Space complexity: O(1).
-bool IntLinkedList::Search(const int& data) {
+bool IntLinkedList::search(const int& data) {
   // Edge case: no head.
   if (!head) return false;
 
@@ -190,7 +190,7 @@ bool IntLinkedList::Search(const int& data) {
 // Obtain node's index in list.
 // Time complexity: O(n).
 // Space complexity: O(1).
-int IntLinkedList::Index(const int& data) {
+int IntLinkedList::index(const int& data) {
   // Edge case: no head.
   if (!head) return -1;
 
@@ -214,57 +214,57 @@ int IntLinkedList::Index(const int& data) {
 
 int main() {
   IntLinkedList ll;
-  ll.AddFront(1);
-  ll.AddFront(2);
-  ll.AddFront(3);
-  ll.AddFront(4);
+  ll.addFront(1);
+  ll.addFront(2);
+  ll.addFront(3);
+  ll.addFront(4);
 
   // Output: 4 3 2 1
-  ll.Show(); std::cout << std::endl;
-  std::cout << "size: " << ll.Size() << std::endl;
+  ll.show(); std::cout << std::endl;
+  std::cout << "size: " << ll.size() << std::endl;
 
   // Output: 3 2 1
-  ll.RemoveFront();
-  ll.Show(); std::cout << std::endl;
-  std::cout << "size: " << ll.Size() << std::endl;
+  ll.removeFront();
+  ll.show(); std::cout << std::endl;
+  std::cout << "size: " << ll.size() << std::endl;
 
   // Output: false
-  std::cout << "is empty: " << std::boolalpha << ll.IsEmpty() << std::endl;
+  std::cout << "is empty: " << std::boolalpha << ll.isEmpty() << std::endl;
 
   // Output: 3 2 1 0
-  ll.AddBack(0);
-  ll.Show(); std::cout << std::endl;
-  std::cout << "size: " << ll.Size() << std::endl;
+  ll.addBack(0);
+  ll.show(); std::cout << std::endl;
+  std::cout << "size: " << ll.size() << std::endl;
 
   // Output: 3 1 0
-  ll.RemoveNode(2);
-  ll.Show(); std::cout << std::endl;
-  std::cout << "size: " << ll.Size() << std::endl;
+  ll.removeNode(2);
+  ll.show(); std::cout << std::endl;
+  std::cout << "size: " << ll.size() << std::endl;
 
   // Output: 3 1 2 0
-  ll.Insert(3, 2);
-  ll.Show(); std::cout << std::endl;
-  std::cout << "size: " << ll.Size() << std::endl;
+  ll.insert(3, 2);
+  ll.show(); std::cout << std::endl;
+  std::cout << "size: " << ll.size() << std::endl;
 
   // Output: 3 1 2
-  std::cout << "pop: " << ll.Pop() << std::endl;
-  ll.Show(); std::cout << std::endl;
-  std::cout << "size: " << ll.Size() << std::endl;
+  std::cout << "pop: " << ll.pop() << std::endl;
+  ll.show(); std::cout << std::endl;
+  std::cout << "size: " << ll.size() << std::endl;
 
   // Output: true false
-  std::cout << std::boolalpha << ll.Search(2) << std::endl;
-  std::cout << std::boolalpha << ll.Search(0) << std::endl;
+  std::cout << std::boolalpha << ll.search(2) << std::endl;
+  std::cout << std::boolalpha << ll.search(0) << std::endl;
 
   // Output: -1 1
-  std::cout << ll.Index(4) << std::endl;
-  std::cout << ll.Index(1) << std::endl;
+  std::cout << ll.index(4) << std::endl;
+  std::cout << ll.index(1) << std::endl;
 
   // Output: true
-  ll.RemoveFront();
-  ll.RemoveFront();
-  ll.RemoveFront();
-  std::cout << "is empty: " << std::boolalpha << ll.IsEmpty() << std::endl;
-  std::cout << "size: " << ll.Size() << std::endl;
+  ll.removeFront();
+  ll.removeFront();
+  ll.removeFront();
+  std::cout << "is empty: " << std::boolalpha << ll.isEmpty() << std::endl;
+  std::cout << "size: " << ll.size() << std::endl;
 
   return 0;
 }

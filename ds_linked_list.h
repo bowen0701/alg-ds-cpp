@@ -16,17 +16,17 @@ class IntLinkedList {
  public:
   IntLinkedList();
   ~IntLinkedList();
-  bool IsEmpty() const;
-  int Size() const;
-  void Show() const;
-  void AddFront(const int& data);
-  void AddBack(const int& data);
-  void RemoveNode(const int& data);
-  void RemoveFront();
-  void Insert(int pos, const int& data);
-  int Pop(int pos);
-  bool Search(const int& data);
-  int Index(const int& data);
+  bool isEmpty() const;
+  int size() const;
+  void show() const;
+  void addFront(const int& data);
+  void addBack(const int& data);
+  void removeNode(const int& data);
+  void removeFront();
+  void insert(int pos, const int& data);
+  int pop(int pos);
+  bool search(const int& data);
+  int index(const int& data);
  private:
   IntNode* head;
 };
