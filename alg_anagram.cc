@@ -8,7 +8,7 @@
 // Anagram by iteration.
 // Time complexity: O(n^2).
 // Space complexity: O(n).
-bool AnagramIter(std::string& str1, std::string& str2) {
+bool anagramIter(std::string& str1, std::string& str2) {
   int len_str1 = str1.length();
   int len_str2 = str2.length();
 
@@ -49,7 +49,7 @@ bool AnagramIter(std::string& str1, std::string& str2) {
 // Anagram by sorting.
 // Time complexity: O(nlogn).
 // Space complexity: O(n).
-bool AnagramSort(std::string& str1, std::string& str2) {
+bool anagramSort(std::string& str1, std::string& str2) {
   int len_str1 = str1.length();
   int len_str2 = str2.length();
 
@@ -78,7 +78,7 @@ bool AnagramSort(std::string& str1, std::string& str2) {
   return is_match;
 }
 
-bool AnagramCount(std::string& str1, std::string& str2) {
+bool anagramCount(std::string& str1, std::string& str2) {
   // Anagram by counting.
   // Time complexity: O(n).
   // Space complexity: O(1).
@@ -119,17 +119,22 @@ bool AnagramCount(std::string& str1, std::string& str2) {
 
 int main() {
   std::string str1 = "abcd";
-  std::string str2 = "dcba";     // should be true.
-  // std::string str2 = "deba";  // should be false.
+  std::string str2 = "dcba";  // should be true.
+  std::string str3 = "deba";  // should be false.
 
   std::cout << "By iteration: " << std::boolalpha << 
-    AnagramIter(str1, str2) << std::endl;
-
+    anagramIter(str1, str2) << std::endl;
   std::cout << "By sorting: " << std::boolalpha << 
-    AnagramSort(str1, str2) << std::endl;
-
+    anagramSort(str1, str2) << std::endl;
   std::cout << "By counting: " << std::boolalpha <<
-    AnagramCount(str1, str2) << std::endl;
+    anagramCount(str1, str2) << std::endl;
+
+  std::cout << "By iteration: " << std::boolalpha << 
+    anagramIter(str1, str3) << std::endl;
+  std::cout << "By sorting: " << std::boolalpha << 
+    anagramSort(str1, str3) << std::endl;
+  std::cout << "By counting: " << std::boolalpha <<
+    anagramCount(str1, str3) << std::endl;
 
   return 0;
 }
