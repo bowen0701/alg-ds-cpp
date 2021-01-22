@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-void PrintAllDecimalUtil(int n_digits, std::string result) {
+void printAllDecimalUtil(int n_digits, std::string result) {
   // Base case when n_digits = 0.
   if (n_digits == 0) {
     std::cout << result << std::endl;
@@ -10,7 +10,7 @@ void PrintAllDecimalUtil(int n_digits, std::string result) {
 
   // Recursive case.
   for (int i = 0; i < 10; i++) {
-    PrintAllDecimalUtil(n_digits - 1, result + std::to_string(i));
+    printAllDecimalUtil(n_digits - 1, result + std::to_string(i));
   }
 }
 
@@ -18,20 +18,20 @@ void PrintAllDecimalUtil(int n_digits, std::string result) {
 // Example: PrintAllBinary(): 00, 01, 02,..., 99.
 // Time complexity: O(10^n), where n is n_digits.
 // Space complexity: O(10^n).
-void PrintAllDecimal(int n_digits) {
+void printAllDecimal(int n_digits) {
   std::string result = "";
-  PrintAllDecimalUtil(n_digits, result);
+  printAllDecimalUtil(n_digits, result);
 }
 
 int main() {
   // Output: ""
-  PrintAllDecimal(0);
+  printAllDecimal(0);
 
   // Output: "0", "1"
-  PrintAllDecimal(1);
+  printAllDecimal(1);
 
   // Output: "000", "001", "010",...
-  PrintAllDecimal(3);
+  printAllDecimal(3);
 
   return 0;
 }

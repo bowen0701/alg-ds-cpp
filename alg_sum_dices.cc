@@ -32,7 +32,7 @@ void dfsBacktrack(int n_dices,
 // - backtrack by un-choosing i
 // Time complexity: O(6^n).
 // Space complexity: O(6^n).
-std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
+std::vector<std::vector<int>> sumDices(int n_dices, int sum) {
   std::vector<int> temp;
   std::vector<std::vector<int>> result;
   dfsBacktrack(n_dices, sum, temp, result);
@@ -42,12 +42,12 @@ std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
 int main() {
   int n_dices = 2;
   int sum = 7;
-  std::vector<std::vector<int>> result = SumDices(n_dices, sum);
+  std::vector<std::vector<int>> result = sumDices(n_dices, sum);
   print2DVector(result);
 
   n_dices = 4;
   sum = 11;
-  result = SumDices(n_dices, sum);
+  result = sumDices(n_dices, sum);
   print2DVector(result);
 
   return 0;

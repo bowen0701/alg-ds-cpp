@@ -8,7 +8,7 @@
 // - Select next max num to swap with num at pos.
 // Time complexity: O(n^2).
 // Space complexity: O(1).
-void SelectionSort(std::vector<int>& nums) {
+void selectionSort(std::vector<int>& nums) {
   int n = nums.size();
  
   for (int i = n - 1; i >= 1; i--) {
@@ -41,7 +41,7 @@ int main() {
   std::cout << std::endl;
 
   // Apply selection sort.
-  SelectionSort(nums);
+  selectionSort(nums);
   for (int i = 0; i < n; i++) {
     std::cout << nums[i] << " ";
   }

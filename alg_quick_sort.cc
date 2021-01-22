@@ -10,7 +10,7 @@
 // - Then to each half, recursively apply quicksort.
 // Time complexity: O(n*logn).
 // Space complexity: O(n).
-std::vector<int> QuickSortByNewVector(std::vector<int>& nums) {
+std::vector<int> quickSortByNewVector(std::vector<int>& nums) {
   auto n = nums.size();
 
   // Base case.
@@ -32,8 +32,8 @@ std::vector<int> QuickSortByNewVector(std::vector<int>& nums) {
   }
 
   // Concate small, middle & large numbers.
-  std::vector<int> sorted_smalls = QuickSortByNewVector(smalls);
-  std::vector<int> sorted_larges = QuickSortByNewVector(larges);
+  std::vector<int> sorted_smalls = quickSortByNewVector(smalls);
+  std::vector<int> sorted_larges = quickSortByNewVector(larges);
   sorted_smalls.insert(
     sorted_smalls.end(), middles.begin(), middles.end());
   sorted_smalls.insert(
@@ -41,8 +41,8 @@ std::vector<int> QuickSortByNewVector(std::vector<int>& nums) {
   return sorted_smalls;
 }
 
-// Util function for QuickSortInPlace() to rearrange nums in place.
-int Partition(std::vector<int>& nums, int left, int right) {
+// Util function for quickSortInPlace() to rearrange nums in place.
+int partition(std::vector<int>& nums, int left, int right) {
   // Use right number as pivot.
   auto right_num = nums[right];
 
@@ -72,18 +72,18 @@ int Partition(std::vector<int>& nums, int left, int right) {
 }
 
 // Util function for QuickSortInPlace() by recursion.
-void QuickSortRecur(std::vector<int>& nums, int left, int right) {
+void quickSortRecur(std::vector<int>& nums, int left, int right) {
   if (left < right) {
-    auto mid = Partition(nums, left, right);
-    QuickSortRecur(nums, left, mid - 1);
-    QuickSortRecur(nums, mid + 1, right);    
+    auto mid = partition(nums, left, right);
+    quickSortRecur(nums, left, mid - 1);
+    quickSortRecur(nums, mid + 1, right);    
   }
 }
 
 // Quick sort algorithm by recursion in place.
 // Time complexity: O(n*logn).
 // Space complexity: O(1).
-void QuickSortInPlace(std::vector<int>& nums) {
+void quickSortInPlace(std::vector<int>& nums) {
   auto n = nums.size();
 
   // Base case.
@@ -91,17 +91,17 @@ void QuickSortInPlace(std::vector<int>& nums) {
 
   int left = 0;
   int right = n - 1;
-  QuickSortRecur(nums, left, right);
+  quickSortRecur(nums, left, right);
 }
 
 int main() {
   std::vector<int> nums = {5, 2, 3, 1, 4};
-  std::vector<int> result = QuickSortByNewVector(nums);
+  std::vector<int> result = quickSortByNewVector(nums);
   std::cout << "By QuickSortByNewVector:" << std::endl;
   printVector(result);
 
   nums = {5, 2, 3, 1, 4};
-  QuickSortInPlace(nums);
+  quickSortInPlace(nums);
   std::cout << "By QuickSortInPlace:" << std::endl;
   printVector(nums);
 
