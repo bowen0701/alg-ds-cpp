@@ -8,7 +8,7 @@
 // - Swap (nums[j], nums[j+1]) if not sorted, for j=0,...,i-1.
 // Time complexity: O(n^2).
 // Space complexity: O(1).
-void BubbleSort(std::vector<int>& nums) {
+void bubbleSort(std::vector<int>& nums) {
   int n = nums.size();
 
   for (int i = n - 1; i > 0; i--) {
@@ -41,7 +41,7 @@ int main() {
 
   // Apply bubble sort. 
   std::cout << "Bubble sort:" << std::endl;
-  BubbleSort(nums);
+  bubbleSort(nums);
   for (int i = 0; i < n; i++) {
     std::cout << nums[i] << " ";
   }
