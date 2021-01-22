@@ -105,11 +105,11 @@ int main() {
 
   std::vector<int> result1 = mergeSortRecur(nums);
   std::cout << "Recur:" << std::endl;
-  PrintVector(result1);
+  printVector(result1);
 
   std::vector<int> result2 = mergeSortIter(nums);
   std::cout << "Iter:" << std::endl;
-  PrintVector(result2);
+  printVector(result2);
 
   return 0;
 }

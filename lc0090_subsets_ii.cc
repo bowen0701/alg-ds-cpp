@@ -69,7 +69,7 @@ int main() {
     // Output = [[2],[1],[1,2,2],[2,2],[1,2],[]]
     vector<int> nums {2, 1, 2};
     vector<vector<int>> result = Solution().subsetsWithDup(nums);
-    Print2DVector(result);
+    print2DVector(result);
 
     return 0;
 }

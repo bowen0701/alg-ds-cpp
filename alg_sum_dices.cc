@@ -43,12 +43,12 @@ int main() {
   int n_dices = 2;
   int sum = 7;
   std::vector<std::vector<int>> result = SumDices(n_dices, sum);
-  Print2DVector(result);
+  print2DVector(result);
 
   n_dices = 4;
   sum = 11;
   result = SumDices(n_dices, sum);
-  Print2DVector(result);
+  print2DVector(result);
 
   return 0;
 }

@@ -104,7 +104,7 @@ int main() {
     // ]
     int n = 4;
     vector<vector<string>> resultStrings = Solution().solveNQueens(n);
-    Print2DVector(resultStrings);
+    print2DVector(resultStrings);
 
     return 0;
 }

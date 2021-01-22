@@ -87,13 +87,13 @@ int main() {
     cout << "For [1, 2, 1]:" << endl;
     vector<int> nums {1, 2, 1};
     vector<vector<int>> result = Solution().permuteUnique(nums);
-    Print2DVector(result);
+    print2DVector(result);
 
     // Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
     cout << "For [1, 2, 3]:" << endl;
     nums = {1, 2, 3};
     result = Solution().permuteUnique(nums);
-    Print2DVector(result);
+    print2DVector(result);
 
     return 0;
 }

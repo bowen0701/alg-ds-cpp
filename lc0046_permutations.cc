@@ -81,7 +81,7 @@ int main() {
     // ] 
     vector<int> nums {1, 2, 3};
     vector<vector<int>> result = Solution().permute(nums);
-    Print2DVector(result);
+    print2DVector(result);
 
     return 0;
 }

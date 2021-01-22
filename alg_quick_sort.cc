@@ -98,12 +98,12 @@ int main() {
   std::vector<int> nums = {5, 2, 3, 1, 4};
   std::vector<int> result = QuickSortByNewVector(nums);
   std::cout << "By QuickSortByNewVector:" << std::endl;
-  PrintVector(result);
+  printVector(result);
 
   nums = {5, 2, 3, 1, 4};
   QuickSortInPlace(nums);
   std::cout << "By QuickSortInPlace:" << std::endl;
-  PrintVector(nums);
+  printVector(nums);
 
   return 0;
 }
