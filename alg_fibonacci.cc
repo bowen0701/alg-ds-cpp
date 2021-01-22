@@ -4,40 +4,40 @@
 // Fibonacci series by top-down recursion.
 // Time complexity: O(2^n).
 // Space complexity: O(n).
-int FibonacciRecur(int n) {
+int fibonacciRecur(int n) {
   if (n <= 1)
     return n;
 
-  return FibonacciRecur(n - 1) + FibonacciRecur(n - 2);
+  return fibonacciRecur(n - 1) + fibonacciRecur(n - 2);
 }
 
 // Helper function for FibonacciMemo().
-int FibonacciMemoUtil(int n, std::vector<int>& T) {
+int fibonacciMemoUtil(int n, std::vector<int>& T) {
   if (T[n] > 0)
     return T[n];
 
   if (n <= 1)
     return n;
 
-  T[n] = FibonacciMemoUtil(n - 1, T) + FibonacciMemoUtil(n - 2, T);
+  T[n] = fibonacciMemoUtil(n - 1, T) + fibonacciMemoUtil(n - 2, T);
   return T[n];
 }
 
 // Fibonacci series by top-down memoization.
 // Time complexity: O(n).
 // Space complexity: O(n).
-int FibonacciMemo(int n) {
+int fibonacciMemo(int n) {
   std::vector<int> T(n + 1, 0);
   T[0] = 0;
   T[1] = 1;
 
-  return FibonacciMemoUtil(n, T);
+  return fibonacciMemoUtil(n, T);
 }
 
 // Fibonacci series by bottom-up dynamic programming.
 // Time complexity: O(n).
 // Space complexity: O(n).
-int FibonacciDp(int n) {
+int fibonacciDp(int n) {
   std::vector<int> T(n + 1, 0);
   T[0] = 0;
   T[1] = 1;
@@ -55,7 +55,7 @@ int FibonacciDp(int n) {
 // Fibonacci series by bottom-up iteration w/ optimizaed space.
 // Time complexity: O(n).
 // Space complexity: O(1).
-int FibonacciIter(int n) {
+int fibonacciIter(int n) {
   if (n <= 1)
     return n;
 
@@ -71,10 +71,10 @@ int FibonacciIter(int n) {
 int main() {
   int n = 20;
 
-  std::cout << "Recur: " << FibonacciRecur(n) << std::endl;
-  std::cout << "Memo: " << FibonacciMemo(n) << std::endl;
-  std::cout << "DP: " << FibonacciDp(n) << std::endl;
-  std::cout << "Iter: " << FibonacciIter(n) << std::endl;
+  std::cout << "Recur: " << fibonacciRecur(n) << std::endl;
+  std::cout << "Memo: " << fibonacciMemo(n) << std::endl;
+  std::cout << "DP: " << fibonacciDp(n) << std::endl;
+  std::cout << "Iter: " << fibonacciIter(n) << std::endl;
 
   return 0;
 }
