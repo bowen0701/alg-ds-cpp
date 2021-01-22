@@ -8,7 +8,7 @@
 // - Swap (nums[j-1], nums[j]) if not sorted, for j=i,..,1.
 // Time complexity: O(n^2).
 // Space complexity: O(1).
-void InsertionSort(std::vector<int>& nums) {
+void insertionSort(std::vector<int>& nums) {
   int n = nums.size();
 
   for (int i = 1; i < n; i++) {
@@ -41,7 +41,7 @@ int main() {
   std::cout << std::endl;
 
   // Apply insertion sort.
-  InsertionSort(nums);
+  insertionSort(nums);
   for (int i = 0; i < n; i++) {
     std::cout << nums[i] << " ";
   }
