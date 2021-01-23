@@ -47,9 +47,7 @@ bool binarySearchFastRecurUtil(
 // Binary search by fast recursion with two pointers method.
 // Time complexity: O(logn).
 // Space complexity: O(1).
-bool binarySearchFastRecur(
-    std::vector<int>& sorted_nums, 
-    int target) {
+bool binarySearchFastRecur(std::vector<int>& sorted_nums, int target) {
   if (sorted_nums.size() == 0) return false;
 
   int left = 0;
