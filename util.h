@@ -1,3 +1,6 @@
+#ifndef UTIL_H_
+#define UTIL_H_
+
 #include <iostream>
 #include <vector>
 
@@ -22,3 +25,5 @@ void print2DVector(std::vector<std::vector<T>>& vec) {
     std::cout << "]" << std::endl;
   }
 }
+
+#endif UTIL_H_
