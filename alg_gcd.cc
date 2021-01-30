@@ -16,7 +16,8 @@ int gcd(int m, int n) {
 int main() {
   int m = 10;
   int n = 4;
-  std::cout << "The GCD of " << m << ", " << n << ": " << gcd(m, n) << std::endl;
+  std::cout << "The GCD of " << m << ", " << n << ": " 
+    << gcd(m, n) << std::endl;
 
   return 0;
 }
