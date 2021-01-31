@@ -14,7 +14,7 @@ class IntQueue {
   int size() const;
   void show() const;
  private:
-  std::vector<int> items;
+  std::vector<int> queue;
 };
 
 #endif // INT_QUEUE_H_

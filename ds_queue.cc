@@ -5,30 +5,30 @@
 #include "ds_queue.h"
 
 // Queue using vector.
-IntQueue::IntQueue() : items(std::vector<int>()) {}
+IntQueue::IntQueue() : queue(std::vector<int>()) {}
 
 IntQueue::~IntQueue() {}
 
 bool IntQueue::isEmpty() const {
-  return items.empty();
+  return queue.empty();
 }
 
 int IntQueue::peek() const  {
   if (!isEmpty()) {
-    return items[items.size() - 1];
+    return queue[queue.size() - 1];
   } else {
     throw std::out_of_range("The queue is empty!");
   }
 }
 
 void IntQueue::enqueue(int item)  {
-  items.insert(items.begin(), item);
+  queue.insert(queue.begin(), item);
 }
 
 int IntQueue::dequeue()  {
   if (!isEmpty()) {
-    int back = items.back();
-    items.pop_back();
+    int back = queue.back();
+    queue.pop_back();
     return back;
   } else {
     throw std::out_of_range("The queue is empty!");
@@ -36,14 +36,14 @@ int IntQueue::dequeue()  {
 }
 
 int IntQueue::size() const  {
-  return items.size();
+  return queue.size();
 }
 
 void IntQueue::show() const  {
   std::cout << "[";
-  for (int i = 0; i < items.size(); i++) {
-    std::cout << items[i];
-    if (i != items.size() - 1) std::cout << ", ";
+  for (int i = 0; i < queue.size(); i++) {
+    std::cout << queue[i];
+    if (i != queue.size() - 1) std::cout << ", ";
   }
   std::cout << "]";
 }
