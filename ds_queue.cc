@@ -15,7 +15,7 @@ bool IntQueue::isEmpty() const {
 
 int IntQueue::peek() const  {
   if (!isEmpty()) {
-    return queue[queue.size() - 1];
+    return queue.back();
   } else {
     throw std::out_of_range("The queue is empty!");
   }
