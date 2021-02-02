@@ -18,4 +18,4 @@ class IntStack {
   std::vector<int> stack;
 };
 
-#endif INT_STACK_H_
+#endif // INT_STACK_H_

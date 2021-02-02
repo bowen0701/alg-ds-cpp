@@ -38,18 +38,29 @@ int IntStack::pop() {
 }
 
 int IntStack::size() const {
-  return queue.size();
+  return stack.size();
 }
 
 void IntStack::show() const {
   std::cout << "[";
-  for (int i = 1; i < queue.size; i++) {
-    std::cout << queue[i];
-    if (i != queue.size() - 1) std::cout << ", ";
+  for (int i = 0; i < stack.size(); i++) {
+    std::cout << stack[i];
+    if (i != stack.size() - 1) std::cout << ", ";
   }
   std::cout << "]";
 }
 
 int main() {
+  IntStack s;
+  std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
+
+  s.push(1);
+  s.push(2);
+  s.push(3);
+  std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
+  std::cout << "Show: "; s.show(); std::cout << std::endl;
+  std::cout << "Size: " << s.size() << std::endl;
+  std::cout << "Peek: " << s.peek() << std::endl;
+
   return 0;
 }
