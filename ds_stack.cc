@@ -54,6 +54,7 @@ int main() {
   IntStack s;
   std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
 
+  // Output: [1, 2, 3].
   s.push(1);
   s.push(2);
   s.push(3);
@@ -61,6 +62,20 @@ int main() {
   std::cout << "Show: "; s.show(); std::cout << std::endl;
   std::cout << "Size: " << s.size() << std::endl;
   std::cout << "Peek: " << s.peek() << std::endl;
+
+  // Output: [1].
+  s.pop();
+  s.pop();
+  std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
+  std::cout << "Show: "; s.show(); std::cout << std::endl;
+  std::cout << "Size: " << s.size() << std::endl;
+  std::cout << "Peek: " << s.peek() << std::endl;
+
+  // Output: [].
+  s.pop();
+  std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
+  std::cout << "Show: "; s.show(); std::cout << std::endl;
+  std::cout << "Size: " << s.size() << std::endl;
 
   return 0;
 }
