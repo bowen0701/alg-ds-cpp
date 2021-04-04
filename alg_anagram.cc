@@ -1,5 +1,4 @@
-// Anagram: Two strings are anagram if one is a rearrangement of 
-// the other.
+// Anagram: Identify two strings are anagram if one is a rearrangement of the other.
 
 #include <iostream>
 #include <string>
