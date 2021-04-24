@@ -13,7 +13,7 @@ bool IntQueue::isEmpty() const {
   return queue.empty();
 }
 
-int IntQueue::peek() const  {
+int IntQueue::peek() const {
   if (!isEmpty()) {
     return queue.back();
   } else {
@@ -21,11 +21,11 @@ int IntQueue::peek() const  {
   }
 }
 
-void IntQueue::enqueue(int item)  {
+void IntQueue::enqueue(int item) {
   queue.insert(queue.begin(), item);
 }
 
-int IntQueue::dequeue()  {
+int IntQueue::dequeue() {
   if (!isEmpty()) {
     int back = queue.back();
     queue.pop_back();
@@ -35,11 +35,11 @@ int IntQueue::dequeue()  {
   }
 }
 
-int IntQueue::size() const  {
+int IntQueue::size() const {
   return queue.size();
 }
 
-void IntQueue::show() const  {
+void IntQueue::show() const {
   std::cout << "[";
   for (int i = 0; i < queue.size(); i++) {
     std::cout << queue[i];
