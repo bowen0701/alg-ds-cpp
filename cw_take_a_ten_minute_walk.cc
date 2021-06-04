@@ -46,16 +46,16 @@ bool isValidWalk(std::vector<char> walk) {
 }
 
 int main() {
-  assert (isValidWalk(std::vector<char>{'n'}) == false);
-  assert (isValidWalk(std::vector<char>{'n','s','n','s','n','s','n','s','n','s'}) == true);
-  assert (isValidWalk(std::vector<char>{'n','s'}) == false);
-  assert (isValidWalk(std::vector<char>{'n','s','n','s','n','s','n','s','n','s','n','s'}) == false);
-  assert (isValidWalk(std::vector<char>{'e','w','e','w','n','s','n','s','e','w'}) == true);
-  assert (isValidWalk(std::vector<char>{'n','s','e','w','n','s','e','w','n','s','e','w','n','s','e','w'}) == false);
-  assert (isValidWalk(std::vector<char>{'n','s','e','w','n','s','e','w','n','s'}) == true);
-  assert (isValidWalk(std::vector<char>{'s','e','w','n','n','s','e','w','n','s'}) == true);
-  assert (isValidWalk(std::vector<char>{'n','s','n','s','n','s','n','s','n','n'}) == false);
-  assert (isValidWalk(std::vector<char>{'e','e','e','w','n','s','n','s','e','w'}) == false);
+  assert(isValidWalk(std::vector<char>{'n'}) == false);
+  assert(isValidWalk(std::vector<char>{'n','s','n','s','n','s','n','s','n','s'}) == true);
+  assert(isValidWalk(std::vector<char>{'n','s'}) == false);
+  assert(isValidWalk(std::vector<char>{'n','s','n','s','n','s','n','s','n','s','n','s'}) == false);
+  assert(isValidWalk(std::vector<char>{'e','w','e','w','n','s','n','s','e','w'}) == true);
+  assert(isValidWalk(std::vector<char>{'n','s','e','w','n','s','e','w','n','s','e','w','n','s','e','w'}) == false);
+  assert(isValidWalk(std::vector<char>{'n','s','e','w','n','s','e','w','n','s'}) == true);
+  assert(isValidWalk(std::vector<char>{'s','e','w','n','n','s','e','w','n','s'}) == true);
+  assert(isValidWalk(std::vector<char>{'n','s','n','s','n','s','n','s','n','n'}) == false);
+  assert(isValidWalk(std::vector<char>{'e','e','e','w','n','s','n','s','e','w'}) == false);
   
   return 0;
 }
