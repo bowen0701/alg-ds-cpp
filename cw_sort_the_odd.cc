@@ -47,14 +47,11 @@ public:
 int main() {
   Kata kata;
 
-  std::vector<int> expected1{ };
-  assert(kata.sortArray(std::vector<int>{ }) == expected1);
-
-  std::vector<int> expected2{ 1, 3, 2, 8, 5, 4 };
-  assert(kata.sortArray(std::vector<int>{ 5, 3, 2, 8, 1, 4 }) == expected2);
-
-  std::vector<int> expected3{ 1, 3, 5, 8, 0 };
-  assert(kata.sortArray(std::vector<int>{ 5, 3, 1, 8, 0 }) == expected3);
+  assert(kata.sortArray(std::vector<int>{ }) == std::vector<int>({ }));
+  assert(kata.sortArray(std::vector<int>{ 5, 3, 2, 8, 1, 4 }) == 
+    std::vector<int>({ 1, 3, 2, 8, 5, 4 }));
+  assert(kata.sortArray(std::vector<int>{ 5, 3, 1, 8, 0 }) == 
+    std::vector<int>({ 1, 3, 5, 8, 0 }));
 
   return 0;
 }
