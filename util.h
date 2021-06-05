@@ -26,4 +26,4 @@ void print2DVector(std::vector<std::vector<T>>& vec) {
   }
 }
 
-#endif UTIL_H_
+#endif // UTIL_H_
