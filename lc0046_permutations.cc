@@ -23,15 +23,13 @@ Output:
 #include <algorithm>
 #include "util.h"
 
-using namespace std;
-
 class Solution {
 public:
     // Util for permute() by DFS with backtracking.
-    void dfsBacktrack(vector<int>& nums,
-                      vector<int>& temp,
-                      vector<vector<int>>& result,
-                      vector<bool>& is_used) {
+    void dfsBacktrack(std::vector<int>& nums,
+                      std::vector<int>& temp,
+                      std::vector<std::vector<int>>& result,
+                      std::vector<bool>& is_used) {
         // Base case.
         if (temp.size() == nums.size()) {
             result.push_back(temp);
@@ -56,11 +54,11 @@ public:
     // Permute numbers.
     // Time complexity: O(n*n!).
     // Space complexity: O(n*n!).
-    vector<vector<int>> permute(vector<int>& nums) {
-        vector<int> temp;
-        vector<vector<int>> result;
+    std::vector<std::vector<int>> permute(std::vector<int>& nums) {
+        std::vector<int> temp;
+        std::vector<std::vector<int>> result;
 
-        vector<bool> is_used;
+        std::vector<bool> is_used;
         for (int i = 0; i < nums.size(); i++)
             is_used.push_back(false);
 
@@ -79,8 +77,8 @@ int main() {
     //   [3,1,2],
     //   [3,2,1]
     // ] 
-    vector<int> nums {1, 2, 3};
-    vector<vector<int>> result = Solution().permute(nums);
+    std::vector<int> nums {1, 2, 3};
+    std::vector<std::vector<int>> result = Solution().permute(nums);
     print2DVector(result);
 
     return 0;
