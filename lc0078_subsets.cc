@@ -25,14 +25,12 @@ Output:
 #include <vector>
 #include "util.h"
 
-using namespace std;
-
 class Solution {
 public:
     // Util for subsets() by DFS with backtracking.
-    void dfsBacktrack(vector<int>& nums,
-                      vector<int>& temp,
-                      vector<vector<int>>& result,
+    void dfsBacktrack(std::vector<int>& nums,
+                      std::vector<int>& temp,
+                      std::vector<std::vector<int>>& result,
                       int start) {
         // Base case.
         result.push_back(temp);
@@ -48,9 +46,9 @@ public:
     // Subsets of numbers.
     // Time complexity: O(n*2^n).
     // Space complexity: O(n*2^n).
-    vector<vector<int>> subsets(vector<int>& nums) {
-        vector<int> temp;
-        vector<vector<int>> result;
+    std::vector<std::vector<int>> subsets(std::vector<int>& nums) {
+        std::vector<int> temp;
+        std::vector<std::vector<int>> result;
         int start = 0;
         dfsBacktrack(nums, temp, result, start);
         return result;
@@ -59,8 +57,8 @@ public:
 
 int main() {
     // Output: [[3],[1],[2],[1,2,3],[1,3],[2,3],[1,2],[]]
-    vector<int> nums {1, 2, 3};
-    vector<vector<int>> result = Solution().subsets(nums);
+    std::vector<int> nums {1, 2, 3};
+    std::vector<std::vector<int>> result = Solution().subsets(nums);
     print2DVector(result);
 
     return 0;
