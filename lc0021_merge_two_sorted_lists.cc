@@ -14,8 +14,6 @@
 #include <algorithm>
 #include <iostream>
 
-using namespace std;
-
 // Definition for singly-linked list.
 struct ListNode {
     int val;
@@ -36,15 +34,15 @@ public:
         if (!l2) return l1;
 
         // Append list1 and list2's values into a vector and sort them.
-        vector<ListNode*> lists{l1, l2};
-        vector<int> vals;
+        std::vector<ListNode*> lists{l1, l2};
+        std::vector<int> vals;
         for (auto ls : lists) {
             while (ls) {
                 vals.push_back(ls->val);
                 ls = ls->next;
             }
         }
-        sort(vals.begin(), vals.end());
+        std::sort(vals.begin(), vals.end());
 
         // Create a new list based on the sorted vector.
         ListNode* dummy = new ListNode();
@@ -115,8 +113,8 @@ public:
 
 void show(ListNode* ls) {
     while (ls) {
-        cout << ls->val;
-        if (ls->next) cout << "->";
+        std::cout << ls->val;
+        if (ls->next) std::cout << "->";
         ls = ls->next;
     }
 }
@@ -132,11 +130,11 @@ int main() {
     l2->next = new ListNode(3);
     l2->next->next = new ListNode(4);
 
-    show(l1); cout << "; ";
-    show(l2); cout << endl;
+    show(l1); std::cout << "; ";
+    show(l2); std::cout << std::endl;
 
     ListNode* ls = SolutionSortAll().mergeTwoLists(l1, l2);
-    show(ls); cout << endl;
+    show(ls); std::cout << std::endl;
 
     l1 = new ListNode(1);
     l1->next = new ListNode(2);
@@ -147,7 +145,7 @@ int main() {
     l2->next->next = new ListNode(4);
 
     ls = SolutionRecur().mergeTwoLists(l1, l2);
-    show(ls); cout << endl;
+    show(ls); std::cout << std::endl;
 
     l1 = new ListNode(1);
     l1->next = new ListNode(2);
@@ -158,7 +156,7 @@ int main() {
     l2->next->next = new ListNode(4);
 
     ls = SolutionIter().mergeTwoLists(l1, l2);
-    show(ls); cout << endl;
+    show(ls); std::cout << std::endl;
 
     return 0;
 }
