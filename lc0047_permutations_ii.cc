@@ -26,15 +26,13 @@ Constraints:
 #include <algorithm>
 #include "util.h"
 
-using namespace std;
-
 class Solution {
 public:
     // Util for permuteUnique() by DFS with backtracking.
-    void dfsBacktrack(vector<int>& nums,
-                      vector<int>& temp,
-                      vector<vector<int>>& result,
-                      vector<bool>& is_used) {
+    void dfsBacktrack(std::vector<int>& nums,
+                      std::vector<int>& temp,
+                      std::vector<std::vector<int>>& result,
+                      std::vector<bool>& is_used) {
         // Base case.
         if (temp.size() == nums.size()) {
             result.push_back(temp);
@@ -62,15 +60,15 @@ public:
     // Permute numbers with duplicates.
     // Time complexity: O(n*n!).
     // Space complexity: O(n*n!).
-    vector<vector<int>> permuteUnique(vector<int>& nums) {
+    std::vector<std::vector<int>> permuteUnique(std::vector<int>& nums) {
         // Sort nums to avoid duplicates.
-        sort(nums.begin(), nums.end());
+        std::sort(nums.begin(), nums.end());
 
         // Apply backtracking.
-        vector<int> temp;
-        vector<vector<int>> result;
+        std::vector<int> temp;
+        std::vector<std::vector<int>> result;
 
-        vector<bool> is_used;
+        std::vector<bool> is_used;
         for (int i = 0; i < nums.size(); i++) 
             is_used.push_back(false);
 
@@ -84,13 +82,13 @@ int main() {
     // [[1,1,2],
     //  [1,2,1],
     //  [2,1,1]]
-    cout << "For [1, 2, 1]:" << endl;
-    vector<int> nums {1, 2, 1};
-    vector<vector<int>> result = Solution().permuteUnique(nums);
+    std::cout << "For [1, 2, 1]:" << std::endl;
+    std::vector<int> nums {1, 2, 1};
+    std::vector<std::vector<int>> result = Solution().permuteUnique(nums);
     print2DVector(result);
 
     // Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-    cout << "For [1, 2, 3]:" << endl;
+    std::cout << "For [1, 2, 3]:" << std::endl;
     nums = {1, 2, 3};
     result = Solution().permuteUnique(nums);
     print2DVector(result);
