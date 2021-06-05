@@ -32,12 +32,10 @@ as shown above.
 #include <string>
 #include "util.h"
 
-using namespace std;
-
 class Solution {
 public:
     // Check current queen position is valid among previous queens.
-    bool isValid(vector<int>& queens) {
+    bool isValid(std::vector<int>& queens) {
         int r_cur = queens.size() - 1;
         int c_cur = queens[r_cur];
 
@@ -57,13 +55,13 @@ public:
 
     // DFS with backtracking.
     void dfsBacktrack(int n, 
-                      vector<int>& queens,
-                      vector<vector<string>>& result) {
+                      std::vector<int>& queens,
+                      std::vector<std::vector<std::string>>& result) {
         // Base case.
         if (queens.size() == n) {
-            vector<string> str;
+            std::vector<std::string> str;
             for (auto c : queens) {
-                string s = string(c, '.') + 'Q' + string(n - c - 1, '.');
+                std::string s = std::string(c, '.') + 'Q' + std::string(n - c - 1, '.');
                 str.push_back(s);
             }
             result.push_back(str);
@@ -83,9 +81,9 @@ public:
     // Solve N-Queens.
     // Time complexity: O(n!).
     // Space complexity: O(n).
-    vector<vector<string>> solveNQueens(int n) {
-        vector<vector<string>> result;
-        vector<int> queens;
+    std::vector<std::vector<std::string>> solveNQueens(int n) {
+        std::vector<std::vector<std::string>> result;
+        std::vector<int> queens;
         dfsBacktrack(n, queens, result);
         return result;
     }
@@ -103,7 +101,7 @@ int main() {
     //  ".Q.."]
     // ]
     int n = 4;
-    vector<vector<string>> resultStrings = Solution().solveNQueens(n);
+    std::vector<std::vector<std::string>> resultStrings = Solution().solveNQueens(n);
     print2DVector(resultStrings);
 
     return 0;
