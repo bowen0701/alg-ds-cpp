@@ -20,14 +20,12 @@
 #include <vector>
 #include "util.h"
 
-using namespace std;
-
 class Solution {
 public:
     // Merge two sorted vectors.
     // Time complexity: O(m+n).
     // Space complexity: O(1).
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    void merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) {
         // Two pointer method: Start from last elements of nums1 & nums2.
         int i = m - 1, j = n - 1;
 
@@ -53,9 +51,9 @@ public:
 
 int main() {
     // Output: [1,2,2,3,5,6]
-    vector<int> nums1 = {1,2,3,0,0,0};
+    std::vector<int> nums1 = {1,2,3,0,0,0};
     int m = 3;
-    vector<int> nums2 = {2,5,6};
+    std::vector<int> nums2 = {2,5,6};
     int n = 3;
 
     Solution().merge(nums1, m, nums2, n);
