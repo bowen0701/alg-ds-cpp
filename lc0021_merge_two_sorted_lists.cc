@@ -45,13 +45,13 @@ public:
         std::sort(vals.begin(), vals.end());
 
         // Create a new list based on the sorted vector.
-        ListNode* dummy = new ListNode();
-        ListNode* current = dummy;
+        ListNode dummy;
+        ListNode* current = &dummy;
         for (auto val : vals) {
             current->next = new ListNode(val);
             current = current->next;
         }
-        return dummy->next;
+        return dummy.next;
     }
 };
 
@@ -87,8 +87,9 @@ public:
         if (!l2) return l1;
 
         // Iteratively append smaller node to the tail when both exist.
-        ListNode* dummy = new ListNode();
-        ListNode* current = dummy;
+        // ListNode* dummy = new ListNode();
+        ListNode dummy;
+        ListNode* current = &dummy;
         while (l1 && l2) {
             if (l1->val < l2->val) {
                 current->next = l1;
@@ -107,7 +108,7 @@ public:
             current->next = l1;
         }
 
-        return dummy->next;
+        return dummy.next;
     }
 };
 
