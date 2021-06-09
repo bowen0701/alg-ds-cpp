@@ -28,27 +28,31 @@ struct ListNode {
 // Space complexity: O((n1+n2)).
 class SolutionSortAll {
 public:
+    static bool compare(const ListNode* l1, const ListNode* l2) {
+        return l1->val < l2->val;
+    }
+
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         // Edge cases: list1 or list2 is empty.
         if (!l1) return l2;
         if (!l2) return l1;
 
-        // Append list1 and list2's values into a vector and sort them.
+        // Append list1 and list2 nodes into a vector and sort them.
         std::vector<ListNode*> lists{l1, l2};
-        std::vector<int> vals;
+        std::vector<ListNode*> vec;
         for (auto ls : lists) {
             while (ls) {
-                vals.push_back(ls->val);
+                vec.push_back(ls);
                 ls = ls->next;
             }
         }
-        std::sort(vals.begin(), vals.end());
+        std::sort(vec.begin(), vec.end(), compare);
 
         // Create a new list based on the sorted vector.
         ListNode dummy;
         ListNode* current = &dummy;
-        for (auto val : vals) {
-            current->next = new ListNode(val);
+        for (auto ls : vec) {
+            current->next = ls;
             current = current->next;
         }
         return dummy.next;
