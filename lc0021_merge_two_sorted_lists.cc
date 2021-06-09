@@ -51,7 +51,7 @@ public:
         // Append null pointer as final node of linked list.
         vec.push_back(nullptr);
 
-        // Create a new list based on the sorted nodes.
+        // Use a dummy node to create a new list based on the sorted nodes.
         ListNode dummy;
         ListNode* current = &dummy;
         for (auto ls : vec) {
