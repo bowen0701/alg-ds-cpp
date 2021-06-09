@@ -29,7 +29,7 @@ struct ListNode {
 class SolutionSortAll {
 public:
     static bool compare(const ListNode* l1, const ListNode* l2) {
-        return l1->val < l2->val;
+        return (l1->val < l2->val);
     }
 
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
@@ -47,6 +47,9 @@ public:
             }
         }
         std::sort(vec.begin(), vec.end(), compare);
+
+        // Add linked list's final null pointer.
+        vec.push_back(nullptr);
 
         // Create a new list based on the sorted vector.
         ListNode dummy;
