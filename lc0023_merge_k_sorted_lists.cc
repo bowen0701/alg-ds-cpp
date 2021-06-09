@@ -48,6 +48,9 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// Merge K sorted list by sorting all values.
+// Time complexity: O((n1+...+nk)*log(n1+...+nk)), where ni is the length of listi.
+// Space complexity: O((n1+..+nk)).
 class SolutionSortAll {
 public:
     static bool compare(const ListNode* l1, const ListNode* l2) {
