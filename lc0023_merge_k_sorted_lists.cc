@@ -58,6 +58,9 @@ public:
     }
 
     ListNode* mergeKLists(std::vector<ListNode*>& lists) {
+        // Edge case.
+        if (lists.empty()) return nullptr;
+
         // Append lists's all nodes to vec and sort them.
         std::vector<ListNode*> vec;
         for (auto ls : lists) {
