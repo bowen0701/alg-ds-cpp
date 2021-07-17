@@ -1,12 +1,12 @@
-#ifndef INT_STACK_H_
-#define INT_STACK_H_
+#ifndef STACK_H_
+#define STACK_H_
 
 #include <vector>
 
-class IntStack {
+class Stack {
  public:
-  IntStack();
-  ~IntStack();
+  Stack();
+  ~Stack();
   bool isEmpty() const;
   int peek() const;
   void push(int item);
@@ -18,4 +18,4 @@ class IntStack {
   std::vector<int> stack;
 };
 
-#endif // INT_STACK_H_
+#endif // STACK_H_
