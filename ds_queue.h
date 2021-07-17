@@ -1,12 +1,12 @@
-#ifndef INT_QUEUE_H_
-#define INT_QUEUE_H_
+#ifndef QUEUE_H_
+#define QUEUE_H_
 
 #include <vector>
 
-class IntQueue {
+class Queue {
  public:
-  IntQueue();
-  ~IntQueue();
+  Queue();
+  ~Queue();
   bool isEmpty() const;
   int peek() const;
   void enqueue(int item);
@@ -17,4 +17,4 @@ class IntQueue {
   std::vector<int> queue;
 };
 
-#endif // INT_QUEUE_H_
+#endif // QUEUE_H_

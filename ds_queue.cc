@@ -5,15 +5,15 @@
 #include "ds_queue.h"
 
 // Queue using vector.
-IntQueue::IntQueue() : queue(std::vector<int>()) {}
+Queue::Queue() : queue(std::vector<int>()) {}
 
-IntQueue::~IntQueue() {}
+Queue::~Queue() {}
 
-bool IntQueue::isEmpty() const {
+bool Queue::isEmpty() const {
   return queue.empty();
 }
 
-int IntQueue::peek() const {
+int Queue::peek() const {
   if (!isEmpty()) {
     return queue.back();
   } else {
@@ -21,11 +21,11 @@ int IntQueue::peek() const {
   }
 }
 
-void IntQueue::enqueue(int item) {
+void Queue::enqueue(int item) {
   queue.insert(queue.begin(), item);
 }
 
-int IntQueue::dequeue() {
+int Queue::dequeue() {
   if (!isEmpty()) {
     int back = queue.back();
     queue.pop_back();
@@ -35,11 +35,11 @@ int IntQueue::dequeue() {
   }
 }
 
-int IntQueue::size() const {
+int Queue::size() const {
   return queue.size();
 }
 
-void IntQueue::show() const {
+void Queue::show() const {
   std::cout << "[";
   for (int i = 0; i < queue.size(); i++) {
     std::cout << queue[i];
@@ -49,28 +49,33 @@ void IntQueue::show() const {
 }
 
 int main() {
-  IntQueue q;
+  Queue q;
+
+  // Output: true.
   std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
 
-  // Output: [3, 2, 1].
   q.enqueue(1);
   q.enqueue(2);
   q.enqueue(3);
+
+  // Output: false; [3, 2, 1]; 3; 1
   std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
   std::cout << "Show: "; q.show(); std::cout << std::endl;
   std::cout << "Size: " << q.size() << std::endl;
   std::cout << "Peek: " << q.peek() << std::endl;
 
-  // Output: [3].
   q.dequeue();
   q.dequeue();
+
+  // Output: false; [3]; 1; 3.
   std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
   std::cout << "Show: "; q.show(); std::cout << std::endl;
   std::cout << "Size: " << q.size() << std::endl;
   std::cout << "Peek: " << q.peek() << std::endl;
 
-  // Output: [].
   q.dequeue();
+
+  // Output: true; []; 0.
   std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
   std::cout << "Show: "; q.show(); std::cout << std::endl;
   std::cout << "Size: " << q.size() << std::endl;
