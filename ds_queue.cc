@@ -1,4 +1,4 @@
-// Queue.
+// Queue of integers.
 
 #include <iostream>
 #include <vector>
