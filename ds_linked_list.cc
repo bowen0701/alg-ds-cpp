@@ -3,26 +3,26 @@
 #include <iostream>
 #include "ds_linked_list.h"
 
-IntLinkedList::IntLinkedList() : head(NULL) {}
+LinkedList::LinkedList() : head(NULL) {}
 
-IntLinkedList::~IntLinkedList() {
+LinkedList::~LinkedList() {
   while (!isEmpty()) removeFront();
 }
 
 // Check list is empty or not.
 // Time complexity: O(1).
 // Space complexity: O(1).
-bool IntLinkedList::isEmpty() const {
+bool LinkedList::isEmpty() const {
   return head == NULL;
 }
 
 // Obtain list size.
 // Time complexity: O(n).
 // Space complexity: O(1).
-int IntLinkedList::size() const {
-  int counter = 0;
+int LinkedList::size() const {
+  Node* current = head;
 
-  IntNode* current = head;
+  int counter = 0;
   while (current) {
     counter++;
     current = current->next;
@@ -35,8 +35,9 @@ int IntLinkedList::size() const {
 // Show the list.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void IntLinkedList::show() const {
-  IntNode* current = head;
+void LinkedList::show() const {
+  Node* current = head;
+
   while (current) {
     std::cout << current->data;
     if (current->next) std::cout << "->";
@@ -48,8 +49,8 @@ void IntLinkedList::show() const {
 // Prepend data to list head.
 // Time complexity: O(1).
 // Space complexity: O(1).
-void IntLinkedList::addFront(const int& data) {
-  IntNode* new_head = new IntNode(data);
+void LinkedList::addFront(const int& data) {
+  Node* new_head = new Node(data);
   new_head->next = head;
   head = new_head;
 }
@@ -58,9 +59,9 @@ void IntLinkedList::addFront(const int& data) {
 // Append data to list tail.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void IntLinkedList::addBack(const int& data) {
+void LinkedList::addBack(const int& data) {
   // Create new node.
-  IntNode* new_node = new IntNode(data);
+  Node* new_node = new Node(data);
 
   // Edge case.
   if (!head) {
@@ -69,7 +70,7 @@ void IntLinkedList::addBack(const int& data) {
   }
 
   // Add new node to back.
-  IntNode* current = head;
+  Node* current = head;
   while (current->next) {
     current = current->next;
   }
@@ -79,7 +80,7 @@ void IntLinkedList::addBack(const int& data) {
 // Remove data from list, if existed.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void IntLinkedList::removeNode(const int& data) {
+void LinkedList::removeNode(const int& data) {
   // Edge case: no head.
   if (!head) return;
 
@@ -87,7 +88,7 @@ void IntLinkedList::removeNode(const int& data) {
   if (head->data == data) removeFront();
 
   // Iterate through list to find node.
-  IntNode* current = head;
+  Node* current = head;
   while (current->next) {
     if (current->next->data == data) {
       current->next = current->next->next;
@@ -101,9 +102,9 @@ void IntLinkedList::removeNode(const int& data) {
 // Remove front node.
 // Time complexity: O(1).
 // Space complexity: O(1).
-void IntLinkedList::removeFront() {
+void LinkedList::removeFront() {
   if (head) {
-    IntNode* old_head = head;
+    Node* old_head = head;
     head = head->next;
     delete old_head;
   }
@@ -112,7 +113,7 @@ void IntLinkedList::removeFront() {
 // Insert data to specified position of list.
 // Time complexity = O(pos).
 // Space complexity: O(1).
-void IntLinkedList::insert(int pos, const int& data) {
+void LinkedList::insert(int pos, const int& data) {
   // Edge case: empty head and insert position > 0.
   if (!head && pos > 0) {
     std::cout << "Cannot insert to empty linked list." << std::endl;
@@ -120,8 +121,8 @@ void IntLinkedList::insert(int pos, const int& data) {
   }
 
   // Two pointer method: previous & current.
-  IntNode* current = head;
-  IntNode* previous = NULL;
+  Node* current = head;
+  Node* previous = NULL;
   int counter = 0;
 
   if (!head) addFront(data);
@@ -132,7 +133,7 @@ void IntLinkedList::insert(int pos, const int& data) {
     counter++;
   }
 
-  IntNode* new_node = new IntNode(data);
+  Node* new_node = new Node(data);
   new_node->next = current;
 
   if (pos == 0) {
@@ -145,7 +146,7 @@ void IntLinkedList::insert(int pos, const int& data) {
 // Pop list node at specified position.
 // Time complexity: O(pos).
 // Space complexity: O(1).
-int IntLinkedList::pop(int pos = -1) {
+int LinkedList::pop(int pos = -1) {
   // Edge case: no head.
   if (!head) return 0;
 
@@ -153,8 +154,8 @@ int IntLinkedList::pop(int pos = -1) {
   if (pos == -1) pos = size() - 1;
 
   // Two pointer method: previous & current.
-  IntNode* previous = NULL;
-  IntNode* current = head;
+  Node* previous = NULL;
+  Node* current = head;
   int counter = 0;
   while (counter < pos && current->next) {
     previous = current;
@@ -171,12 +172,12 @@ int IntLinkedList::pop(int pos = -1) {
 // Search data in list.
 // Time complexity: O(n).
 // Space complexity: O(1).
-bool IntLinkedList::search(const int& data) {
+bool LinkedList::search(const int& data) {
   // Edge case: no head.
   if (!head) return false;
 
   // Iterate through list to find data.
-  IntNode* current = head;
+  Node* current = head;
   while (current) {
     if (current->data == data) {
       return true;
@@ -190,12 +191,12 @@ bool IntLinkedList::search(const int& data) {
 // Obtain node's index in list.
 // Time complexity: O(n).
 // Space complexity: O(1).
-int IntLinkedList::index(const int& data) {
+int LinkedList::index(const int& data) {
   // Edge case: no head.
   if (!head) return -1;
 
   // Iterate through list.
-  IntNode* current = head;
+  Node* current = head;
   int counter = 0;
 
   while (current->next) {
@@ -213,7 +214,7 @@ int IntLinkedList::index(const int& data) {
 }
 
 int main() {
-  IntLinkedList ll;
+  LinkedList ll;
   ll.addFront(1);
   ll.addFront(2);
   ll.addFront(3);

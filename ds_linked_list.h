@@ -1,21 +1,21 @@
-#ifndef INT_LINKED_LIST_H_
-#define INT_LINKED_LIST_H_
+#ifndef LINKED_LIST_H_
+#define LINKED_LIST_H_
 
-class IntNode {
+class Node {
  public:
-  IntNode() : data(0), next(NULL) {}
-  IntNode(int x) : data(x), next(NULL) {}
+  Node() : data(0), next(NULL) {}
+  Node(int x) : data(x), next(NULL) {}
  private:
   int data;
-  IntNode* next;
+  Node* next;
 
-  friend class IntLinkedList;
+  friend class LinkedList;
 };
 
-class IntLinkedList {
+class LinkedList {
  public:
-  IntLinkedList();
-  ~IntLinkedList();
+  LinkedList();
+  ~LinkedList();
   bool isEmpty() const;
   int size() const;
   void show() const;
@@ -28,7 +28,7 @@ class IntLinkedList {
   bool search(const int& data);
   int index(const int& data);
  private:
-  IntNode* head;
+  Node* head;
 };
 
-#endif  // INT_LINKED_LIST_H_
+#endif  // LINKED_LIST_H_
