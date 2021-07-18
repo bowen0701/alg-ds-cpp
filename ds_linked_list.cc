@@ -39,8 +39,7 @@ void LinkedList::show() const {
   Node* current = head;
 
   while (current) {
-    std::cout << current->data;
-    if (current->next) std::cout << "->";
+    std::cout << current->data << " ";
     current = current->next;
   }
   delete current;
