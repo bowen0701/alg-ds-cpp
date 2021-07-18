@@ -40,12 +40,9 @@ int Queue::size() const {
 }
 
 void Queue::show() const {
-  std::cout << "[";
   for (int i = 0; i < queue.size(); i++) {
-    std::cout << queue[i];
-    if (i != queue.size() - 1) std::cout << ", ";
+    std::cout << queue[i] << " ";
   }
-  std::cout << "]";
 }
 
 int main() {
@@ -58,7 +55,7 @@ int main() {
   q.enqueue(2);
   q.enqueue(3);
 
-  // Output: false; [3, 2, 1]; 3; 1
+  // Output: false; 3 2 1; 3; 1
   std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
   std::cout << "Show: "; q.show(); std::cout << std::endl;
   std::cout << "Size: " << q.size() << std::endl;
@@ -67,7 +64,7 @@ int main() {
   q.dequeue();
   q.dequeue();
 
-  // Output: false; [3]; 1; 3.
+  // Output: false; 3; 1; 3.
   std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
   std::cout << "Show: "; q.show(); std::cout << std::endl;
   std::cout << "Size: " << q.size() << std::endl;
@@ -75,7 +72,7 @@ int main() {
 
   q.dequeue();
 
-  // Output: true; []; 0.
+  // Output: true; ; 0.
   std::cout << "Is empty: " << std::boolalpha << q.isEmpty() << std::endl;
   std::cout << "Show: "; q.show(); std::cout << std::endl;
   std::cout << "Size: " << q.size() << std::endl;
