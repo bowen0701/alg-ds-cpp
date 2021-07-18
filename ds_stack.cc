@@ -42,12 +42,9 @@ int Stack::size() const {
 }
 
 void Stack::show() const {
-  std::cout << "[";
   for (int i = 0; i < stack.size(); i++) {
-    std::cout << stack[i];
-    if (i != stack.size() - 1) std::cout << ", ";
+    std::cout << stack[i] << " ";
   }
-  std::cout << "]";
 }
 
 int main() {
@@ -60,7 +57,7 @@ int main() {
   s.push(2);
   s.push(3);
 
-  // Output: false; [1, 2, 3]; 3; 3.
+  // Output: false; 1 2 3; 3; 3.
   std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
   std::cout << "Show: "; s.show(); std::cout << std::endl;
   std::cout << "Size: " << s.size() << std::endl;
@@ -69,14 +66,14 @@ int main() {
   s.pop();
   s.pop();
 
-  // Output: fals; [1]; 1; 1.
+  // Output: fals; 1; 1; 1.
   std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
   std::cout << "Show: "; s.show(); std::cout << std::endl;
   std::cout << "Size: " << s.size() << std::endl;
   std::cout << "Peek: " << s.peek() << std::endl;
 
   s.pop();
-  // Output: true; []; 0.
+  // Output: true; ; 0.
   std::cout << "Is empty: " << std::boolalpha << s.isEmpty() << std::endl;
   std::cout << "Show: "; s.show(); std::cout << std::endl;
   std::cout << "Size: " << s.size() << std::endl;
