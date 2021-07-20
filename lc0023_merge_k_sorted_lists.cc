@@ -87,8 +87,7 @@ public:
 
 void show(ListNode* ls) {
     while (ls) {
-        std::cout << ls->val;
-        if (ls->next) std::cout << "->";
+        std::cout << ls->val << " ";
         ls = ls->next;
     }
 }
@@ -111,7 +110,8 @@ int main() {
     std::vector<ListNode*> lists{l1, l2, l3};
 
     ListNode* ls = SolutionSortAll().mergeKLists(lists);
-    show(ls); std::cout << std::endl;
+    show(ls);
+    std::cout << std::endl;
 
     // Example 2:
     // Input: lists = []
@@ -119,17 +119,18 @@ int main() {
     lists = {};
 
     ls = SolutionSortAll().mergeKLists(lists);
-    show(ls); std::cout << std::endl;
+    show(ls);
+    std::cout << std::endl;
 
     // Example 3:   
     // Input: lists = [[]]
     // Output: []
     l1 = nullptr;
-    
     lists = {l1};
 
     ls = SolutionSortAll().mergeKLists(lists);
-    show(ls); std::cout << std::endl;
+    show(ls);
+    std::cout << std::endl;
 
     return 0;
 }
