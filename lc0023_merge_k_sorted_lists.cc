@@ -85,6 +85,37 @@ public:
     }
 };
 
+class SolutionMergeTwoRecur {
+    ListNode* merge2ListsRecur(std::vector<ListNode*>& lists) {
+        // Merge two sorted lists recursively.
+        // Edge case: l1 or l2 does not exist.
+        if (!l1) return l2;
+        if (!l2) return l1;
+
+        // Recusively append next node to the smaller node.
+        if (l1->next < l2->next) {
+            l1->next = merge2ListsRecur(l1->next, l2);
+            return l1;
+        } else {
+            l2->next = merge2ListsRecur(l1, l2->next);
+            return l2;
+        }
+    }
+
+    ListNode* mergeKLists(std::vector<ListNode*>& lists) {
+        // Edge case.
+        if (lists.empty()) return nullptr;
+
+        // For each pair of leftmost and rightmost, merge them to the former.
+        int n = lists.size();
+        while (n > 1) {
+            for (int i = 1; i < (int)n / 2; i++) {
+                // TODO
+            }
+        }
+    }
+}
+
 void show(ListNode* ls) {
     while (ls) {
         std::cout << ls->val << " ";
