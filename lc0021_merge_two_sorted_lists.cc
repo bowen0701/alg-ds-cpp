@@ -121,8 +121,7 @@ public:
 
 void show(ListNode* ls) {
     while (ls) {
-        std::cout << ls->val;
-        if (ls->next) std::cout << "->";
+        std::cout << ls->val << " ";
         ls = ls->next;
     }
 }
@@ -138,11 +137,14 @@ int main() {
     l2->next = new ListNode(3);
     l2->next->next = new ListNode(4);
 
-    show(l1); std::cout << "; ";
-    show(l2); std::cout << std::endl;
+    std::cout << "l1: "; show(l1);
+    std::cout << std::endl;
+    std::cout << "l2: "; show(l2);
+    std::cout << std::endl;
 
     ListNode* ls = SolutionSortAll().mergeTwoLists(l1, l2);
-    show(ls); std::cout << std::endl;
+    show(ls); 
+    std::cout << std::endl;
 
     l1 = new ListNode(1);
     l1->next = new ListNode(2);
