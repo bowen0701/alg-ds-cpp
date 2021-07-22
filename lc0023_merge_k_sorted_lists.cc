@@ -85,15 +85,18 @@ public:
     }
 };
 
+// Merge K sorted list by applying merge 2 sorted lists.
+// Time complexity: O()
 class SolutionMergeTwoRecur {
-    ListNode* merge2ListsRecur(std::vector<ListNode*>& lists) {
+public:
+    ListNode* merge2ListsRecur(ListNode* l1, ListNode* l2) {
         // Merge two sorted lists recursively.
         // Edge case: l1 or l2 does not exist.
         if (!l1) return l2;
         if (!l2) return l1;
 
         // Recusively append next node to the smaller node.
-        if (l1->next < l2->next) {
+        if (l1->val < l2->val) {
             l1->next = merge2ListsRecur(l1->next, l2);
             return l1;
         } else {
@@ -109,12 +112,17 @@ class SolutionMergeTwoRecur {
         // For each pair of leftmost and rightmost, merge them to the former.
         int n = lists.size();
         while (n > 1) {
-            for (int i = 1; i < (int)n / 2; i++) {
-                // TODO
+            for (int i = 0; i < (int)n / 2; i++) {
+                lists[i] = merge2ListsRecur(lists[i], lists[n - 1 - i]);
             }
+
+            // Cut n to n/2.
+            n = (int)(n + 1) / 2;
         }
+
+        return lists[0];
     }
-}
+};
 
 void show(ListNode* ls) {
     while (ls) {
@@ -124,6 +132,7 @@ void show(ListNode* ls) {
 }
 
 int main() {
+    // By SolutionSortAll():
     // Example 1:
     // Input: lists = [[1,4,5],[1,3,4],[2,6]]
     // Output: [1,1,2,3,4,4,5,6]
@@ -160,6 +169,43 @@ int main() {
     lists = {l1};
 
     ls = SolutionSortAll().mergeKLists(lists);
+    show(ls);
+    std::cout << std::endl;
+
+    // By SolutionMergeTwoRecur():
+    l1 = new ListNode(1);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(5);
+
+    l2 = new ListNode(1);
+    l2->next = new ListNode(3);
+    l2->next->next = new ListNode(4);
+
+    l3 = new ListNode(2);
+    l3->next = new ListNode(6);
+
+    lists = {l1, l2, l3};
+
+    ls = SolutionMergeTwoRecur().mergeKLists(lists);
+    show(ls);
+    std::cout << std::endl;
+
+    // Example 2:
+    // Input: lists = []
+    // Output: []
+    lists = {};
+
+    ls = SolutionMergeTwoRecur().mergeKLists(lists);
+    show(ls);
+    std::cout << std::endl;
+
+    // Example 3:   
+    // Input: lists = [[]]
+    // Output: []
+    l1 = nullptr;
+    lists = {l1};
+
+    ls = SolutionMergeTwoRecur().mergeKLists(lists);
     show(ls);
     std::cout << std::endl;
 
