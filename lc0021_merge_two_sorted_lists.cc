@@ -73,7 +73,7 @@ public:
         if (!l2) return l1;
 
         // Recusively append next node to the smaller node.
-        if (l1->val < l2->val) {
+        if (l1->val <= l2->val) {
             l1->next = mergeTwoLists(l1->next, l2);
             return l1;
         } else {
@@ -98,7 +98,7 @@ public:
         ListNode dummy;
         ListNode* current = &dummy;
         while (l1 && l2) {
-            if (l1->val < l2->val) {
+            if (l1->val <= l2->val) {
                 current->next = l1;
                 l1 = l1->next;
             } else {
