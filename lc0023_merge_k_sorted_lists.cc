@@ -85,8 +85,14 @@ public:
     }
 };
 
-// Merge K sorted list by applying merge 2 sorted lists.
-// Time complexity: O()
+// Merge K sorted list by merging two into the first one.
+// pass
+
+// Merge K sorted list by merging 2 sorted lists pair by pair.
+// Time complexity: O(nk*logk)
+//   - n is the max number of nodes in one list.
+//   - k is the length of lists.
+// Space complexity: O(n*logk)
 class SolutionMergeTwoRecur {
 public:
     ListNode* merge2ListsRecur(ListNode* l1, ListNode* l2) {
