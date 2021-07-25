@@ -3,7 +3,9 @@
 #include <random>
 
 // Bubble sort algorithm.
-// Swap pairs, if not sorted, to put next max numbers at pos=n-1,...,1.
+// Procedure:
+// - Swap ((num[j], num[j+1])), if not sorted, for j=0,...i,
+// - to put next max numbers at pos i=n-1,...,1.
 // Time complexity: O(n^2).
 // Space complexity: O(1).
 void bubbleSort(std::vector<int>& nums) {
