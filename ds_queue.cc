@@ -5,7 +5,9 @@
 #include "ds_queue.h"
 
 // Queue using vector.
-Queue::Queue() : queue(std::vector<int>()) {}
+Queue::Queue() {
+  queue = std::vector<int>();
+}
 
 Queue::~Queue() {}
 
