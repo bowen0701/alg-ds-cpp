@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include "alg_binary_search.h"
 
 // Binary search by recursion.
 // Time complexity: O(logn).
