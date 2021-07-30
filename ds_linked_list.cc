@@ -3,7 +3,9 @@
 #include <iostream>
 #include "ds_linked_list.h"
 
-LinkedList::LinkedList() : head(NULL) {}
+LinkedList::LinkedList() {
+  head = NULL;
+}
 
 LinkedList::~LinkedList() {
   while (!isEmpty()) removeFront();
