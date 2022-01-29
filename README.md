@@ -17,7 +17,7 @@ Why algorithms and data structures? Because both are important for us who want t
 - Compile the file by running the following scripts; this step will produce an executable output file `<file>.out`.
   ```bash
   # Compile code in C++14 and recommend to turn on warning.
-  g++ -std=c++14 -W -o <file>.out <file>.cc
+  g++ -std=c++14 -W <file>.cc -o <file>.out
   ```
 - Finally, execute the output file.
   ```bash
