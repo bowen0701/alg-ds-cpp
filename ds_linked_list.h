@@ -3,32 +3,31 @@
 
 class Node {
  public:
-  Node() : data(0), next(NULL) {}
-  Node(int x) : data(x), next(NULL) {}
+  Node() : data{0}, next{nullptr} {}
+  Node(int x) : data{x}, next{nullptr} {}
  private:
   int data;
-  Node* next;
+  std::unique_ptr<Node> next;
 
   friend class LinkedList;
 };
 
 class LinkedList {
  public:
-  LinkedList();
-  ~LinkedList();
+  LinkedList() : head{nullptr} {};
   bool isEmpty() const;
   int size() const;
   void show() const;
-  void addFront(const int& data);
-  void addBack(const int& data);
-  void removeNode(const int& data);
-  void removeFront();
+  void pushFront(const int& data);
+  void pushBack(const int& data);
+  void popNode(const int& data);
+  void popFront();
   void insert(int pos, const int& data);
   int pop(int pos);
   bool search(const int& data);
   int index(const int& data);
  private:
-  Node* head;
+  std::unique_ptr<Node> head;
 };
 
 #endif  // LINKED_LIST_H_

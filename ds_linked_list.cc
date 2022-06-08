@@ -4,7 +4,7 @@
 #include "ds_linked_list.h"
 
 LinkedList::LinkedList() {
-  head = NULL;
+  head = nullptr;
 }
 
 LinkedList::~LinkedList() {
@@ -15,7 +15,7 @@ LinkedList::~LinkedList() {
 // Time complexity: O(1).
 // Space complexity: O(1).
 bool LinkedList::isEmpty() const {
-  return head == NULL;
+  return head == nullptr;
 }
 
 // Obtain list size.
@@ -50,7 +50,7 @@ void LinkedList::show() const {
 // Prepend data to list head.
 // Time complexity: O(1).
 // Space complexity: O(1).
-void LinkedList::addFront(const int& data) {
+void LinkedList::pushFront(const int& data) {
   Node* new_head = new Node(data);
   new_head->next = head;
   head = new_head;
@@ -60,7 +60,7 @@ void LinkedList::addFront(const int& data) {
 // Append data to list tail.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void LinkedList::addBack(const int& data) {
+void LinkedList::pushBack(const int& data) {
   // Create new node.
   Node* new_node = new Node(data);
 
@@ -81,12 +81,12 @@ void LinkedList::addBack(const int& data) {
 // Remove data from list, if existed.
 // Time complexity: O(n).
 // Space complexity: O(1).
-void LinkedList::removeNode(const int& data) {
+void LinkedList::popNode(const int& data) {
   // Edge case: no head.
   if (!head) return;
 
   // Edge case: head contains data to be removed.
-  if (head->data == data) removeFront();
+  if (head->data == data) pushFront();
 
   // Iterate through list to find node.
   Node* current = head;
@@ -103,7 +103,7 @@ void LinkedList::removeNode(const int& data) {
 // Remove front node.
 // Time complexity: O(1).
 // Space complexity: O(1).
-void LinkedList::removeFront() {
+void LinkedList::pushFront() {
   if (head) {
     Node* old_head = head;
     head = head->next;
@@ -123,10 +123,10 @@ void LinkedList::insert(int pos, const int& data) {
 
   // Two pointer method: previous & current.
   Node* current = head;
-  Node* previous = NULL;
+  Node* previous = nullptr;
   int counter = 0;
 
-  if (!head) addFront(data);
+  if (!head) pushFront(data);
 
   while (counter < pos && current->next) {
     previous = current;
@@ -155,7 +155,7 @@ int LinkedList::pop(int pos = -1) {
   if (pos == -1) pos = size() - 1;
 
   // Two pointer method: previous & current.
-  Node* previous = NULL;
+  Node* previous = nullptr;
   Node* current = head;
   int counter = 0;
   while (counter < pos && current->next) {
@@ -165,7 +165,7 @@ int LinkedList::pop(int pos = -1) {
   }
 
   int pop_data = current->data;
-  previous->next = NULL;
+  previous->next = nullptr;
   delete current;
   return pop_data;
 }
@@ -216,17 +216,17 @@ int LinkedList::index(const int& data) {
 
 int main() {
   LinkedList ll;
-  ll.addFront(1);
-  ll.addFront(2);
-  ll.addFront(3);
-  ll.addFront(4);
+  ll.pushFront(1);
+  ll.pushFront(2);
+  ll.pushFront(3);
+  ll.pushFront(4);
 
   // Output: 4 3 2 1
   ll.show(); std::cout << std::endl;
   std::cout << "size: " << ll.size() << std::endl;
 
   // Output: 3 2 1
-  ll.removeFront();
+  ll.popFront();
   ll.show(); std::cout << std::endl;
   std::cout << "size: " << ll.size() << std::endl;
 
@@ -234,12 +234,12 @@ int main() {
   std::cout << "is empty: " << std::boolalpha << ll.isEmpty() << std::endl;
 
   // Output: 3 2 1 0
-  ll.addBack(0);
+  ll.pushBack(0);
   ll.show(); std::cout << std::endl;
   std::cout << "size: " << ll.size() << std::endl;
 
   // Output: 3 1 0
-  ll.removeNode(2);
+  ll.popNode(2);
   ll.show(); std::cout << std::endl;
   std::cout << "size: " << ll.size() << std::endl;
 
@@ -262,9 +262,9 @@ int main() {
   std::cout << ll.index(1) << std::endl;
 
   // Output: true
-  ll.removeFront();
-  ll.removeFront();
-  ll.removeFront();
+  ll.popFront();
+  ll.popFront();
+  ll.popFront();
   std::cout << "is empty: " << std::boolalpha << ll.isEmpty() << std::endl;
   std::cout << "size: " << ll.size() << std::endl;
 
