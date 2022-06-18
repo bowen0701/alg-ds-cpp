@@ -3,20 +3,17 @@
 #include <iostream>
 #include "ds_linked_list.h"
 
-LinkedList::LinkedList() {
-  head = nullptr;
-}
+LinkedList::LinkedList() { head = nullptr; }
 
 LinkedList::~LinkedList() {
-  while (!isEmpty()) removeFront();
+  // Prevent stack overflow due to the recursive nodes destruction.
+  while (head) { head = std::move(head->next); }
 }
 
 // Check list is empty or not.
 // Time complexity: O(1).
 // Space complexity: O(1).
-bool LinkedList::isEmpty() const {
-  return head == nullptr;
-}
+bool LinkedList::isEmpty() const { return head == nullptr; }
 
 // Obtain list size.
 // Time complexity: O(n).
@@ -47,13 +44,14 @@ void LinkedList::show() const {
   delete current;
 }
 
-// Prepend data to list head.
+// Push data to list head.
 // Time complexity: O(1).
 // Space complexity: O(1).
 void LinkedList::pushFront(const int& data) {
-  Node* new_head = new Node(data);
-  new_head->next = head;
-  head = new_head;
+  auto temp{std::make_unique<Node>(data)};
+
+  if (head) { temp->next = std::move(head) };
+  head = std::move(temp);
 }
 
 
@@ -83,10 +81,10 @@ void LinkedList::pushBack(const int& data) {
 // Space complexity: O(1).
 void LinkedList::popNode(const int& data) {
   // Edge case: no head.
-  if (!head) return;
+  if (head == nullptr) { return; }
 
   // Edge case: head contains data to be removed.
-  if (head->data == data) pushFront();
+  if (head->data == data) { pushFront(); }
 
   // Iterate through list to find node.
   Node* current = head;
@@ -215,7 +213,8 @@ int LinkedList::index(const int& data) {
 }
 
 int main() {
-  LinkedList ll;
+  LinkedList ll{};
+
   ll.pushFront(1);
   ll.pushFront(2);
   ll.pushFront(3);

@@ -15,6 +15,7 @@ class Node {
 class LinkedList {
  public:
   LinkedList() : head{nullptr} {};
+  ~LinkedList();
   bool isEmpty() const;
   int size() const;
   void show() const;
