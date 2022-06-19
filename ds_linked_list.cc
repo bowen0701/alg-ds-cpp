@@ -3,8 +3,6 @@
 #include <iostream>
 #include "ds_linked_list.h"
 
-LinkedList::LinkedList() { head = nullptr; }
-
 LinkedList::~LinkedList() {
   // Prevent stack overflow due to the recursive nodes destruction.
   while (head) { head = std::move(head->next); }
@@ -13,7 +11,9 @@ LinkedList::~LinkedList() {
 // Check list is empty or not.
 // Time complexity: O(1).
 // Space complexity: O(1).
-bool LinkedList::isEmpty() const { return head == nullptr; }
+bool LinkedList::isEmpty() const { 
+  return head == nullptr; 
+}
 
 // Obtain list size.
 // Time complexity: O(n).
@@ -49,8 +49,7 @@ void LinkedList::show() const {
 // Space complexity: O(1).
 void LinkedList::pushFront(const int& data) {
   auto temp{std::make_unique<Node>(data)};
-
-  if (head) { temp->next = std::move(head) };
+  if (head) { temp->next = std::move(head); }
   head = std::move(temp);
 }
 
@@ -84,7 +83,7 @@ void LinkedList::popNode(const int& data) {
   if (head == nullptr) { return; }
 
   // Edge case: head contains data to be removed.
-  if (head->data == data) { pushFront(); }
+  if (head->data == data) { pushFront(data); }
 
   // Iterate through list to find node.
   Node* current = head;
@@ -101,7 +100,7 @@ void LinkedList::popNode(const int& data) {
 // Remove front node.
 // Time complexity: O(1).
 // Space complexity: O(1).
-void LinkedList::pushFront() {
+void LinkedList::popFront() {
   if (head) {
     Node* old_head = head;
     head = head->next;
