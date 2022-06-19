@@ -23,7 +23,7 @@ class LinkedList {
   void pushBack(const int& data);
   void popNode(const int& data);
   void popFront();
-  void insert(int pos, const int& data);
+  // void insert(int pos, const int& data);
   int pop(int pos);
   bool search(const int& data);
   int index(const int& data);

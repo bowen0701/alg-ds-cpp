@@ -19,29 +19,27 @@ bool LinkedList::isEmpty() const {
 // Time complexity: O(n).
 // Space complexity: O(1).
 int LinkedList::size() const {
-  Node* current = head;
+  Node* current = head.get();
 
-  int counter = 0;
+  int size = 0;
   while (current) {
-    counter++;
-    current = current->next;
+    size++;
+    current = current->next.get();
   }
-  delete current;
 
-  return counter;
+  return size;
 }
 
 // Show the list.
 // Time complexity: O(n).
 // Space complexity: O(1).
 void LinkedList::show() const {
-  Node* current = head;
+  Node* current = head.get();
 
   while (current) {
     std::cout << current->data << " ";
-    current = current->next;
+    current = current->next.get();
   }
-  delete current;
 }
 
 // Push data to list head.
@@ -59,20 +57,21 @@ void LinkedList::pushFront(const int& data) {
 // Space complexity: O(1).
 void LinkedList::pushBack(const int& data) {
   // Create new node.
-  Node* new_node = new Node(data);
+  // Node new_node = new Node(data);
+  std::unique_ptr<Node> new_node = std::make_unique<Node>(data);
 
   // Edge case.
   if (!head) {
-    head = new_node;
+    head = std::move(new_node);
     return;
   }
 
   // Add new node to back.
-  Node* current = head;
+  Node* current = head.get();
   while (current->next) {
-    current = current->next;
+    current = current->next.get();
   }
-  current->next = new_node;
+  current->next = std::move(new_node);
 }
 
 // Remove data from list, if existed.
@@ -83,16 +82,19 @@ void LinkedList::popNode(const int& data) {
   if (head == nullptr) { return; }
 
   // Edge case: head contains data to be removed.
-  if (head->data == data) { pushFront(data); }
+  if (head->data == data) { 
+    popFront();
+    return;
+  }
 
   // Iterate through list to find node.
-  Node* current = head;
+  Node* current = head.get();
   while (current->next) {
     if (current->next->data == data) {
-      current->next = current->next->next;
+      current->next = std::move(current->next->next);
       return;
     } else {
-      current = current->next;
+      current = std::move(current->next.get());
     }
   }
 }
@@ -101,45 +103,42 @@ void LinkedList::popNode(const int& data) {
 // Time complexity: O(1).
 // Space complexity: O(1).
 void LinkedList::popFront() {
-  if (head) {
-    Node* old_head = head;
-    head = head->next;
-    delete old_head;
-  }
+  if (head) { head = std::move(head->next); }
 }
 
-// Insert data to specified position of list.
-// Time complexity = O(pos).
-// Space complexity: O(1).
-void LinkedList::insert(int pos, const int& data) {
-  // Edge case: empty head and insert position > 0.
-  if (!head && pos > 0) {
-    std::cout << "Cannot insert to empty linked list." << std::endl;
-    return;
-  }
+// // Insert data to specified position of list.
+// // Time complexity = O(pos).
+// // Space complexity: O(1).
+// void LinkedList::insert(int pos, const int& data) {
+//   // Edge case: empty head and insert position > 0.
+//   if (!head && pos > 0) {
+//     std::cout << "Cannot insert to empty linked list." << std::endl;
+//     return;
+//   }
 
-  // Two pointer method: previous & current.
-  Node* current = head;
-  Node* previous = nullptr;
-  int counter = 0;
+//   // Two pointer method: previous & current.
+//   Node* previous = nullptr;
+//   Node* current = head.get();
 
-  if (!head) pushFront(data);
+//   if (!head) { pushFront(data); }
 
-  while (counter < pos && current->next) {
-    previous = current;
-    current = current->next;
-    counter++;
-  }
+//   int counter = 0;
 
-  Node* new_node = new Node(data);
-  new_node->next = current;
+//   while (counter < pos && current->next) {
+//     previous = current;
+//     current = current->next.get();
+//     counter++;
+//   }
 
-  if (pos == 0) {
-    head = new_node;
-  } else {
-    previous->next = new_node;
-  }
-}
+//   std::unique_ptr<Node> new_node = std::make_unique<Node>(data);
+//   new_node->next = std::move(current);
+
+//   if (pos == 0) {
+//     head = std::move(new_node);
+//   } else {
+//     previous->next = std::move(new_node);
+//   }
+// }
 
 // Pop list node at specified position.
 // Time complexity: O(pos).
@@ -153,17 +152,16 @@ int LinkedList::pop(int pos = -1) {
 
   // Two pointer method: previous & current.
   Node* previous = nullptr;
-  Node* current = head;
+  Node* current = head.get();
   int counter = 0;
   while (counter < pos && current->next) {
     previous = current;
-    current = current->next;
+    current = current->next.get();
     counter++;
   }
 
   int pop_data = current->data;
   previous->next = nullptr;
-  delete current;
   return pop_data;
 }
 
@@ -172,15 +170,15 @@ int LinkedList::pop(int pos = -1) {
 // Space complexity: O(1).
 bool LinkedList::search(const int& data) {
   // Edge case: no head.
-  if (!head) return false;
+  if (!head) { return false; }
 
   // Iterate through list to find data.
-  Node* current = head;
+  Node* current = head.get();
   while (current) {
     if (current->data == data) {
       return true;
     } else {
-      current = current->next;
+      current = current->next.get();
     }
   }
   return false;
@@ -191,10 +189,10 @@ bool LinkedList::search(const int& data) {
 // Space complexity: O(1).
 int LinkedList::index(const int& data) {
   // Edge case: no head.
-  if (!head) return -1;
+  if (!head) { return -1; }
 
   // Iterate through list.
-  Node* current = head;
+  Node* current = head.get();
   int counter = 0;
 
   while (current->next) {
@@ -202,13 +200,13 @@ int LinkedList::index(const int& data) {
       return counter;
     }
     else {
-      current = current->next;
+      current = current->next.get();
       counter++;
     }
   }
 
-  if (current->data == data) return counter;
-  else return -1;
+  if (current->data == data) { return counter; }
+  else { return -1; }
 }
 
 int main() {
@@ -242,7 +240,7 @@ int main() {
   std::cout << "size: " << ll.size() << std::endl;
 
   // Output: 3 1 2 0
-  ll.insert(3, 2);
+  // ll.insert(3, 2);
   ll.show(); std::cout << std::endl;
   std::cout << "size: " << ll.size() << std::endl;
 
