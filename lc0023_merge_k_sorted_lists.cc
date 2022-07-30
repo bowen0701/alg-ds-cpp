@@ -43,9 +43,9 @@
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ListNode() : val(0), next{nullptr} {}
+    ListNode(int x) : val(x), next{nullptr} {}
+    ListNode(int x, ListNode *next) : val{x}, next{next} {}
 };
 
 // Merge K sorted list by sorting all values.
@@ -135,6 +135,7 @@ void show(ListNode* ls) {
         std::cout << ls->val << " ";
         ls = ls->next;
     }
+    std::cout << std::endl;
 }
 
 int main() {
@@ -157,7 +158,6 @@ int main() {
 
     ListNode* ls = SolutionSortAll().mergeKLists(lists);
     show(ls);
-    std::cout << std::endl;
 
     // Example 2:
     // Input: lists = []
@@ -166,7 +166,6 @@ int main() {
 
     ls = SolutionSortAll().mergeKLists(lists);
     show(ls);
-    std::cout << std::endl;
 
     // Example 3:   
     // Input: lists = [[]]
@@ -176,7 +175,6 @@ int main() {
 
     ls = SolutionSortAll().mergeKLists(lists);
     show(ls);
-    std::cout << std::endl;
 
     // By SolutionMergeTwoRecur():
     l1 = new ListNode(1);
@@ -194,7 +192,6 @@ int main() {
 
     ls = SolutionMergeTwoRecur().mergeKLists(lists);
     show(ls);
-    std::cout << std::endl;
 
     // Example 2:
     // Input: lists = []
@@ -203,7 +200,6 @@ int main() {
 
     ls = SolutionMergeTwoRecur().mergeKLists(lists);
     show(ls);
-    std::cout << std::endl;
 
     // Example 3:   
     // Input: lists = [[]]
@@ -213,7 +209,6 @@ int main() {
 
     ls = SolutionMergeTwoRecur().mergeKLists(lists);
     show(ls);
-    std::cout << std::endl;
 
     return 0;
 }
