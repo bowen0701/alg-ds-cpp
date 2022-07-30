@@ -18,9 +18,9 @@
 struct ListNode {
     int val;
     ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode() : val(0), next{nullptr} {}
+    ListNode(int x) : val(x), next{nullptr} {}
+    ListNode(int x, ListNode* next) : val{x}, next{next} {}
 };
 
 // Merge two sorted list by sorting all values.
@@ -124,6 +124,7 @@ void show(ListNode* ls) {
         std::cout << ls->val << " ";
         ls = ls->next;
     }
+    std::cout << std::endl;
 }
 
 int main() {
@@ -137,14 +138,13 @@ int main() {
     l2->next = new ListNode(3);
     l2->next->next = new ListNode(4);
 
-    std::cout << "l1: "; show(l1);
-    std::cout << std::endl;
-    std::cout << "l2: "; show(l2);
-    std::cout << std::endl;
+    std::cout << "l1: "; 
+    show(l1);
+    std::cout << "l2: "; 
+    show(l2);
 
     ListNode* ls = SolutionSortAll().mergeTwoLists(l1, l2);
     show(ls); 
-    std::cout << std::endl;
 
     l1 = new ListNode(1);
     l1->next = new ListNode(2);
@@ -155,7 +155,7 @@ int main() {
     l2->next->next = new ListNode(4);
 
     ls = SolutionRecur().mergeTwoLists(l1, l2);
-    show(ls); std::cout << std::endl;
+    show(ls);
 
     l1 = new ListNode(1);
     l1->next = new ListNode(2);
@@ -166,7 +166,7 @@ int main() {
     l2->next->next = new ListNode(4);
 
     ls = SolutionIter().mergeTwoLists(l1, l2);
-    show(ls); std::cout << std::endl;
+    show(ls); 
 
     return 0;
 }
