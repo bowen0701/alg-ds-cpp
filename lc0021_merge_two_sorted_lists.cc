@@ -18,8 +18,8 @@
 struct ListNode {
     int val;
     ListNode* next;
-    ListNode() : val(0), next{nullptr} {}
-    ListNode(int x) : val(x), next{nullptr} {}
+    ListNode() : val{0}, next{nullptr} {}
+    ListNode(int x) : val{x}, next{nullptr} {}
     ListNode(int x, ListNode* next) : val{x}, next{next} {}
 };
 
@@ -130,13 +130,13 @@ void show(ListNode* ls) {
 int main() {
     // Input: 1->2->4, 1->3->4
     // Output: 1->1->2->3->4->4
-    ListNode* l1 = new ListNode(1);
-    l1->next = new ListNode(2);
-    l1->next->next = new ListNode(4);
+    ListNode* l1 = new ListNode{1};
+    l1->next = new ListNode{2};
+    l1->next->next = new ListNode{4};
 
-    ListNode* l2 = new ListNode(1);
-    l2->next = new ListNode(3);
-    l2->next->next = new ListNode(4);
+    ListNode* l2 = new ListNode{1};
+    l2->next = new ListNode{3};
+    l2->next->next = new ListNode{4};
 
     std::cout << "l1: "; 
     show(l1);
@@ -146,24 +146,24 @@ int main() {
     ListNode* ls = SolutionSortAll().mergeTwoLists(l1, l2);
     show(ls); 
 
-    l1 = new ListNode(1);
-    l1->next = new ListNode(2);
-    l1->next->next = new ListNode(4);
+    l1 = new ListNode{1};
+    l1->next = new ListNode{2};
+    l1->next->next = new ListNode{4};
 
-    l2 = new ListNode(1);
-    l2->next = new ListNode(3);
-    l2->next->next = new ListNode(4);
+    l2 = new ListNode{1};
+    l2->next = new ListNode{3};
+    l2->next->next = new ListNode{4};
 
     ls = SolutionRecur().mergeTwoLists(l1, l2);
     show(ls);
 
-    l1 = new ListNode(1);
-    l1->next = new ListNode(2);
-    l1->next->next = new ListNode(4);
+    l1 = new ListNode{1};
+    l1->next = new ListNode{2};
+    l1->next->next = new ListNode{4};
 
-    l2 = new ListNode(1);
-    l2->next = new ListNode(3);
-    l2->next->next = new ListNode(4);
+    l2 = new ListNode{1};
+    l2->next = new ListNode{3};
+    l2->next->next = new ListNode{4};
 
     ls = SolutionIter().mergeTwoLists(l1, l2);
     show(ls); 
