@@ -43,8 +43,8 @@
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode() : val(0), next{nullptr} {}
-    ListNode(int x) : val(x), next{nullptr} {}
+    ListNode() : val{0}, next{nullptr} {}
+    ListNode(int x) : val{x}, next{nullptr} {}
     ListNode(int x, ListNode *next) : val{x}, next{next} {}
 };
 
@@ -143,16 +143,16 @@ int main() {
     // Example 1:
     // Input: lists = [[1,4,5],[1,3,4],[2,6]]
     // Output: [1,1,2,3,4,4,5,6]
-    ListNode* l1 = new ListNode(1);
-    l1->next = new ListNode(4);
-    l1->next->next = new ListNode(5);
+    ListNode* l1 = new ListNode{1};
+    l1->next = new ListNode{4};
+    l1->next->next = new ListNode{5};
 
-    ListNode* l2 = new ListNode(1);
-    l2->next = new ListNode(3);
-    l2->next->next = new ListNode(4);
+    ListNode* l2 = new ListNode{1};
+    l2->next = new ListNode{3};
+    l2->next->next = new ListNode{4};
 
-    ListNode* l3 = new ListNode(2);
-    l3->next = new ListNode(6);
+    ListNode* l3 = new ListNode{2};
+    l3->next = new ListNode{6};
 
     std::vector<ListNode*> lists{l1, l2, l3};
 
@@ -177,16 +177,19 @@ int main() {
     show(ls);
 
     // By SolutionMergeTwoRecur():
-    l1 = new ListNode(1);
-    l1->next = new ListNode(4);
-    l1->next->next = new ListNode(5);
+    // Example 1:
+    // Input: lists = [[1,4,5],[1,3,4],[2,6]]
+    // Output: [1,1,2,3,4,4,5,6]
+    l1 = new ListNode{1};
+    l1->next = new ListNode{4};
+    l1->next->next = new ListNode{5};
 
-    l2 = new ListNode(1);
-    l2->next = new ListNode(3);
-    l2->next->next = new ListNode(4);
+    ListNode* l2 = new ListNode{1};
+    l2->next = new ListNode{3};
+    l2->next->next = new ListNode{4};
 
-    l3 = new ListNode(2);
-    l3->next = new ListNode(6);
+    ListNode* l3 = new ListNode{2};
+    l3->next = new ListNode{6};
 
     lists = {l1, l2, l3};
 
