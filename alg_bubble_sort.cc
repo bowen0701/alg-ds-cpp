@@ -8,7 +8,7 @@
 // - to put next max numbers at pos i=n-1,...,1.
 // Time complexity: O(n^2).
 // Space complexity: O(1).
-void bubbleSort(std::vector<int>& nums) {
+void BubbleSort(std::vector<int>& nums) {
   int n = nums.size();
 
   for (int i = n - 1; i > 0; i--) {
@@ -41,7 +41,7 @@ int main() {
 
   // Apply bubble sort. 
   std::cout << "Bubble sort:" << std::endl;
-  bubbleSort(nums);
+  BubbleSort(nums);
   for (int i = 0; i < n; i++) {
     std::cout << nums[i] << " ";
   }
