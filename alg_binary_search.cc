@@ -4,7 +4,7 @@
 // Binary search by recursion.
 // Time complexity: O(logn).
 // Space complexity: O(n).
-bool binarySearchRecur(std::vector<int>& sorted_nums, int target) {
+bool BinarySearchRecur(std::vector<int>& sorted_nums, int target) {
   if (sorted_nums.size() == 0) return false;
 
   int mid = sorted_nums.size() / 2;
@@ -15,17 +15,17 @@ bool binarySearchRecur(std::vector<int>& sorted_nums, int target) {
       // Slice vector's right part.
       std::vector<int> sorted_nums_right = std::vector<int>(
           sorted_nums.begin() + mid + 1, sorted_nums.end());
-      return binarySearchRecur(sorted_nums_right, target);
+      return BinarySearchRecur(sorted_nums_right, target);
     } else {
       // Slice vector's left part.
       std::vector<int> sorted_nums_left = std::vector<int>(
           sorted_nums.begin(), sorted_nums.begin() + mid);
-      return binarySearchRecur(sorted_nums_left, target);
+      return BinarySearchRecur(sorted_nums_left, target);
     }
   }
 }
 
-bool binarySearchFastRecurUtil(
+bool BinarySearchFastRecurUtil(
     std::vector<int>& sorted_nums,
     int target, 
     int left,
@@ -37,27 +37,27 @@ bool binarySearchFastRecurUtil(
     return true;
   } else {
     if (sorted_nums[mid] < target)
-      return binarySearchFastRecurUtil(sorted_nums, target, mid + 1, right);
+      return BinarySearchFastRecurUtil(sorted_nums, target, mid + 1, right);
     else
-      return binarySearchFastRecurUtil(sorted_nums, target, left, mid - 1);
+      return BinarySearchFastRecurUtil(sorted_nums, target, left, mid - 1);
   }
 }
 
 // Binary search by fast recursion with two pointers method.
 // Time complexity: O(logn).
 // Space complexity: O(1).
-bool binarySearchFastRecur(std::vector<int>& sorted_nums, int target) {
+bool BinarySearchFastRecur(std::vector<int>& sorted_nums, int target) {
   if (sorted_nums.size() == 0) return false;
 
   int left = 0;
   int right = sorted_nums.size() - 1;
-  return binarySearchFastRecurUtil(sorted_nums, target, left, right);
+  return BinarySearchFastRecurUtil(sorted_nums, target, left, right);
 }
 
 // Binary search by iteration.
 // Time complexity: O(logn).
 // Space complexity: O(1).
-bool binarySearchIter(std::vector<int>& sorted_nums, int target) {
+bool BinarySearchIter(std::vector<int>& sorted_nums, int target) {
   if (sorted_nums.size() == 0) return false;
 
   int left = 0;
@@ -88,20 +88,20 @@ int main() {
   // Output: true.
   int target = 65;
   std::cout << "Recur: " << std::boolalpha <<
-    binarySearchRecur(sorted_nums, target) << std::endl;
+    BinarySearchRecur(sorted_nums, target) << std::endl;
   std::cout << "RecurFast: " << std::boolalpha <<
-    binarySearchFastRecur(sorted_nums, target) << std::endl;
+    BinarySearchFastRecur(sorted_nums, target) << std::endl;
   std::cout << "Iter: " << std::boolalpha <<
-    binarySearchIter(sorted_nums, target) << std::endl;
+    BinarySearchIter(sorted_nums, target) << std::endl;
 
   // Output: false.
   target = 47;
   std::cout << "Recur: " << std::boolalpha <<
-    binarySearchRecur(sorted_nums, target) << std::endl;
+    BinarySearchRecur(sorted_nums, target) << std::endl;
   std::cout << "RecurFast: " << std::boolalpha <<
-    binarySearchFastRecur(sorted_nums, target) << std::endl;
+    BinarySearchFastRecur(sorted_nums, target) << std::endl;
   std::cout << "Iter: " << std::boolalpha <<
-    binarySearchIter(sorted_nums, target) << std::endl;
+    BinarySearchIter(sorted_nums, target) << std::endl;
 
   return 0;
 }
