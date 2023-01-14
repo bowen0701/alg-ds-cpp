@@ -3,7 +3,7 @@
 // Greatest common divisor (GCD) by Euclid's algorithm.
 // Time complexity: O(m%n).
 // Space complexity: O(1).
-int gcd(int m, int n) {
+int GCD(int m, int n) {
   int r;
   while (n != 0) {
     r = m % n;
@@ -17,7 +17,7 @@ int main() {
   int m = 10;
   int n = 4;
   std::cout << "The GCD of " << m << ", " << n << ": " 
-    << gcd(m, n) << std::endl;
+    << GCD(m, n) << std::endl;
 
   return 0;
 }
