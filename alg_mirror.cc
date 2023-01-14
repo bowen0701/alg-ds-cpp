@@ -6,12 +6,12 @@
 // Example: {'a', 'b', 'c'} => {'a', 'b', 'c', 'c', 'b', 'a'}
 // Time complexity: O(n), where n is the size of deque.
 // Space complexity: O(n).
-void mirror(std::deque<char>& deque) {
+void Mirror(std::deque<char>& deque) {
   std::stack<char> stack;
 
   // Pop & push back to deque and use stack to collect reverse items.
   auto size = deque.size();
-  for (int i = 0; i < size; i++) {
+  for (unsigned int i = 0; i < size; i++) {
     auto x = deque.front();
     stack.push(x);
     deque.pop_front();
@@ -32,7 +32,7 @@ int main() {
     deque.push_back('b');
     deque.push_back('c');
 
-    mirror(deque);
+    Mirror(deque);
 
     for (auto x : deque)
       std::cout << x << std::endl;
