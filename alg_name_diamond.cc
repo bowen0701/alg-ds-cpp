@@ -19,7 +19,7 @@
 //       I
 // Time complexity: O(n^2), where n is the length of name.
 // Space complexity: O(1).
-void nameDiamond(std::string& name) {
+void NameDiamond(std::string& name) {
   // Print the 1st half.
   for (int i = 0; i < name.length(); i++) {
     std::cout << name.substr(0, i + 1) << std::endl;
@@ -39,7 +39,7 @@ void nameDiamond(std::string& name) {
 
 int main() {
   std::string name = "BOWENLI";
-  nameDiamond(name);
+  NameDiamond(name);
   
   return 0;
 }
