@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 
-const std::string kDigits = "0123456789ABCDEF";
-
 // Convert decimal to base by iteration.
 // Time complexity: O(d/b).
 // Space complexity: O(d/b).
 std::string DecimalToBase(int decimal, int base) {
+  const std::string kDigits = "0123456789ABCDEF";
+
   std::vector<int> rem_stack;
   int rem;
 
