@@ -1,6 +1,6 @@
 # C++ Implementation of Algorithms and Data Structures
 
-This repo is collect my C++ implementation of algorithms and data structures.
+This repo is collect my C++ implementation of algorithms and data structures. Further, the codes implemented here shall follow (Google C++ Style Guide)[https://google.github.io/styleguide/cppguide.html].
 
 Why algorithms and data structures? Because both are important for us who want to work on machine learning research and engineering. More importantly, it is a lot of fun. :-)
 
