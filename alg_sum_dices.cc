@@ -3,7 +3,7 @@
 #include "util.h"
 
 // Util for SumDices() by DFS with backtracking.
-void dfsBacktrack(int n_dices, 
+void DfsBacktrack(int n_dices, 
                   int sum,
                   std::vector<int>& temp, 
                   std::vector<std::vector<int>>& result) {
@@ -18,7 +18,7 @@ void dfsBacktrack(int n_dices,
   if (n_dices * 1 <= sum <= n_dices * 6) {
     for (int i = 1; i <= 6; i++) {
       temp.push_back(i);
-      dfsBacktrack(n_dices - 1, sum - i, temp, result);
+      DfsBacktrack(n_dices - 1, sum - i, temp, result);
       temp.pop_back();
     }
   }
@@ -32,23 +32,23 @@ void dfsBacktrack(int n_dices,
 // - backtrack by un-choosing i
 // Time complexity: O(6^n).
 // Space complexity: O(6^n).
-std::vector<std::vector<int>> sumDices(int n_dices, int sum) {
+std::vector<std::vector<int>> SumDices(int n_dices, int sum) {
   std::vector<int> temp;
   std::vector<std::vector<int>> result;
-  dfsBacktrack(n_dices, sum, temp, result);
+  DfsBacktrack(n_dices, sum, temp, result);
   return result;
 }
 
 int main() {
   int n_dices = 2;
   int sum = 7;
-  std::vector<std::vector<int>> result = sumDices(n_dices, sum);
-  print2DVector(result);
+  std::vector<std::vector<int>> result = SumDices(n_dices, sum);
+  Print2DVector(result);
 
   n_dices = 4;
   sum = 11;
-  result = sumDices(n_dices, sum);
-  print2DVector(result);
+  result = SumDices(n_dices, sum);
+  Print2DVector(result);
 
   return 0;
 }
