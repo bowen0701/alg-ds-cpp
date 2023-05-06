@@ -7,7 +7,7 @@
 // Check valid parentheses.
 // Time complexity: O(n), where n is the lenght of s.
 // Space complexity: O(n).
-bool validParentheses(std::string s) {
+bool ValidParentheses(std::string s) {
   std::unordered_set<char> opens = {'(', '[', '{'};
   std::unordered_set<char> closes = {')', ']', '}'};
 
@@ -54,15 +54,15 @@ bool validParentheses(std::string s) {
 int main() {
   // Ans: true
   std::string s = "(abcd)";
-  std::cout << std::boolalpha << validParentheses(s) << std::endl;
+  std::cout << std::boolalpha << ValidParentheses(s) << std::endl;
 
   // Ans: true
   s = "([(a)bcd]{ef}g)";
-  std::cout << std::boolalpha << validParentheses(s) << std::endl;
+  std::cout << std::boolalpha << ValidParentheses(s) << std::endl;
 
   // Ans: false
   s = "(ab{c}d]";
-  std::cout << std::boolalpha << validParentheses(s) << std::endl;
+  std::cout << std::boolalpha << ValidParentheses(s) << std::endl;
 
   return 0;
 }

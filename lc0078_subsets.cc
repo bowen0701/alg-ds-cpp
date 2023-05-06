@@ -28,7 +28,7 @@ Output:
 class Solution {
 public:
     // Util for subsets() by DFS with backtracking.
-    void dfsBacktrack(std::vector<int>& nums,
+    void DfsBacktrack(std::vector<int>& nums,
                       std::vector<int>& temp,
                       std::vector<std::vector<int>>& result,
                       int start) {
@@ -38,7 +38,7 @@ public:
         // Recursive case: Choose i, explore and backtrack.
         for (int i = start; i < nums.size(); i++) {
             temp.push_back(nums[i]);
-            dfsBacktrack(nums, temp, result, i + 1);
+            DfsBacktrack(nums, temp, result, i + 1);
             temp.pop_back();
         }
     }
@@ -50,7 +50,7 @@ public:
         std::vector<int> temp;
         std::vector<std::vector<int>> result;
         int start = 0;
-        dfsBacktrack(nums, temp, result, start);
+        DfsBacktrack(nums, temp, result, start);
         return result;
     }
 };
@@ -59,7 +59,7 @@ int main() {
     // Output: [[3],[1],[2],[1,2,3],[1,3],[2,3],[1,2],[]]
     std::vector<int> nums {1, 2, 3};
     std::vector<std::vector<int>> result = Solution().subsets(nums);
-    print2DVector(result);
+    Print2DVector(result);
 
     return 0;
 }

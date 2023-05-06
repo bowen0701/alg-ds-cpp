@@ -28,7 +28,7 @@ Output:
 class Solution {
 public:
     // Util for subsetsWithDup() by DFS with backtracking.
-    void dfsBacktrack(std::vector<int>& nums, 
+    void DfsBacktrack(std::vector<int>& nums, 
                       std::vector<int>& temp,
                       std::vector<std::vector<int>>& result,
                       int start) {
@@ -42,7 +42,7 @@ public:
             }
 
             temp.push_back(nums[i]);
-            dfsBacktrack(nums, temp, result, i + 1);
+            DfsBacktrack(nums, temp, result, i + 1);
             temp.pop_back();
         }
     }
@@ -58,7 +58,7 @@ public:
         std::vector<int> temp;
         std::vector<std::vector<int>> result;
         int start = 0;
-        dfsBacktrack(nums, temp, result, start);
+        DfsBacktrack(nums, temp, result, start);
         return result;
     }
 };
@@ -67,7 +67,7 @@ int main() {
     // Output = [[2],[1],[1,2,2],[2,2],[1,2],[]]
     std::vector<int> nums {2, 1, 2};
     std::vector<std::vector<int>> result = Solution().subsetsWithDup(nums);
-    print2DVector(result);
+    Print2DVector(result);
 
     return 0;
 }

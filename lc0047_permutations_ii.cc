@@ -29,7 +29,7 @@ Constraints:
 class Solution {
 public:
     // Util for permuteUnique() by DFS with backtracking.
-    void dfsBacktrack(std::vector<int>& nums,
+    void DfsBacktrack(std::vector<int>& nums,
                       std::vector<int>& temp,
                       std::vector<std::vector<int>>& result,
                       std::vector<bool>& is_used) {
@@ -50,7 +50,7 @@ public:
             is_used[i] = true;
             temp.push_back(nums[i]);
 
-            dfsBacktrack(nums, temp, result, is_used);
+            DfsBacktrack(nums, temp, result, is_used);
 
             is_used[i] = false;
             temp.pop_back();
@@ -72,7 +72,7 @@ public:
         for (int i = 0; i < nums.size(); i++) 
             is_used.push_back(false);
 
-        dfsBacktrack(nums, temp, result, is_used);
+        DfsBacktrack(nums, temp, result, is_used);
         return result;
     }
 };
@@ -85,13 +85,13 @@ int main() {
     std::cout << "For [1, 2, 1]:" << std::endl;
     std::vector<int> nums {1, 2, 1};
     std::vector<std::vector<int>> result = Solution().permuteUnique(nums);
-    print2DVector(result);
+    Print2DVector(result);
 
     // Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
     std::cout << "For [1, 2, 3]:" << std::endl;
     nums = {1, 2, 3};
     result = Solution().permuteUnique(nums);
-    print2DVector(result);
+    Print2DVector(result);
 
     return 0;
 }

@@ -22,10 +22,10 @@
 
 std::string get_middle(std::string input) {
   int len = input.length();
-  if (len % 2 == 0) {
-    return input.substr(len / 2 - 1, 2);
-  } else {
+  if ((len & 1) == 1) {
     return input.substr(len / 2, 1);
+  } else {
+    return input.substr(len / 2 - 1, 2);
   }
 }
 

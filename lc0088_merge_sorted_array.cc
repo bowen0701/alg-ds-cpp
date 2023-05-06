@@ -57,7 +57,7 @@ int main() {
     int n = 3;
 
     Solution().merge(nums1, m, nums2, n);
-    printVector(nums1);
+    PrintVector(nums1);
 
     return 0;
 }

@@ -5,7 +5,7 @@
 #include <vector>
 
 template<typename T>
-void printVector(std::vector<T>& vec) {
+void PrintVector(std::vector<T>& vec) {
   std::cout << "[";
   for (size_t i = 0; i < vec.size(); i++) {
     if (i != vec.size() - 1) std::cout << vec[i] << ", ";
@@ -15,7 +15,7 @@ void printVector(std::vector<T>& vec) {
 }
 
 template<typename T>
-void print2DVector(std::vector<std::vector<T>>& vec) {
+void Print2DVector(std::vector<std::vector<T>>& vec) {
   for (auto v : vec) {
     std::cout << "[";
     for (size_t i = 0; i < v.size(); i++) {

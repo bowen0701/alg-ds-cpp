@@ -54,7 +54,7 @@ public:
     }
 
     // DFS with backtracking.
-    void dfsBacktrack(int n, 
+    void DfsBacktrack(int n, 
                       std::vector<int>& queens,
                       std::vector<std::vector<std::string>>& result) {
         // Base case.
@@ -72,7 +72,7 @@ public:
         for (int c = 0; c < n; c++) {
             queens.push_back(c);
             if (isValid(queens)) {
-                dfsBacktrack(n, queens, result);
+                DfsBacktrack(n, queens, result);
             }
             queens.pop_back();
         }
@@ -84,7 +84,7 @@ public:
     std::vector<std::vector<std::string>> solveNQueens(int n) {
         std::vector<std::vector<std::string>> result;
         std::vector<int> queens;
-        dfsBacktrack(n, queens, result);
+        DfsBacktrack(n, queens, result);
         return result;
     }
 };
@@ -102,7 +102,7 @@ int main() {
     // ]
     int n = 4;
     std::vector<std::vector<std::string>> resultStrings = Solution().solveNQueens(n);
-    print2DVector(resultStrings);
+    Print2DVector(resultStrings);
 
     return 0;
 }

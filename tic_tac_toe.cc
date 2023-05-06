@@ -24,12 +24,12 @@ class Board {
   }
 
   // Get winner.
-  char winner() {
+  char Winner() {
     return winner_;
   }
 
   // Check (row, col) is out of boundary.
-  int setNextState(int& row, int& col, char symbol) {
+  int SetNextState(int& row, int& col, char symbol) {
     if (row < 0 || row >= kNRows || col < 0 || col >= kNCols) {
       std::cout << "The position (" << row << ", " << col 
         << ") is out of boundary. ";
@@ -48,17 +48,17 @@ class Board {
   }
 
   // Judge winner by checking rows, columns, and diagonals.
-  int judgeWinner() {
-    if (checkRows() != kEmpty or
-        checkCols() != kEmpty or
-        checkDiags() != kEmpty) {
+  int JudgeWinner) {
+    if (CheckRows() != kEmpty or
+        CheckCols() != kEmpty or
+        CheckDiags() != kEmpty) {
       return 0;
     }
     return 0;
   }
 
   // Show board.
-  void showBoard() {
+  void ShowBoard() {
     std::cout << "Board:" << std::endl;
     std::string cap = " -";
     std::string col_ids = "  ";
@@ -84,7 +84,7 @@ class Board {
   char winner_;
 
   // Check rows for winner.
-  char checkRows() {
+  char CheckRows() {
     int n_crosses = 0;
     int n_circles = 0;
 
@@ -111,7 +111,7 @@ class Board {
   }
 
   // Check columns for winner.
-  char checkCols() {
+  char CheckCols() {
     int n_crosses = 0;
     int n_circles = 0;
 
@@ -138,7 +138,7 @@ class Board {
   }
 
   // Check diagonals for winner.
-  char checkDiags() {
+  char CheckDiags() {
     int n_crosses_diag1 = 0, n_crosses_diag2 = 0;
     int n_circles_diag1 = 0, n_circles_diag2 = 0;
 
@@ -166,7 +166,7 @@ class Board {
 };
 
 // Get user names.
-void getUserNames(std::string& user1, std::string& user2) {
+void GetUserNames(std::string& user1, std::string& user2) {
   std::cout << "Input user1's name: ";
   std::cin >> user1;
   std::cout << "Input user2's name: ";
@@ -174,7 +174,7 @@ void getUserNames(std::string& user1, std::string& user2) {
 }
 
 // Get user's play position.
-void getUserPlay(std::string& user, int& row, int& col) {
+void GetUserPlay(std::string& user, int& row, int& col) {
   std::cout << "User " << user << ", please select a position:" 
     << std::endl;
   std::cout << "- Enter an integer between 0 and " << kNRows - 1 
@@ -193,10 +193,10 @@ int main() {
   int n_plays = 0;
 
   // Get two user names.
-  getUserNames(user1, user2);
+  GetUserNames(user1, user2);
 
   // Show initial board.
-  board.showBoard();
+  board.ShowBoard();
   std::cout << std::endl;
   
   while (n_plays < kDim * kDim) {
@@ -213,11 +213,11 @@ int main() {
 
     // Put user's play.
     do {
-      getUserPlay(user, row, col);
-    } while (board.setNextState(row, col, symbol) == -1);
-    board.showBoard();
-    board.judgeWinner();
-    if (board.winner() != kEmpty) {
+      GetUserPlay(user, row, col);
+    } while (board.SetNextState(row, col, symbol) == -1);
+    board.ShowBoard();
+    board.JudgeWinner();
+    if (board.Winner() != kEmpty) {
       std::cout << "Congrats " << user << ", you win!" << std::endl;
       break;
     }
@@ -227,7 +227,7 @@ int main() {
   }
 
   // Check final tie game.
-  if (board.winner() == kEmpty) {
+  if (board.Winner() == kEmpty) {
       std::cout << "Tie game." << std::endl;
   } 
 

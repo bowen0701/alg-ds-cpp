@@ -26,7 +26,7 @@ Output:
 class Solution {
 public:
     // Util for permute() by DFS with backtracking.
-    void dfsBacktrack(std::vector<int>& nums,
+    void DfsBacktrack(std::vector<int>& nums,
                       std::vector<int>& temp,
                       std::vector<std::vector<int>>& result,
                       std::vector<bool>& is_used) {
@@ -44,7 +44,7 @@ public:
             is_used[i] = true;
             temp.push_back(nums[i]);
 
-            dfsBacktrack(nums, temp, result, is_used);
+            DfsBacktrack(nums, temp, result, is_used);
 
             is_used[i] = false;
             temp.pop_back();
@@ -62,7 +62,7 @@ public:
         for (int i = 0; i < nums.size(); i++)
             is_used.push_back(false);
 
-        dfsBacktrack(nums, temp, result, is_used);
+        DfsBacktrack(nums, temp, result, is_used);
         return result;
     }
 };
@@ -79,7 +79,7 @@ int main() {
     // ] 
     std::vector<int> nums {1, 2, 3};
     std::vector<std::vector<int>> result = Solution().permute(nums);
-    print2DVector(result);
+    Print2DVector(result);
 
     return 0;
 }
