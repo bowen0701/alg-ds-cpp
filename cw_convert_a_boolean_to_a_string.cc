@@ -7,7 +7,6 @@
 //
 // Note: Only valid inputs will be given.
 
-#include <iostream>
 #include <string>
 
 std::string boolean_to_string(bool b){
