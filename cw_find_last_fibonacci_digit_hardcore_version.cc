@@ -19,13 +19,14 @@
 std::uint32_t lastFibDigit(const std::uint32_t n) {
   if (n == 1 || n == 2) return 1;
   
-  std::uint32_t a = 1, b = 1;
-  for (std::uint32_t i = 3; i <= n; i++) {
-    std::uint32_t tmp = b;
-    b = (a + b) % 10;
-    a = tmp;
+  std::uint32_t prev = 1, curr = 1;
+  for (std::uint32_t i = 3; i <= n % 60; i++) {
+    // The last digit repeats every 60 cycles.
+    std::uint32_t tmp = curr;
+    curr = (prev + curr) % 10;
+    prev = tmp;
   }
-  return b;
+  return curr;
 }
 
 int main() {
