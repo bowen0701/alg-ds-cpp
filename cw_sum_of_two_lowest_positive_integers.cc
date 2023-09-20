@@ -37,7 +37,6 @@ long sumTwoSmallestNumbers(std::vector<long> numbers) {
   return sum;
 }
 
-
 int main() {
   assert(sumTwoSmallestNumbers(std::vector<long>{ 19, 5, 42, 2, 77 }) == 7); 
   assert(sumTwoSmallestNumbers(std::vector<long>{ 10, 343445353, 3453445, 3453545353453 }) == 3453455); 

@@ -29,7 +29,6 @@ std::string get_middle(std::string input) {
   }
 }
 
-
 int main() {
   assert(get_middle("test") == "es");
   assert(get_middle("testing") == "t");
