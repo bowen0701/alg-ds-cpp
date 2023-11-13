@@ -1,4 +1,4 @@
-# C++ Implementation of Algorithms and Data Structures
+# Algorithms and Data Structures in C++
 
 This repo is collect my C++ implementation of algorithms and data structures. Further, the codes implemented here shall follow [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 
