@@ -33,76 +33,76 @@ as shown above.
 #include "util.h"
 
 class Solution {
-public:
-    // Check current queen position is valid among previous queens.
-    bool isValid(std::vector<int>& queens) {
-        int r_cur = queens.size() - 1;
-        int c_cur = queens[r_cur];
+ public:
+  // Check current queen position is valid among previous queens.
+  bool isValid(std::vector<int>& queens) {
+    int r_cur = queens.size() - 1;
+    int c_cur = queens[r_cur];
 
-        // Check any queens can attack the current queen.
-        for (int r = 0; r < r_cur; r++) {
-            int c = queens[r];
-            int c_diff = abs(c_cur - c);
-            int r_diff = abs(r_cur - r);
+    // Check any queens can attack the current queen.
+    for (int r = 0; r < r_cur; r++) {
+      int c = queens[r];
+      int c_diff = abs(c_cur - c);
+      int r_diff = abs(r_cur - r);
 
-            // If two queens are in the same column or diagonal.
-            if (c_diff == 0 || c_diff == r_diff)
-                return false;
-        }
-
-        return true; 
+      // If two queens are in the same column or diagonal.
+      if (c_diff == 0 || c_diff == r_diff)
+        return false;
     }
 
-    // DFS with backtracking.
-    void DfsBacktrack(int n, 
-                      std::vector<int>& queens,
-                      std::vector<std::vector<std::string>>& result) {
-        // Base case.
-        if (queens.size() == n) {
-            std::vector<std::string> str;
-            for (auto c : queens) {
-                std::string s = std::string(c, '.') + 'Q' + std::string(n - c - 1, '.');
-                str.push_back(s);
-            }
-            result.push_back(str);
-            return;
-        }
+    return true; 
+  }
 
-        // Recursive case: choose i, explore and backtrack.
-        for (int c = 0; c < n; c++) {
-            queens.push_back(c);
-            if (isValid(queens)) {
-                DfsBacktrack(n, queens, result);
-            }
-            queens.pop_back();
-        }
+  // DFS with backtracking.
+  void DfsBacktrack(int n, 
+                    std::vector<int>& queens,
+                    std::vector<std::vector<std::string>>& result) {
+    // Base case.
+    if (queens.size() == n) {
+      std::vector<std::string> str;
+      for (auto c : queens) {
+        std::string s = std::string(c, '.') + 'Q' + std::string(n - c - 1, '.');
+        str.push_back(s);
+      }
+      result.push_back(str);
+      return;
     }
 
-    // Solve N-Queens.
-    // Time complexity: O(n!).
-    // Space complexity: O(n).
-    std::vector<std::vector<std::string>> solveNQueens(int n) {
-        std::vector<std::vector<std::string>> result;
-        std::vector<int> queens;
+    // Recursive case: choose i, explore and backtrack.
+    for (int c = 0; c < n; c++) {
+      queens.push_back(c);
+      if (isValid(queens)) {
         DfsBacktrack(n, queens, result);
-        return result;
+      }
+      queens.pop_back();
     }
+  }
+
+  // Solve N-Queens.
+  // Time complexity: O(n!).
+  // Space complexity: O(n).
+  std::vector<std::vector<std::string>> solveNQueens(int n) {
+    std::vector<std::vector<std::string>> result;
+    std::vector<int> queens;
+    DfsBacktrack(n, queens, result);
+    return result;
+  }
 };
 
 int main() {
-    // Output: [
-    // [".Q..",  // Solution 1
-    //  "...Q",
-    //  "Q...",
-    //  "..Q."],
-    // ["..Q.",  // Solution 2
-    //  "Q...",
-    //  "...Q",
-    //  ".Q.."]
-    // ]
-    int n = 4;
-    std::vector<std::vector<std::string>> resultStrings = Solution().solveNQueens(n);
-    Print2DVector(resultStrings);
+  // Output: [
+  // [".Q..",  // Solution 1
+  //  "...Q",
+  //  "Q...",
+  //  "..Q."],
+  // ["..Q.",  // Solution 2
+  //  "Q...",
+  //  "...Q",
+  //  ".Q.."]
+  // ]
+  int n = 4;
+  std::vector<std::vector<std::string>> resultStrings = Solution().solveNQueens(n);
+  Print2DVector(resultStrings);
 
-    return 0;
+  return 0;
 }

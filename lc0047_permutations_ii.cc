@@ -27,54 +27,54 @@ Constraints:
 #include "util.h"
 
 class Solution {
-public:
-    // Util for permuteUnique() by DFS with backtracking.
-    void DfsBacktrack(std::vector<int>& nums,
-                      std::vector<int>& temp,
-                      std::vector<std::vector<int>>& result,
-                      std::vector<bool>& is_used) {
-        // Base case.
-        if (temp.size() == nums.size()) {
-            result.push_back(temp);
-            return;
-        }
-
-        // Recursive case: Choose i, explore, and backtrack.
-        for (int i = 0; i < nums.size(); i++) {
-            // Skip number i if it's used or is the same as used (i-1).
-            if (is_used[i] || 
-                (i > 0 && nums[i] == nums[i - 1] && is_used[i - 1])) {
-                continue;
-            }
-
-            is_used[i] = true;
-            temp.push_back(nums[i]);
-
-            DfsBacktrack(nums, temp, result, is_used);
-
-            is_used[i] = false;
-            temp.pop_back();
-        }
+ public:
+  // Util for permuteUnique() by DFS with backtracking.
+  void DfsBacktrack(std::vector<int>& nums,
+                    std::vector<int>& temp,
+                    std::vector<std::vector<int>>& result,
+                    std::vector<bool>& is_used) {
+    // Base case.
+    if (temp.size() == nums.size()) {
+      result.push_back(temp);
+      return;
     }
 
-    // Permute numbers with duplicates.
-    // Time complexity: O(n*n!).
-    // Space complexity: O(n*n!).
-    std::vector<std::vector<int>> permuteUnique(std::vector<int>& nums) {
-        // Sort nums to avoid duplicates.
-        std::sort(nums.begin(), nums.end());
+    // Recursive case: Choose i, explore, and backtrack.
+    for (int i = 0; i < nums.size(); i++) {
+      // Skip number i if it's used or is the same as used (i-1).
+      if (is_used[i] || 
+        (i > 0 && nums[i] == nums[i - 1] && is_used[i - 1])) {
+        continue;
+      }
 
-        // Apply backtracking.
-        std::vector<int> temp;
-        std::vector<std::vector<int>> result;
+      is_used[i] = true;
+      temp.push_back(nums[i]);
 
-        std::vector<bool> is_used;
-        for (int i = 0; i < nums.size(); i++) 
-            is_used.push_back(false);
+      DfsBacktrack(nums, temp, result, is_used);
 
-        DfsBacktrack(nums, temp, result, is_used);
-        return result;
+      is_used[i] = false;
+      temp.pop_back();
     }
+  }
+
+  // Permute numbers with duplicates.
+  // Time complexity: O(n*n!).
+  // Space complexity: O(n*n!).
+  std::vector<std::vector<int>> permuteUnique(std::vector<int>& nums) {
+    // Sort nums to avoid duplicates.
+    std::sort(nums.begin(), nums.end());
+
+    // Apply backtracking.
+    std::vector<int> temp;
+    std::vector<std::vector<int>> result;
+
+    std::vector<bool> is_used;
+    for (int i = 0; i < nums.size(); i++) 
+      is_used.push_back(false);
+
+    DfsBacktrack(nums, temp, result, is_used);
+    return result;
+  }
 };
 
 int main() {

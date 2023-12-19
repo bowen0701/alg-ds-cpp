@@ -26,48 +26,48 @@ Output:
 #include "util.h"
 
 class Solution {
-public:
-    // Util for subsetsWithDup() by DFS with backtracking.
-    void DfsBacktrack(std::vector<int>& nums, 
-                      std::vector<int>& temp,
-                      std::vector<std::vector<int>>& result,
-                      int start) {
-        // Base case.
-        result.push_back(temp);
+ public:
+  // Util for subsetsWithDup() by DFS with backtracking.
+  void DfsBacktrack(std::vector<int>& nums, 
+                    std::vector<int>& temp,
+                    std::vector<std::vector<int>>& result,
+                    int start) {
+    // Base case.
+    result.push_back(temp);
 
-        // Recursive case: choose i, explore, and backtrack.
-        for (int i = start; i < nums.size(); i++) {
-            if (i > start && nums[i] == nums[i - 1]) {
-                continue;
-            }
+    // Recursive case: choose i, explore, and backtrack.
+    for (int i = start; i < nums.size(); i++) {
+      if (i > start && nums[i] == nums[i - 1]) {
+        continue;
+      }
 
-            temp.push_back(nums[i]);
-            DfsBacktrack(nums, temp, result, i + 1);
-            temp.pop_back();
-        }
+      temp.push_back(nums[i]);
+      DfsBacktrack(nums, temp, result, i + 1);
+      temp.pop_back();
     }
+  }
 
-    // Subsets with duplicates.
-    // Time complexity: O(n*2^n).
-    // Space complexity: O(n*2^n).
-    std::vector<std::vector<int>> subsetsWithDup(std::vector<int>& nums) {
-        // Sort nums to avoid duplicates.
-        sort(nums.begin(), nums.end());
+  // Subsets with duplicates.
+  // Time complexity: O(n*2^n).
+  // Space complexity: O(n*2^n).
+  std::vector<std::vector<int>> subsetsWithDup(std::vector<int>& nums) {
+    // Sort nums to avoid duplicates.
+    sort(nums.begin(), nums.end());
 
-        // Apply DFS backtracking.
-        std::vector<int> temp;
-        std::vector<std::vector<int>> result;
-        int start = 0;
-        DfsBacktrack(nums, temp, result, start);
-        return result;
-    }
+    // Apply DFS backtracking.
+    std::vector<int> temp;
+    std::vector<std::vector<int>> result;
+    int start = 0;
+    DfsBacktrack(nums, temp, result, start);
+    return result;
+  }
 };
 
 int main() {
-    // Output = [[2],[1],[1,2,2],[2,2],[1,2],[]]
-    std::vector<int> nums {2, 1, 2};
-    std::vector<std::vector<int>> result = Solution().subsetsWithDup(nums);
-    Print2DVector(result);
+  // Output = [[2],[1],[1,2,2],[2,2],[1,2],[]]
+  std::vector<int> nums {2, 1, 2};
+  std::vector<std::vector<int>> result = Solution().subsetsWithDup(nums);
+  Print2DVector(result);
 
-    return 0;
+  return 0;
 }
